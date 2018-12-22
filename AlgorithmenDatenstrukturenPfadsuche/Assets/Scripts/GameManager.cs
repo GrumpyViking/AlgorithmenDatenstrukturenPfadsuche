@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public GameObject feldObjekt;
     GameObject field, start, end;
     public bool aStar, build;
+    int x = 0;
+    int y = 0;
+    Stack<GameObject> path = new Stack<GameObject>();
+    ArrayList fields = new ArrayList();
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +22,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void GenerateField(){
-        int x = 0;
-        int y = 0;
+        
         int count = 0;
         
         if (GameObject.Find("RowIP").GetComponent<InputField>().text == "")
@@ -49,6 +52,7 @@ public class GameManager : MonoBehaviour
                 field.GetComponent<FieldProps>().cordX = i;
                 field.GetComponent<FieldProps>().cordY = j;
                 field.name = "feld" + count;
+                fields.Add(field);
                 count++;
             }
         }
@@ -129,32 +133,49 @@ public class GameManager : MonoBehaviour
         GameObject.Find("Hinweis").GetComponent<Text>().text = "links Klick Startpunkt wählen (einfärbung grün) \n rechts Klick end punkt wählen (einfärbung cyan)";
         aStar = true;
         build = false;
-
+        int timeout=0;
         if (start != null && end != null)
         {
-            Stack<GameObject> path = new Stack<GameObject>();
+            
             GameObject next = null;
             next = nextField(start);
             start.GetComponent<FieldProps>().isPath = true;
+            start.GetComponent<FieldProps>().visited = true;
             path.Push(start);
+            
             while (path.Count != 0)
             {
+                
+                if (timeout > 50)
+                {
+                    break;
+                }
                 path.Push(next);   
                 next = nextField(next);
                 if (next == end)
                 {
-                    GameObject.Find("Commands").GetComponent<Text>().text = "Pfad gefunden!";   
-                    break;   
+                    GameObject.Find("Commands").GetComponent<Text>().text = "Pfad gefunden!";
+                    next.GetComponent<FieldProps>().isPath = true;
+                    next.GetComponent<FieldProps>().visited = true;
+                    break;  
+                } 
+                if (next == null)
+                {
+                    GameObject.Find("Commands").GetComponent<Text>().text ="Kein Pfad gefunden!";
                     
-                }   
-                
-            }
+                    return;
+                }
+                next.GetComponent<FieldProps>().isPath = true;
+                next.GetComponent<FieldProps>().visited = true;
+                timeout++;
+            }  
+        }
 
-            if (next == null)
+        foreach (GameObject path in fields)
+        {
+            if (path.GetComponent<FieldProps>().isPath)
             {
-                GameObject.Find("Commands").GetComponent<Text>().text ="Kein Pfad gefunden!";  
-                return;   
-                
+                    path.GetComponent<Renderer>().material.color = Color.magenta;
             }
         }
     }
@@ -167,6 +188,60 @@ public class GameManager : MonoBehaviour
 
     GameObject nextField(GameObject current)
     {
-        return null;
+        ArrayList neighbours = new ArrayList();
+        for (int i=0;i<x;i++)
+        {
+            for (int j = 0; j < y; j++)
+            {
+                foreach (GameObject field in fields)
+                {
+                    //top
+                    if (field.GetComponent<FieldProps>().cordY == current.GetComponent<FieldProps>().cordY + 1 &&
+                        field.GetComponent<FieldProps>().cordX == current.GetComponent<FieldProps>().cordX && field.GetComponent<FieldProps>().traverseable && !field.GetComponent<FieldProps>().visited)
+                    {
+                        neighbours.Add(field);
+                        field.GetComponent<Renderer>().material.color = Color.yellow;
+                        field.GetComponent<FieldProps>().gcost = ManhattenHeuristik(field, end);
+                    }
+                    //right
+                    if (field.GetComponent<FieldProps>().cordY == current.GetComponent<FieldProps>().cordY &&
+                        field.GetComponent<FieldProps>().cordX == current.GetComponent<FieldProps>().cordX+1 && field.GetComponent<FieldProps>().traverseable && !field.GetComponent<FieldProps>().visited)
+                    {
+                        neighbours.Add(field);
+                        field.GetComponent<Renderer>().material.color = Color.yellow;
+                        field.GetComponent<FieldProps>().gcost = ManhattenHeuristik(field, end);
+                    }
+                    //bottom
+                    if (field.GetComponent<FieldProps>().cordY == current.GetComponent<FieldProps>().cordY - 1 &&
+                        field.GetComponent<FieldProps>().cordX == current.GetComponent<FieldProps>().cordX && field.GetComponent<FieldProps>().traverseable && !field.GetComponent<FieldProps>().visited)
+                    {
+                        neighbours.Add(field);
+                        field.GetComponent<Renderer>().material.color = Color.yellow;
+                        field.GetComponent<FieldProps>().gcost = ManhattenHeuristik(field, end);
+                    }
+                    //left
+                    if (field.GetComponent<FieldProps>().cordY == current.GetComponent<FieldProps>().cordY  &&
+                        field.GetComponent<FieldProps>().cordX == current.GetComponent<FieldProps>().cordX-1 && field.GetComponent<FieldProps>().traverseable && !field.GetComponent<FieldProps>().visited)
+                    {
+                        neighbours.Add(field);
+                        field.GetComponent<Renderer>().material.color = Color.yellow;
+                        field.GetComponent<FieldProps>().gcost = ManhattenHeuristik(field, end);
+                    }
+                }
+            }
+        }
+
+        int lowestcost = Int32.MaxValue;
+        GameObject newField = null;
+        foreach (GameObject next in neighbours)
+        {
+            if (next.GetComponent<FieldProps>().gcost < lowestcost)
+            {
+                newField = next;
+                
+            }
+        }
+        
+        return newField;
     }
 }
