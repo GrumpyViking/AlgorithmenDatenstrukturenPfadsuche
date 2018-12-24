@@ -11,6 +11,7 @@
           <e p="MoveStart.cs" t="Include" />
           <e p="MoveTarget.cs" t="Include" />
           <e p="Node.cs" t="Include" />
+          <e p="ObjectFollowPath.cs" t="Include" />
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
