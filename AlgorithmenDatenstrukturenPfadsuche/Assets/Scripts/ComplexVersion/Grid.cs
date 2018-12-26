@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-    private float cellDiameter;
+    float cellDiameter;
 
     public float cellSize, distanceOfCells;
 
     public Vector2 gridSize;
 
-    private int gridSizeX, gridSizeY;
+    int gridSizeX, gridSizeY;
 
-    private Node[,] nodeArray;
+    Node[,] nodeArray;
 
     public LayerMask Obstacle;
 
@@ -37,7 +37,7 @@ public class Grid : MonoBehaviour
                              Vector3.forward * (y * cellDiameter + cellSize);
             var wall = !Physics.CheckSphere(worldPoint, cellSize, Obstacle);
 
-            nodeArray[x, y] = new Node(wall, worldPoint, x, y);
+            nodeArray[x, y] = new Node(wall, worldPoint, x, y, null);
         }
     }
 
@@ -94,26 +94,25 @@ public class Grid : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position,
-            new Vector3(gridSize.x, 0.25f,
-                gridSize.y));
+        Gizmos.DrawWireCube(transform.position,new Vector3(gridSize.x, 0.25f,gridSize.y));
 
         if (nodeArray != null)
-            foreach (var n in nodeArray)
+            foreach (var node in nodeArray)
             {
-                if (n.traversable)
+                if (node.traversable)
                     Gizmos.color = Color.white;
                 else
                     Gizmos.color = Color.yellow;
 
-
+                
                 if (path != null)
-                    if (path.Contains(n))
-                        Gizmos.color = Color.cyan;
+                    if (path.Contains(node))
+                        Gizmos.color = Color.green;
+                
                 
 
-                Gizmos.DrawCube(n.nodeGlobalPosition,
-                    Vector3.one * (cellDiameter - distanceOfCells));
+                Gizmos.DrawCube(node.nodeGlobalPosition,Vector3.one * (cellDiameter - distanceOfCells));
             }
+        
     }
 }

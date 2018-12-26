@@ -10,15 +10,16 @@ public class Node
     public Vector3 nodeGlobalPosition; // Weltkoordinaten der Node.
 
     public Node parent; // Von wo kam der aktuelle Knoten (wichtig für Rückverfolgung)
+    public GameObject fieldCell;
+    public bool traversable, start, target; // Gibt an ob Node begehbar ist.
 
-    public bool traversable; // Gibt an ob Node begehbar ist.
-
-    public Node(bool _traversable, Vector3 _nodeGlobalPosition, int _cordX, int _cordY) // Konstruktor
+    public Node(bool traversable, Vector3 nodeGlobalPosition, int cordX, int cordY, GameObject fieldCell) // Konstruktor
     {
-        traversable = _traversable;
-        nodeGlobalPosition = _nodeGlobalPosition;
-        cordX = _cordX;
-        cordY = _cordY;
+        this.traversable = traversable;
+        this.nodeGlobalPosition = nodeGlobalPosition;
+        this.cordX = cordX;
+        this.cordY = cordY;
+        this.fieldCell = fieldCell;
     }
 
     public int fCost

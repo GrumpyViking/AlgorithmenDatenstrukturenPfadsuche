@@ -12,9 +12,8 @@ public class ObjectFollowPath : MonoBehaviour
     private int index;
     void Start()
     {
-        GameObject.Find("untitled").transform.position = GameObject.Find("StartPosition").transform.position;
-        oldPosition = GameObject.Find("untitled").transform.position;
-        
+        GameObject.Find("Ship").transform.position = GameObject.Find("StartPosition").transform.position;
+        oldPosition = GameObject.Find("Ship").transform.position;
     }
 
     // Update is called once per frame
@@ -22,8 +21,8 @@ public class ObjectFollowPath : MonoBehaviour
     {
         if (oldPosition != GameObject.Find("StartPosition").transform.position)
         {
-            GameObject.Find("untitled").transform.position = GameObject.Find("StartPosition").transform.position;
-            oldPosition = GameObject.Find("untitled").transform.position;
+            GameObject.Find("Ship").transform.position = GameObject.Find("StartPosition").transform.position;
+            oldPosition = GameObject.Find("Ship").transform.position;
         }
 
         if (Input.GetKey(KeyCode.Space) && moving ==false)
@@ -44,17 +43,19 @@ public class ObjectFollowPath : MonoBehaviour
                 moving = false;
             }
 
-            index++;
-
+            if (index < g.path.Count-1)
+            {
+                index++;  
+            }
+            
         }
-        
     }
 
     private void FollowPath()
     {
         foreach (Node node in g.path)
         {
-            StartCoroutine(Move_Routine(this.transform,  GameObject.Find("untitled").transform.position, node.nodeGlobalPosition));
+            StartCoroutine(Move_Routine(this.transform,  GameObject.Find("Ship").transform.position, node.nodeGlobalPosition));
         }
     }
     
@@ -64,9 +65,9 @@ public class ObjectFollowPath : MonoBehaviour
         while(t < 5f)
         {
             t += Time.deltaTime;
-            GameObject.Find("untitled").transform.position = Vector3.RotateTowards(from, to,15,1);
-            GameObject.Find("untitled").transform.position = Vector3.Lerp(from, to, Mathf.SmoothStep(0f, 1f, t));
-            Debug.Log(GameObject.Find("untitled").transform.position);
+            GameObject.Find("Ship").transform.position = Vector3.RotateTowards(from, to,15,1);
+            GameObject.Find("Ship").transform.position = Vector3.Lerp(from, to, Mathf.SmoothStep(0f, 1f, t));
+            Debug.Log(GameObject.Find("Ship").transform.position);
             yield return null;
         }
     }

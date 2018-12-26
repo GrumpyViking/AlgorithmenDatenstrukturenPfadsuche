@@ -6,15 +6,16 @@ public class AStarAlgorithm : MonoBehaviour
     private Grid GridReference; 
     public Transform StartPosition; 
     public Transform TargetPosition; 
-
+    public List<Node> OpenList = new List<Node>(); 
+    public HashSet<Node> ClosedList = new HashSet<Node>();
     private void Awake() 
     {
         GridReference = GetComponent<Grid>(); 
     }
 
-    private void Update()
+    void Update()
     {
-        FindPath(StartPosition.position, TargetPosition.position); 
+        FindPath(StartPosition.position, TargetPosition.position);
     }
 
     private void FindPath(Vector3 a_StartPos, Vector3 a_TargetPos)
@@ -22,8 +23,7 @@ public class AStarAlgorithm : MonoBehaviour
         var StartNode = GridReference.NodeFromWorldPoint(a_StartPos); 
         var TargetNode = GridReference.NodeFromWorldPoint(a_TargetPos); 
 
-        var OpenList = new List<Node>(); 
-        var ClosedList = new HashSet<Node>(); 
+         
 
         OpenList.Add(StartNode); 
 
@@ -38,18 +38,20 @@ public class AStarAlgorithm : MonoBehaviour
             OpenList.Remove(CurrentNode); 
             ClosedList.Add(CurrentNode);
 
-            if (CurrentNode == TargetNode) 
-                GetFinalPath(StartNode, TargetNode); 
-
-            foreach (var NeighborNode in GridReference.GetNeighboringNodes(CurrentNode)
-            ) 
+            if (CurrentNode == TargetNode)
             {
-                if (!NeighborNode.traversable || ClosedList.Contains(NeighborNode)
-                ) 
-                    continue; 
-                var MoveCost =
-                    CurrentNode.gCost +
-                    GetManhattenDistance(CurrentNode, NeighborNode); 
+                GetFinalPath(StartNode, TargetNode);
+                break;
+            }
+
+            foreach (var NeighborNode in GridReference.GetNeighboringNodes(CurrentNode)){
+                if (!NeighborNode.traversable || ClosedList.Contains(NeighborNode))
+                {
+                    continue;
+                } 
+                    
+                
+                var MoveCost = CurrentNode.gCost + GetManhattenDistance(CurrentNode, NeighborNode); 
 
                 if (MoveCost < NeighborNode.gCost || !OpenList.Contains(NeighborNode)
                 ) 
@@ -63,6 +65,7 @@ public class AStarAlgorithm : MonoBehaviour
                 }
             }
         }
+        
     }
 
 
