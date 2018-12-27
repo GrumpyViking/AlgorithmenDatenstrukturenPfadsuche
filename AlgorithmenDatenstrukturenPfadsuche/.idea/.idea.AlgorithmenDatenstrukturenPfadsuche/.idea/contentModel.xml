@@ -32,7 +32,9 @@
           <e p="SimpleVersion" t="Include">
             <e p="AnimationQueue.cs" t="Include" />
             <e p="AStarAlgorithmAlt.cs" t="Include" />
+            <e p="BreadthFirstSearch.cs" t="Include" />
             <e p="CreateField.cs" t="Include" />
+            <e p="DeaphtFirstSearch.cs" t="Include" />
             <e p="ModifyNode.cs" t="Include" />
           </e>
         </e>

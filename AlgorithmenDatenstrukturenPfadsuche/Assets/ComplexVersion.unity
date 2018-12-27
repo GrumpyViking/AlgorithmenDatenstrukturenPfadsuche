@@ -1361,17 +1361,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac3603934f11c24093b94b12f7d56de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellDiameter: 0
   cellSize: 0.25
   distanceOfCells: 0
   gridSize: {x: 30, y: 30}
-  gridSizeX: 0
-  gridSizeY: 0
   Obstacle:
     serializedVersion: 2
     m_Bits: 1073741824
   startPos: {fileID: 90371089}
-  asa: {fileID: 1504464792}
 --- !u!114 &1504464792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1384,8 +1380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7d702adcab40c449a212c8799c313cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 90371089}
-  TargetPosition: {fileID: 1834378968}
+  startPosition: {fileID: 90371089}
+  targetPosition: {fileID: 1834378968}
 --- !u!1 &1515583297
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,65 +3,66 @@ using UnityEngine;
 
 public class AStarAlgorithm : MonoBehaviour
 {
-    private Grid GridReference; 
-    public Transform StartPosition; 
-    public Transform TargetPosition; 
-    public List<Node> OpenList = new List<Node>(); 
-    public HashSet<Node> ClosedList = new HashSet<Node>();
-    private void Awake() 
-    {
-        GridReference = GetComponent<Grid>(); 
-    }
+    private Grid grid;
+    private Node startNode, targetNode;
+    public Transform startPosition; 
+
+    public Transform targetPosition; 
+    public List<Node> openList = new List<Node>(); 
+    public HashSet<Node> closedList = new HashSet<Node>();
 
     void Update()
     {
-        FindPath(StartPosition.position, TargetPosition.position);
+        FindPath();
     }
 
-    private void FindPath(Vector3 a_StartPos, Vector3 a_TargetPos)
+    private void FindPath()
     {
-        var StartNode = GridReference.NodeFromWorldPoint(a_StartPos); 
-        var TargetNode = GridReference.NodeFromWorldPoint(a_TargetPos); 
+        grid = GetComponent<Grid>();
+        startNode = grid.NodeFromWorldPoint(startPosition.position);
+        targetNode = grid.NodeFromWorldPoint(targetPosition.position);
+        openList.Clear();
+        closedList.Clear();
+        openList.Add(startNode); 
 
-         
-
-        OpenList.Add(StartNode); 
-
-        while (OpenList.Count > 0) 
+        while (openList.Count > 0) 
         {
-            var CurrentNode = OpenList[0]; 
-            for (var i = 1; i < OpenList.Count; i++) 
-                if (OpenList[i].fCost < CurrentNode.fCost ||
-                    OpenList[i].fCost == CurrentNode.fCost && OpenList[i].hCost < CurrentNode.hCost
-                ) 
-                    CurrentNode = OpenList[i]; 
-            OpenList.Remove(CurrentNode); 
-            ClosedList.Add(CurrentNode);
-
-            if (CurrentNode == TargetNode)
+            Node current = openList[0];
+            for (int i = 1; i < openList.Count; i++)
             {
-                GetFinalPath(StartNode, TargetNode);
+                if (openList[i].fCost < current.fCost ||
+                    openList[i].fCost == current.fCost && openList[i].hCost < current.hCost)
+                {
+                    current = openList[i];
+                }
+            }
+
+            openList.Remove(current); 
+            closedList.Add(current);
+
+            if (current == targetNode)
+            {
+                GetPath(startNode, targetNode);
                 break;
             }
 
-            foreach (var NeighborNode in GridReference.GetNeighboringNodes(CurrentNode)){
-                if (!NeighborNode.traversable || ClosedList.Contains(NeighborNode))
+            foreach (var neighbors in grid.GetNeighboringNodes(current)){
+                if (!neighbors.traversable || closedList.Contains(neighbors))
                 {
                     continue;
                 } 
-                    
                 
-                var MoveCost = CurrentNode.gCost + GetManhattenDistance(CurrentNode, NeighborNode); 
+                var moveCost = current.gCost + GetManhattenDistance(current, neighbors); 
 
-                if (MoveCost < NeighborNode.gCost || !OpenList.Contains(NeighborNode)
+                if (moveCost < neighbors.gCost || !openList.Contains(neighbors)
                 ) 
                 {
-                    NeighborNode.gCost = MoveCost; 
-                    NeighborNode.hCost = GetManhattenDistance(NeighborNode, TargetNode); 
-                    NeighborNode.parent = CurrentNode; 
+                    neighbors.gCost = moveCost; 
+                    neighbors.hCost = GetManhattenDistance(neighbors, targetNode); 
+                    neighbors.parent = current; 
 
-                    if (!OpenList.Contains(NeighborNode)) 
-                        OpenList.Add(NeighborNode); 
+                    if (!openList.Contains(neighbors)) 
+                        openList.Add(neighbors); 
                 }
             }
         }
@@ -69,28 +70,26 @@ public class AStarAlgorithm : MonoBehaviour
     }
 
 
-    private void GetFinalPath(Node a_StartingNode, Node a_EndNode)
+    private void GetPath(Node startingNode, Node endNode)
     {
-        var FinalPath = new List<Node>();
-        var CurrentNode = a_EndNode; 
+        List<Node> finalPath = new List<Node>();
+        Node currentNode = endNode; 
 
-        while (CurrentNode != a_StartingNode
-        ) 
+        while (currentNode != startingNode) 
         {
-            FinalPath.Add(CurrentNode); 
-            CurrentNode = CurrentNode.parent; 
+            finalPath.Add(currentNode); 
+            currentNode = currentNode.parent;
         }
 
-        FinalPath.Reverse(); 
-
-        GridReference.path = FinalPath; 
+        finalPath.Reverse();
+        grid.path = finalPath;
     }
 
-    private int GetManhattenDistance(Node a_nodeA, Node a_nodeB)
+    private int GetManhattenDistance(Node nodeA, Node nodeB)
     {
-        var ix = Mathf.Abs(a_nodeA.cordX - a_nodeB.cordX); 
-        var iy = Mathf.Abs(a_nodeA.cordY - a_nodeB.cordY); 
+        int disX = Mathf.Abs(nodeA.cordX - nodeB.cordX); 
+        int disY = Mathf.Abs(nodeA.cordY - nodeB.cordY); 
 
-        return ix + iy; 
+        return disX + disY; 
     }
 }

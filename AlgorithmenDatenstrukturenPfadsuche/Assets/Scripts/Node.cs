@@ -11,8 +11,7 @@ public class Node
 
     public Node parent; // Von wo kam der aktuelle Knoten (wichtig für Rückverfolgung)
     public GameObject fieldCell;
-    public bool traversable, start, target; // Gibt an ob Node begehbar ist.
-
+    public bool traversable, start, target, visited; // Gibt an ob Node begehbar ist.
     public Node(bool traversable, Vector3 nodeGlobalPosition, int cordX, int cordY, GameObject fieldCell) // Konstruktor
     {
         this.traversable = traversable;

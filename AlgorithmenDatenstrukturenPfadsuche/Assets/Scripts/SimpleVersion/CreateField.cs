@@ -36,7 +36,7 @@ public class CreateField : MonoBehaviour
                 Vector3 worldCoordinate = bottomLeft + Vector3.right * (x * fieldCellDiameter + fieldCellSize) +
                                  Vector3.forward * (y * fieldCellDiameter + fieldCellSize);
                 field = Instantiate(fieldCell, worldCoordinate, Quaternion.identity);
-                field.name = "fiel" + counter;
+                field.name = "field" + counter;
                 field.AddComponent<Rigidbody>();
                 field.GetComponent<Rigidbody>().useGravity = false;
                 field.GetComponent<Rigidbody>().isKinematic = true;
@@ -117,67 +117,56 @@ public class CreateField : MonoBehaviour
         return fieldCellArray;
     }
     
-    public List<Node> GetNeighboringNodes(Node a_NeighborNode)
+    public List<Node> GetNeighboringNodes(Node current)
     {
-        var NeighborList = new List<Node>();
-        int icheckX;
-        int icheckY;
-
-        icheckX = a_NeighborNode.cordX + 1;
-        icheckY = a_NeighborNode.cordY;
-        if (icheckX >= 0 && icheckX < fieldSizeXAxis)
+        List<Node> neighbors = new List<Node>();
+        int checkXAxis; // prüfen ob Feld noch im gültigen X-Achsen Rahmen ist 
+        int checkYAxis; // prüfen ob Feld noch im gültigen Y-Achsen Rahmen ist
+        
+        //oberer-Nachbar
+        checkXAxis = current.cordX;
+        checkYAxis = current.cordY + 1;
+        if (checkXAxis >= 0 && checkXAxis < fieldSizeXAxis)
         {
-            if (icheckY >= 0 && icheckY < fieldSizeYAxis)
+            if (checkYAxis >= 0 && checkYAxis < fieldSizeYAxis)
             {
-                NeighborList.Add(fieldCellArray[icheckX, icheckY]);
+                neighbors.Add(fieldCellArray[checkXAxis, checkYAxis]);
             }
         }
-
-        icheckX = a_NeighborNode.cordX - 1;
-        icheckY = a_NeighborNode.cordY;
-        if (icheckX >= 0 && icheckX < fieldSizeXAxis)
+        
+        //rechter-Nachbar
+        checkXAxis = current.cordX + 1;
+        checkYAxis = current.cordY;
+        if (checkXAxis >= 0 && checkXAxis < fieldSizeXAxis)
         {
-            if (icheckY >= 0 && icheckY < fieldSizeYAxis)
+            if (checkYAxis >= 0 && checkYAxis < fieldSizeYAxis)
             {
-                NeighborList.Add(fieldCellArray[icheckX, icheckY]);
+                neighbors.Add(fieldCellArray[checkXAxis, checkYAxis]);
             }
         }
-
-        icheckX = a_NeighborNode.cordX;
-        icheckY = a_NeighborNode.cordY + 1;
-        if (icheckX >= 0 && icheckX < fieldSizeXAxis)
+        
+        //unterer-Nachbar
+        checkXAxis = current.cordX;
+        checkYAxis = current.cordY - 1;
+        if (checkXAxis >= 0 && checkXAxis < fieldSizeXAxis)
         {
-            if (icheckY >= 0 && icheckY < fieldSizeYAxis)
+            if (checkYAxis >= 0 && checkYAxis < fieldSizeYAxis)
             {
-                NeighborList.Add(fieldCellArray[icheckX, icheckY]);
+                neighbors.Add(fieldCellArray[checkXAxis, checkYAxis]);
             }
         }
-
-        icheckX = a_NeighborNode.cordX;
-        icheckY = a_NeighborNode.cordY - 1;
-        if (icheckX >= 0 && icheckX < fieldSizeXAxis)
+      
+        //linker-Nachbar
+        checkXAxis = current.cordX - 1;
+        checkYAxis = current.cordY;
+        if (checkXAxis >= 0 && checkXAxis < fieldSizeXAxis)
         {
-            if (icheckY >= 0 && icheckY < fieldSizeYAxis)
+            if (checkYAxis >= 0 && checkYAxis < fieldSizeYAxis)
             {
-                NeighborList.Add(fieldCellArray[icheckX, icheckY]);
+                neighbors.Add(fieldCellArray[checkXAxis, checkYAxis]);
             }
         }
-
-        return NeighborList;
-    }
-
-
-    public Node NodeFromWorldPoint(Vector3 a_vWorldPos)
-    {
-        var ixPos = (a_vWorldPos.x + fieldSize.x / 2) / fieldSize.x;
-        var iyPos = (a_vWorldPos.z + fieldSize.y / 2) / fieldSize.y;
-
-        ixPos = Mathf.Clamp01(ixPos);
-        iyPos = Mathf.Clamp01(iyPos);
-
-        var ix = Mathf.RoundToInt((fieldSizeXAxis - 1) * ixPos);
-        var iy = Mathf.RoundToInt((fieldSizeYAxis - 1) * iyPos);
-
-        return fieldCellArray[ix, iy];
+        
+        return neighbors;
     }
 }

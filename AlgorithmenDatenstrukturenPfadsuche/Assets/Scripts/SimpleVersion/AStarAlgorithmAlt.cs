@@ -1,15 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Event;
-using Model;
 
 public class AStarAlgorithmAlt : MonoBehaviour
 {
     private CreateField grid; 
-    private GameObject startPosition;
     private Node startNode, targetNode;
-    
-    private GameObject targetPosition; 
     public List<Node> openList = new List<Node>(); 
     public HashSet<Node> closedList = new HashSet<Node>();
     
@@ -34,20 +30,18 @@ public class AStarAlgorithmAlt : MonoBehaviour
         {
             if (node.start == true)
             {
-                startPosition = node.fieldCell;
                 startNode = node;
             }
 
             if (node.target == true)
             {
-                targetPosition = node.fieldCell;
                 targetNode = node;
             }
         }
-        FindPath(startPosition.transform.position, targetPosition.transform.position);
+        AStarAlgo();
     }
 
-    private void FindPath(Vector3 a_StartPos, Vector3 a_TargetPos)
+    private void AStarAlgo()
     {
         openList.Add(startNode);
         startNode.gCost = 0;
@@ -111,8 +105,7 @@ public class AStarAlgorithmAlt : MonoBehaviour
         List<Node> finalPath = new List<Node>();
         Node currentNode = endNode; 
 
-        while (currentNode != startingNode
-        ) 
+        while (currentNode != startingNode) 
         {
             finalPath.Add(currentNode); 
             currentNode = currentNode.parent;
