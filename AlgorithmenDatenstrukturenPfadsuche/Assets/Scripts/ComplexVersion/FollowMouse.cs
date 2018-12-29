@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FollowMouse : MonoBehaviour
 {
+    float speed = 200f;
     void Update()
     {
 		// Quelle: https://forum.unity.com/threads/solved-moving-gameobject-along-x-and-z-axis-by-drag-and-drop-using-x-and-y-from-screenspace.488476/#post-3185720
@@ -19,9 +20,17 @@ public class FollowMouse : MonoBehaviour
         if(plane.Raycast(ray, out distance))
         {
             draggingObject.position = ray.GetPoint(distance); // distance along the ray
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+                draggingObject.transform.Rotate(Vector3.up * speed * Time.deltaTime);
+
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
+                draggingObject.transform.Rotate(-Vector3.up * speed * Time.deltaTime);
+            
         }
-		
-		
+        
+        
+
+    
         if (Input.GetMouseButtonDown(0))
         {
             Destroy(GetComponent<FollowMouse>());
