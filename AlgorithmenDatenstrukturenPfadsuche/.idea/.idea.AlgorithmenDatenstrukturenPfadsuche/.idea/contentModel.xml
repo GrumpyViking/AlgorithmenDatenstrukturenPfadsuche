@@ -23,6 +23,7 @@
             <e p="EmptyInterface.cs" t="Include" />
             <e p="IAction.cs" t="Include" />
           </e>
+          <e p="MainMenu.cs" t="Include" />
           <e p="Model" t="Include">
             <e p="Edge.cs" t="Include" />
             <e p="Graph.cs" t="Include" />
