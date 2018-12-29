@@ -10,6 +10,7 @@ public class ObjectFollowPath : MonoBehaviour
     private bool moving;
     public float speed;
     private int index;
+    
     void Start()
     {
         GameObject.Find("Ship").transform.position = GameObject.Find("StartPosition").transform.position;
@@ -19,6 +20,7 @@ public class ObjectFollowPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Bei bewegung des Startpunktes wird Schiff mit verschoben
         if (oldPosition != GameObject.Find("StartPosition").transform.position)
         {
             GameObject.Find("Ship").transform.position = GameObject.Find("StartPosition").transform.position;
@@ -33,6 +35,7 @@ public class ObjectFollowPath : MonoBehaviour
 
         if (moving)
         {
+            
             if (g.path.Count>0)
             {
                 float step = speed * Time.deltaTime;
@@ -40,9 +43,10 @@ public class ObjectFollowPath : MonoBehaviour
             }
             else
             {
+                index = 0;
                 moving = false;
             }
-
+            
             if (index < g.path.Count-1)
             {
                 index++;  

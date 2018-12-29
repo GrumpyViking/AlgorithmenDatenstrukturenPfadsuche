@@ -18,7 +18,12 @@ public class Grid : MonoBehaviour
         cellDiameter = cellSize * 2;
         fieldSizeXAxis = Mathf.RoundToInt(gridSize.x / cellDiameter);
         fieldSizeYAxis = Mathf.RoundToInt(gridSize.y / cellDiameter);
-        CreateGrid();
+        
+    }
+
+    void Update()
+    {
+        CreateGrid(); 
     }
 
     private void CreateGrid()

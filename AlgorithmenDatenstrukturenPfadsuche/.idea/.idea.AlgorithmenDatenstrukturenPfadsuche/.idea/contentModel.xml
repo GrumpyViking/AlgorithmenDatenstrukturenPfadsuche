@@ -12,6 +12,7 @@
             <e p="MoveStart.cs" t="Include" />
             <e p="MoveTarget.cs" t="Include" />
             <e p="ObjectFollowPath.cs" t="Include" />
+            <e p="PlaceObjects.cs" t="Include" />
           </e>
           <e p="Event" t="Include">
             <e p="BasicAction.cs" t="Include" />
