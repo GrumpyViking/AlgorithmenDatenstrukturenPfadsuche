@@ -23,6 +23,7 @@ public class PlaceObjects : MonoBehaviour
                 GameObject obstacle = Instantiate(cube, new Vector3(0, 0, 0), Quaternion.identity);
                 obstacle.layer = 30;
                 obstacle.GetComponent<Renderer>().material.color = Color.yellow;
+                obstacle.AddComponent<FollowMouse>();
                 break;
             default:
                 Debug.Log("fehler im switch-case PlaceObject");

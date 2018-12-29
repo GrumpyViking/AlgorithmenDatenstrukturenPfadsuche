@@ -8,6 +8,7 @@
         <e p="Scripts" t="Include">
           <e p="ComplexVersion" t="Include">
             <e p="AStarAlgorithm.cs" t="Include" />
+            <e p="FollowMouse.cs" t="Include" />
             <e p="Grid.cs" t="Include" />
             <e p="MoveStart.cs" t="Include" />
             <e p="MoveTarget.cs" t="Include" />
