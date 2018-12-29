@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.Internal.Experimental.UIElements;
+using UnityEngine.UI;
 
 
 public class CreateField : MonoBehaviour
@@ -14,6 +17,8 @@ public class CreateField : MonoBehaviour
     private bool startSelected, targetSelected;
     public List<Node> path;
     private GameObject field;
+
+    public GameObject astarpanel, bfspanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -168,5 +173,27 @@ public class CreateField : MonoBehaviour
         }
         
         return neighbors;
+    }
+
+    public void ShowPanel(Text panel)
+    {
+        switch (panel.text)
+        {
+            case "A* - Algoritmus":
+                GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = true;
+                GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
+                astarpanel.SetActive(true);
+                bfspanel.SetActive(false);
+                break;
+            case "Breitensuche - Algoritmus":
+                GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = true;
+                astarpanel.SetActive(false);
+                bfspanel.SetActive(true);
+                break;
+            default:
+                break;
+        }
+        
     }
 }
