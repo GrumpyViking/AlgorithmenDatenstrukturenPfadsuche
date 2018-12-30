@@ -4,66 +4,73 @@ using UnityEngine;
 using UnityEngine.Internal.Experimental.UIElements;
 using UnityEngine.UI;
 
-
+/*
+ * CreatField Klasse erstellt das Spielfeld 
+ */
 public class CreateField : MonoBehaviour
 {
-    public GameObject fieldCell;
+    public GameObject fieldCell; // Objekt aus dem das Feldbesteht (in Unity hinzufügen)
+    public Vector2 fieldSize; // Größe des Spielfeldes (in Unity eintragen)
+    private float fieldCellSize = 0.5f; // größe der einzelnen Felder
+    private int fieldSizeXAxis, fieldSizeYAxis; // anzahl Felder auf der X bzw. Y Achse
+    private float fieldCellDiameter; // Für Korrekte Feldgrößen berechnung notwendig 
+    private Node[,] fieldCellArray; // Zweidimensionales Array zum Speichern der einzelnen Felder und derer Eigenschaften
+    private bool startSelected, targetSelected; // Status ob Start/Ziel ausgewählt wurde
+    public List<Node> path; // Speichert den Pfad zwischen Start und Ziel
+    private GameObject field; // Objekt als das die Felder erstellt werden
+    public GameObject astarpanel, bfspanel; // Legenden für A*-Algoritmuse und Breitensuche Algoritmus
 
-    public Vector2 fieldSize;
-    private float fieldCellSize = 0.5f;
-    private int fieldSizeXAxis, fieldSizeYAxis;
-    private float fieldCellDiameter;
-    private Node[,] fieldCellArray;
-    private bool startSelected, targetSelected;
-    public List<Node> path;
-    private GameObject field;
-
-    public GameObject astarpanel, bfspanel;
-    // Start is called before the first frame update
+    /*
+     * Initialisierung mit Programmstart
+     */
     void Start()
     {
-        fieldCellDiameter = fieldCellSize * 2;
+        fieldCellDiameter = fieldCellSize * 2; 
         fieldSizeXAxis = Mathf.RoundToInt(fieldSize.x / fieldCellDiameter);
         fieldSizeYAxis = Mathf.RoundToInt(fieldSize.y / fieldCellDiameter);
         CreateFieldGrid();
     }
-    
 
+    /*
+     * Erstellen des Spielfeldes
+     */
     private void CreateFieldGrid()
     {
         fieldCellArray = new Node[fieldSizeXAxis, fieldSizeYAxis];
-        Vector3 bottomLeft = transform.position - Vector3.right * fieldSize.x / 2 - Vector3.forward * fieldSize.y / 2;
-        bool wall = true;
-        int counter = 0;
+        Vector3 bottomLeft = transform.position - Vector3.right * fieldSize.x / 2 - Vector3.forward * fieldSize.y / 2; // Erstellung des Feldes um den Mittelpunkt anstelle des Mittlepunktes als Linken oberen Eckpunktes
+        bool traversable = true;
+        int counter = 0; // Zähler wie viele felder erstellt wurden 
         for (int x = 0; x < fieldSizeXAxis; x++){
             for (int y = 0; y < fieldSizeYAxis; y++)
             {
-                Vector3 worldCoordinate = bottomLeft + Vector3.right * (x * fieldCellDiameter + fieldCellSize) +
-                                 Vector3.forward * (y * fieldCellDiameter + fieldCellSize);
-                field = Instantiate(fieldCell, worldCoordinate, Quaternion.identity);
+                Vector3 cordinate = bottomLeft + Vector3.right * (x * fieldCellDiameter + fieldCellSize) +
+                                 Vector3.forward * (y * fieldCellDiameter + fieldCellSize); // Position an der neues Feld platziert wird
+                field = Instantiate(fieldCell, cordinate, Quaternion.identity); // Erstellt ein neues FeldObjekt an der zuvor festgelegten Position mit der standart Rotation
                 field.name = "field" + counter;
-                field.AddComponent<Rigidbody>();
-                field.GetComponent<Rigidbody>().useGravity = false;
-                field.GetComponent<Rigidbody>().isKinematic = true;
-                fieldCellArray[x, y] = new Node(wall, worldCoordinate, x, y, field);
+                field.AddComponent<Rigidbody>(); // Rigidbody wichtig um Felder anklicken zu können
+                field.GetComponent<Rigidbody>().useGravity = false; 
+                field.GetComponent<Rigidbody>().isKinematic = true; // wichtig um Kollision unter den Felder zu vermeiden
+                fieldCellArray[x, y] = new Node(traversable, cordinate, x, y, field); // Fügt das aktuelle Feld dem array zu
                 counter++;
             }
         }
     }
-    
-    // Update is called once per frame
+
+    /*
+     * Interaktion durch den Benutzer um Start, Ziel und Hindernisse zu bestimmen
+     */
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) // Linkemaustaste
         {
             Vector3 mouse = Input.mousePosition;
             Ray castPoint = Camera.main.ScreenPointToRay(mouse);
             RaycastHit hit;
-            if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+            if (Physics.Raycast(castPoint, out hit, Mathf.Infinity)) // Von der aktuellen Mausposition wird ein Strahl gesendet wenn dieser ein Objekt trifft wird eine der Aktionen ausgeführt
             {
-                if (!startSelected)
+                if (!startSelected) 
                 {
-                    GameObject target = hit.rigidbody.gameObject;
+                    GameObject target = hit.rigidbody.gameObject; // Liefert das getroffene Objekt zurück
                     SetStart(target);
                     
                 }else if (startSelected && !targetSelected)
@@ -79,6 +86,9 @@ public class CreateField : MonoBehaviour
         }
     }
 
+    /*
+     * Bestimmt das dass ausgewählte Feld eine Hindernis ist
+     */
     private void SetBarricade(GameObject field)
     {
         new ModifyNode().ChangeColor(field, Color.yellow);
@@ -86,11 +96,14 @@ public class CreateField : MonoBehaviour
         {
             if (field.transform.position == node.nodeGlobalPosition)
             {
-                node.traversable = false;
+                node.traversable = false; // Feld als nicht mehr begehbar markiert
             }
         }
     }
 
+    /*
+     * Bestimmt das dass ausgewählte Feld der Start ist
+     */
     void SetStart(GameObject field)
     {
         new ModifyNode().ChangeColor(field, Color.green);
@@ -98,12 +111,15 @@ public class CreateField : MonoBehaviour
         {
             if (field.transform.position == node.nodeGlobalPosition)
             {
-                node.start = true;
+                node.start = true; // Feld wird als Startpunkt markiert
             }
         }
         startSelected = true;
     }
 
+    /*
+     * Bestimmt das dass ausgewählte Feld das Ziel ist
+     */
     void SetTarget(GameObject field)
     {
         new ModifyNode().ChangeColor(field, Color.red);
@@ -111,17 +127,21 @@ public class CreateField : MonoBehaviour
         {
             if (field.transform.position == node.nodeGlobalPosition)
             {
-                node.target = true;
+                node.target = true; // Feld wird als Zielpunkt markiert
             }
         }
         targetSelected = true;
     }
 
+    // Gibt das Felderarray an andere Klassen zurück
     public Node[,] GetArray()
     {
         return fieldCellArray;
     }
     
+    /*
+     * Liefert die Nachbarfelder eines Feldes als Liste zurück
+     */
     public List<Node> GetNeighboringNodes(Node current)
     {
         List<Node> neighbors = new List<Node>();
@@ -175,6 +195,9 @@ public class CreateField : MonoBehaviour
         return neighbors;
     }
 
+    /*
+     * Anzeige der richtigen Legende zum gewählten Algoritmus
+     */
     public void ShowPanel(Text panel)
     {
         switch (panel.text)
@@ -193,7 +216,6 @@ public class CreateField : MonoBehaviour
                 break;
             default:
                 break;
-        }
-        
+        }        
     }
 }

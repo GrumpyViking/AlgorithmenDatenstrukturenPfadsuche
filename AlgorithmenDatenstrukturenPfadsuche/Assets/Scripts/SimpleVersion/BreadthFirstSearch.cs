@@ -2,11 +2,16 @@
 using Event;
 using UnityEngine;
 
+/*
+    Breitensuche (englisch breadth-first search, BFS) ist ein Verfahren in der Informatik zum Durchsuchen bzw. Durchlaufen der Knoten eines Graphen. 
+    Sie zählt zu den uninformierten Suchalgorithmen. Im Gegensatz zur Tiefensuche werden zunächst alle Knoten beschritten, die vom Ausgangsknoten direkt erreichbar sind. 
+    Erst danach werden Folgeknoten beschritten.
+    Quelle: https://de.wikipedia.org/wiki/Breitensuche
+ */
+
 public class BreadthFirstSearch : MonoBehaviour
 {
     private CreateField grid;
-    bool[] visited;
-    List<Node> pathFrom = new List<Node>();
     Queue<Node> open = new Queue<Node>();
     private Node startNode;
     private GameObject startPosition;
@@ -17,7 +22,6 @@ public class BreadthFirstSearch : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Test");
             Execute();
         }
     }
