@@ -5,26 +5,36 @@ using UnityEngine;
 public class ObjectFollowPath : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Vector3 oldPosition;
+    private Vector3 oldStartPosition, oldTargetPosition;
     public Grid g;
-    private bool moving;
+    private bool moving, reachedGoal;
     public float speed;
     private int index;
+    private List<Node> tmp = new List<Node>();
     
     void Start()
     {
         GameObject.Find("Ship").transform.position = GameObject.Find("StartPosition").transform.position;
-        oldPosition = GameObject.Find("Ship").transform.position;
+        oldStartPosition = GameObject.Find("StartPosition").transform.position;
+        oldTargetPosition = GameObject.Find("TargetPosition").transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         // Bei bewegung des Startpunktes wird Schiff mit verschoben
-        if (oldPosition != GameObject.Find("StartPosition").transform.position)
+        if (GameObject.Find("StartPosition").transform.position != oldStartPosition)
         {
             GameObject.Find("Ship").transform.position = GameObject.Find("StartPosition").transform.position;
-            oldPosition = GameObject.Find("Ship").transform.position;
+            oldStartPosition = GameObject.Find("StartPosition").transform.position;
+            index = 0;
+        }
+        
+        if (GameObject.Find("TargetPosition").transform.position != oldTargetPosition)
+        {
+            GameObject.Find("Ship").transform.position = GameObject.Find("StartPosition").transform.position;
+            oldTargetPosition = GameObject.Find("TargetPosition").transform.position;
+            index = 0;
         }
 
         if (Input.GetKey(KeyCode.Space) && moving ==false)
@@ -35,44 +45,33 @@ public class ObjectFollowPath : MonoBehaviour
 
         if (moving)
         {
-            
-            if (g.path.Count>0)
+            float step = speed * Time.deltaTime;
+            if (!reachedGoal)
             {
-                float step = speed * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, g.path[index].nodeGlobalPosition, step);
+                if (index == g.path.Count-1)
+                {
+                    reachedGoal = true;
+                }
+                else
+                {
+                    index++;    
+                }
             }
             else
             {
-                index = 0;
-                moving = false;
+                transform.position = Vector3.MoveTowards(transform.position, g.path[index].nodeGlobalPosition, step);
+                if (index == 0)
+                {
+                    reachedGoal = false;
+                }
+                else
+                {
+                    index--;    
+                }
             }
-            
-            if (index < g.path.Count-1)
-            {
-                index++;  
-            }
-            
-        }
-    }
 
-    private void FollowPath()
-    {
-        foreach (Node node in g.path)
-        {
-            StartCoroutine(Move_Routine(this.transform,  GameObject.Find("Ship").transform.position, node.nodeGlobalPosition));
-        }
-    }
-    
-    private IEnumerator Move_Routine(Transform transform, Vector3 from, Vector3 to)
-    {
-        float t = 0f;
-        while(t < 5f)
-        {
-            t += Time.deltaTime;
-            GameObject.Find("Ship").transform.position = Vector3.RotateTowards(from, to,15,1);
-            GameObject.Find("Ship").transform.position = Vector3.Lerp(from, to, Mathf.SmoothStep(0f, 1f, t));
-            Debug.Log(GameObject.Find("Ship").transform.position);
-            yield return null;
+            
         }
     }
 }

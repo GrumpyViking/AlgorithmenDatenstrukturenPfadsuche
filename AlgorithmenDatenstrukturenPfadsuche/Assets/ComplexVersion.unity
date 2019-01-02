@@ -1985,7 +1985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   g: {fileID: 1504464791}
-  speed: 50
+  speed: 60
 --- !u!1 &1500523336
 GameObject:
   m_ObjectHideFlags: 0
