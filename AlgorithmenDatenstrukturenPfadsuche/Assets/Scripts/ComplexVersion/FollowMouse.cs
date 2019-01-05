@@ -1,40 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class FollowMouse : MonoBehaviour
+namespace ComplexVersion
 {
-    float speed = 200f;
-    void Update()
+    public class FollowMouse : MonoBehaviour
     {
-		// Quelle: https://forum.unity.com/threads/solved-moving-gameobject-along-x-and-z-axis-by-drag-and-drop-using-x-and-y-from-screenspace.488476/#post-3185720
-        float planeY = 0;
-        Transform draggingObject = transform;
-         
-        Plane plane = new Plane(Vector3.up, Vector3.up * planeY); // ground plane
+        // TODO: Grenzen des Spielfelds einhalten
+        /*
+         * Objekt folgt der Mausbewegung des Nutzers
+         */
         
-        
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-         
-        float distance; // the distance from the ray origin to the ray intersection of the plane
-        if(plane.Raycast(ray, out distance))
+        float speed = 200f; // Geschwindigkeit der Rotation von Objekten
+        void Update()
         {
-            draggingObject.position = ray.GetPoint(distance); // distance along the ray
-            if (Input.GetAxis("Mouse ScrollWheel") > 0)
-                draggingObject.transform.Rotate(Vector3.up * speed * Time.deltaTime);
-
-            if (Input.GetAxis("Mouse ScrollWheel") < 0)
-                draggingObject.transform.Rotate(-Vector3.up * speed * Time.deltaTime);
-            
-        }
+            // Quelle: https://forum.unity.com/threads/solved-moving-gameobject-along-x-and-z-axis-by-drag-and-drop-using-x-and-y-from-screenspace.488476/#post-3185720
+            float planeY = 0;
+         
+            Plane plane = new Plane(Vector3.up, Vector3.up * planeY); // ground plane
         
-        
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+         
+            float distance; // the distance from the ray origin to the ray intersection of the plane
+            if(plane.Raycast(ray, out distance))
+            {
+                // distance along the ray
+                transform.position = ray.GetPoint(distance); 
+                
+                // Rotation des Objektes
+                if (Input.GetAxis("Mouse ScrollWheel") > 0)
+                {
+                    transform.Rotate(Vector3.up * speed * Time.deltaTime);
+                }
 
+                if (Input.GetAxis("Mouse ScrollWheel") < 0)
+                {
+                    transform.Rotate(-Vector3.up * speed * Time.deltaTime);
+                }
+            }
     
-        if (Input.GetMouseButtonDown(0))
-        {
-            Destroy(GetComponent<FollowMouse>());
-            
+            // Das Objekt wird bei Mausklick platziert in dem das Skript vom Objekt entfernt wird
+            if (Input.GetMouseButtonDown(0))
+            {
+                Destroy(GetComponent<FollowMouse>());
+            }
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using ComplexVersion;
 using UnityEngine;
 
 public class AStarAlgorithm : MonoBehaviour
 {
-    private Grid grid;
+    private CreateGrid grid;
     private Node startNode, targetNode;
     public Transform startPosition; 
 
@@ -18,9 +19,9 @@ public class AStarAlgorithm : MonoBehaviour
 
     private void FindPath()
     {
-        grid = GetComponent<Grid>();
-        startNode = grid.NodeFromWorldPoint(startPosition.position);
-        targetNode = grid.NodeFromWorldPoint(targetPosition.position);
+        grid = GetComponent<CreateGrid>();
+        startNode = grid.NodeFromGlobalPosition(startPosition.position);
+        targetNode = grid.NodeFromGlobalPosition(targetPosition.position);
         openList.Clear();
         closedList.Clear();
         openList.Add(startNode); 

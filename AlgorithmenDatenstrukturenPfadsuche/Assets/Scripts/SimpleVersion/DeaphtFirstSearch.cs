@@ -10,10 +10,4 @@ public class DeaphtFirstSearch : MonoBehaviour
     {
         grid = GetComponent<CreateField>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
