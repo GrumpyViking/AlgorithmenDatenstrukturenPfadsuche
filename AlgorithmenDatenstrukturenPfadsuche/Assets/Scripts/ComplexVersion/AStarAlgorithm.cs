@@ -24,6 +24,7 @@ public class AStarAlgorithm : MonoBehaviour
         targetNode = grid.NodeFromGlobalPosition(targetPosition.position);
         openList.Clear();
         closedList.Clear();
+        
         openList.Add(startNode); 
 
         while (openList.Count > 0) 

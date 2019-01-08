@@ -18,7 +18,6 @@ public class DeaphtFirstSearch : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            print("Tiefensuche");
             Execute();
         }
     }

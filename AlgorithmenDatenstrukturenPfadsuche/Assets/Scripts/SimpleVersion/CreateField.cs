@@ -220,7 +220,6 @@ public class CreateField : MonoBehaviour
                 dfspanel.SetActive(false);
                 break;
             case "Tiefensuche - Algorithmus":
-                print("tiefensuche");
                 GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<DeaphtFirstSearch>().enabled = true;
