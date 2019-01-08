@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -453,7 +453,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &237532739
 GameObject:
@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 260079153}
   - component: {fileID: 260079152}
   m_Layer: 5
-  m_Name: SpawnCylinder
+  m_Name: SpawnBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -734,7 +734,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cylinder
+  m_Text: Fass
 --- !u!222 &260079153
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -743,63 +743,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260079150}
   m_CullTransparentMesh: 0
---- !u!1001 &277256097
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 100006, guid: f7f328fb958568f449852e5de16ff8ee, type: 3}
-      propertyPath: m_Name
-      value: Ship
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: f7f328fb958568f449852e5de16ff8ee, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: f7f328fb958568f449852e5de16ff8ee, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: f7f328fb958568f449852e5de16ff8ee, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: f7f328fb958568f449852e5de16ff8ee, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: f7f328fb958568f449852e5de16ff8ee, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: f7f328fb958568f449852e5de16ff8ee, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: f7f328fb958568f449852e5de16ff8ee, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: f7f328fb958568f449852e5de16ff8ee, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: f7f328fb958568f449852e5de16ff8ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: f7f328fb958568f449852e5de16ff8ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: f7f328fb958568f449852e5de16ff8ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f7f328fb958568f449852e5de16ff8ee, type: 3}
 --- !u!1 &299865538
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +789,7 @@ GameObject:
   - component: {fileID: 302750262}
   - component: {fileID: 302750261}
   m_Layer: 5
-  m_Name: SpawnLargeCylinder
+  m_Name: SpawnIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -904,7 +847,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LargeCylinder
+  m_Text: Insel
 --- !u!222 &302750262
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1704,6 +1647,8 @@ MonoBehaviour:
   cube: {fileID: 5441708640646477902, guid: 76fb314cc546b2345a53b86954cc60bc, type: 3}
   cylinder: {fileID: 3592763156418962692, guid: 6ba3f7bcd52a26a4892ad6f7c7584e72,
     type: 3}
+  island: {fileID: 1444012954815672, guid: b2c71b5dfddbcae44bf186ae02fed63c, type: 3}
+  barrel: {fileID: 1602816481838300, guid: d56f8587f49bd094fa01b01d1d73634d, type: 3}
 --- !u!1 &906253069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,7 +1662,7 @@ GameObject:
   - component: {fileID: 906253072}
   - component: {fileID: 906253071}
   m_Layer: 5
-  m_Name: ButtonCylinder
+  m_Name: ButtonBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2015,7 +1960,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1033615313
 GameObject:
@@ -2096,6 +2041,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033615313}
   m_CullTransparentMesh: 0
+--- !u!1001 &1114292236
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1327263920228428, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7, type: 3}
+      propertyPath: m_Name
+      value: Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080864178198344, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080864178198344, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080864178198344, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080864178198344, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080864178198344, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080864178198344, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080864178198344, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080864178198344, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080864178198344, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080864178198344, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080864178198344, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7, type: 3}
 --- !u!1 &1126663617
 GameObject:
   m_ObjectHideFlags: 0
@@ -2250,26 +2252,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235121441}
   m_CullTransparentMesh: 0
---- !u!1 &1339725014 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100006, guid: f7f328fb958568f449852e5de16ff8ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 277256097}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1339725015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339725014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabab995ff9e0e0469b6fe4574bfbd57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  g: {fileID: 1504464791}
-  speed: 60
 --- !u!1 &1422851851
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,6 +2336,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422851851}
   m_CullTransparentMesh: 0
+--- !u!1 &1444171540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1327263920228428, guid: 0fe5d4a0c77d7364bb3ede2c439a96f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1114292236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1444171541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444171540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabab995ff9e0e0469b6fe4574bfbd57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  g: {fileID: 1504464791}
+  speed: 60
 --- !u!1 &1489032064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2592,7 +2594,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1504464791
 MonoBehaviour:
@@ -2913,7 +2915,7 @@ GameObject:
   - component: {fileID: 1603740806}
   - component: {fileID: 1603740805}
   m_Layer: 5
-  m_Name: ButtonLargeCylinder
+  m_Name: ButtonIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
