@@ -18,7 +18,7 @@ public class CreateField : MonoBehaviour
     private bool startSelected, targetSelected; // Status ob Start/Ziel ausgewählt wurde
     public List<Node> path; // Speichert den Pfad zwischen Start und Ziel
     private GameObject field; // Objekt als das die Felder erstellt werden
-    public GameObject astarpanel, bfspanel; // Legenden für A*-Algoritmuse und Breitensuche Algoritmus
+    public GameObject astarpanel, bfspanel, dfspanel; // Legenden für A*-Algoritmuse und Breitensuche Algoritmus
 
     /*
      * Initialisierung mit Programmstart
@@ -203,16 +203,30 @@ public class CreateField : MonoBehaviour
         switch (panel.text)
         {
             case "A* - Algoritmus":
+                print("A*");
                 GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = true;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<DeaphtFirstSearch>().enabled = false;
                 astarpanel.SetActive(true);
                 bfspanel.SetActive(false);
+                dfspanel.SetActive(false);
                 break;
             case "Breitensuche - Algoritmus":
                 GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = true;
+                GameObject.Find("GameManager").GetComponent<DeaphtFirstSearch>().enabled = false;
                 astarpanel.SetActive(false);
                 bfspanel.SetActive(true);
+                dfspanel.SetActive(false);
+                break;
+            case "Tiefensuche - Algorithmus":
+                print("tiefensuche");
+                GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<DeaphtFirstSearch>().enabled = true;
+                astarpanel.SetActive(false);
+                bfspanel.SetActive(false);
+                dfspanel.SetActive(true);
                 break;
             default:
                 break;
