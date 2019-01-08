@@ -2,7 +2,7 @@
 using Event;
 using UnityEngine;
 
-/*
+/**
     Breitensuche (englisch breadth-first search, BFS) ist ein Verfahren in der Informatik zum Durchsuchen bzw. Durchlaufen der Knoten eines Graphen. 
     Sie zählt zu den uninformierten Suchalgorithmen. Im Gegensatz zur Tiefensuche werden zunächst alle Knoten beschritten, die vom Ausgangsknoten direkt erreichbar sind. 
     Erst danach werden Folgeknoten beschritten.

@@ -49,7 +49,7 @@
         <e p="bin" t="ExcludeRecursive" />
       </e>
     </e>
-    <e p="C:\Users\marti\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\marti\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_AlgorithmenDatenstrukturenPfadsuche.-1441555226.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Martin Schuster\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Martin Schuster\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_AlgorithmenDatenstrukturenPfadsuche.-1441555226.00" t="ExcludeRecursive" />
   </component>
 </project>
