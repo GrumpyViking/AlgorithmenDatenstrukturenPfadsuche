@@ -1647,7 +1647,7 @@ MonoBehaviour:
   cube: {fileID: 5441708640646477902, guid: 76fb314cc546b2345a53b86954cc60bc, type: 3}
   cylinder: {fileID: 3592763156418962692, guid: 6ba3f7bcd52a26a4892ad6f7c7584e72,
     type: 3}
-  island: {fileID: 1444012954815672, guid: b2c71b5dfddbcae44bf186ae02fed63c, type: 3}
+  island: {fileID: 8842587681258657416, guid: 73f7372c1c7b75144bcaadc1bc993a2e, type: 3}
   barrel: {fileID: 1602816481838300, guid: d56f8587f49bd094fa01b01d1d73634d, type: 3}
 --- !u!1 &906253069
 GameObject:
