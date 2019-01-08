@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1385,9 +1385,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: A* - Algoritmus
+    - m_Text: A* - Algorithmus
       m_Image: {fileID: 0}
-    - m_Text: Breitensuche - Algoritmus
+    - m_Text: Breitensuche - Algorithmus
+      m_Image: {fileID: 0}
+    - m_Text: Tiefensuche - Algorithmus
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2088,7 +2090,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A* - Algoritmus
+  m_Text: A* - Algorithmus
 --- !u!222 &999152279
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3198,6 +3200,7 @@ GameObject:
   - component: {fileID: 1464798276}
   - component: {fileID: 1464798275}
   - component: {fileID: 1464798277}
+  - component: {fileID: 1464798278}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3236,6 +3239,7 @@ MonoBehaviour:
   fieldSize: {x: 10, y: 10}
   astarpanel: {fileID: 259338286}
   bfspanel: {fileID: 1375453218}
+  dfspanel: {fileID: 0}
 --- !u!114 &1464798275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3271,6 +3275,18 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f9a5b06b0a017c45b1f5062ce175c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1464798278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464798272}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b753fcb82279ba43b96cd47a7fe051b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1478884836
