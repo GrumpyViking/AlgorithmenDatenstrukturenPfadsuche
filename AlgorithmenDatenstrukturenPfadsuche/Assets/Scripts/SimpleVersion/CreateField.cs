@@ -177,26 +177,26 @@ public class CreateField : MonoBehaviour {
                 print("A*");
                 GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = true;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
-                GameObject.Find("GameManager").GetComponent<DeaphtFirstSearch>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
                 astarpanel.SetActive(true);
                 bfspanel.SetActive(false);
-                //dfspanel.SetActive(false);
+                dfspanel.SetActive(false);
                 break;
             case "Breitensuche - Algorithmus":
                 GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = true;
-                GameObject.Find("GameManager").GetComponent<DeaphtFirstSearch>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
                 astarpanel.SetActive(false);
                 bfspanel.SetActive(true);
-                //dfspanel.SetActive(false);
+                dfspanel.SetActive(false);
                 break;
             case "Tiefensuche - Algorithmus":
                 GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
-                GameObject.Find("GameManager").GetComponent<DeaphtFirstSearch>().enabled = true;
+                GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = true;
                 astarpanel.SetActive(false);
                 bfspanel.SetActive(false);
-                //dfspanel.SetActive(true);
+                dfspanel.SetActive(true);
                 break;
             default:
                 break;
