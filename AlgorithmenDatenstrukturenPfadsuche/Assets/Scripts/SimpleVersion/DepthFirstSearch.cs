@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Event;
 using UnityEngine;
 
-public class DeaphtFirstSearch : MonoBehaviour {
+public class DepthFirstSearch : MonoBehaviour {
     private CreateField grid;
     // Start is called before the first frame update
     // Queue<Node> open = new Queue<Node>();
