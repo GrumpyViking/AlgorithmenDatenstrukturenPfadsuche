@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Net.Mime;
 using UnityEngine;
-using UnityEngine.Internal.Experimental.UIElements;
 using UnityEngine.UI;
 
 /*
- * CreatField Klasse erstellt das Spielfeld 
- */
+* CreatField Klasse erstellt das Spielfeld 
+*/
 public class CreateField : MonoBehaviour {
     public GameObject fieldCell; // Objekt aus dem das Feldbesteht (in Unity hinzufügen)
     public Vector2 fieldSize; // Größe des Spielfeldes (in Unity eintragen)
@@ -84,7 +82,7 @@ public class CreateField : MonoBehaviour {
     private void SetBarricade(GameObject field) {
         new ModifyNode().ChangeColor(field, Color.yellow);
         foreach (Node node in fieldCellArray) {
-            if (field.transform.position == node.nodeGlobalPosition) {
+            if (field.transform.position == node.GetGlobalPosition()) {
                 node.traversable = false; // Feld als nicht mehr begehbar markiert
             }
         }
@@ -96,7 +94,7 @@ public class CreateField : MonoBehaviour {
     void SetStart(GameObject field) {
         new ModifyNode().ChangeColor(field, Color.green);
         foreach (Node node in fieldCellArray) {
-            if (field.transform.position == node.nodeGlobalPosition) {
+            if (field.transform.position == node.GetGlobalPosition()) {
                 node.start = true; // Feld wird als Startpunkt markiert
             }
         }
@@ -109,7 +107,7 @@ public class CreateField : MonoBehaviour {
     void SetTarget(GameObject field) {
         new ModifyNode().ChangeColor(field, Color.red);
         foreach (Node node in fieldCellArray) {
-            if (field.transform.position == node.nodeGlobalPosition) {
+            if (field.transform.position == node.GetGlobalPosition()) {
                 node.target = true; // Feld wird als Zielpunkt markiert
             }
         }
@@ -200,6 +198,21 @@ public class CreateField : MonoBehaviour {
                 break;
             default:
                 break;
+        }
+    }
+
+    public void SaveLevel() {
+        SaveSystem.SaveData(fieldCellArray);
+    }
+
+    public void LoadLevel() {
+        SavableData oldLevel = SaveSystem.LoadLevel();
+        fieldCellArray = oldLevel.grid;
+
+        foreach (Node node in fieldCellArray) {
+            if (!node.traversable) {
+                new ModifyNode().ChangeColor(node.fieldCell, Color.yellow);
+            }
         }
     }
 }

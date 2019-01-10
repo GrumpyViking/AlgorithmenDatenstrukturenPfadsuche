@@ -115,7 +115,7 @@ namespace ComplexVersion {
                             Gizmos.color = Color.green;
                         }
                     }
-                    Gizmos.DrawCube(node.nodeGlobalPosition, Vector3.one * (cellDiameter - distanceOfCells));
+                    Gizmos.DrawCube(node.GetGlobalPosition(), Vector3.one * (cellDiameter - distanceOfCells));
                 }
             }
         }

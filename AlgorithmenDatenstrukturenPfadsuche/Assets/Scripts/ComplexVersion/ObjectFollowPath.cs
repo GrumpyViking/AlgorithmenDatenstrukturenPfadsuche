@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ComplexVersion{
+namespace ComplexVersion {
     public class ObjectFollowPath : MonoBehaviour {
         /*
         * ObjectFollowPath Klasse ermöglicht es Objekten den durch den A*-Algoritmus berechneten Pfad zu folgen
@@ -42,14 +42,14 @@ namespace ComplexVersion{
             if (moving) {
                 float step = speed * Time.deltaTime;
                 if (!reachedGoal) {
-                    transform.position = Vector3.MoveTowards(transform.position, g.path[index].nodeGlobalPosition, step*10);
+                    transform.position = Vector3.MoveTowards(transform.position, g.path[index].GetGlobalPosition(), step * 10);
                     if (index == g.path.Count - 1) {
                         reachedGoal = true;
                     } else {
                         index++;
                     }
                 } else {
-                    transform.position = Vector3.MoveTowards(transform.position, g.path[index].nodeGlobalPosition, step*10);
+                    transform.position = Vector3.MoveTowards(transform.position, g.path[index].GetGlobalPosition(), step * 10);
                     if (index == 0) {
                         reachedGoal = false;
                     } else {
@@ -59,4 +59,4 @@ namespace ComplexVersion{
             }
         }
     }
-} 
+}
