@@ -1,18 +1,19 @@
 fileFormatVersion: 2
-guid: fbe9b8179b2fac747a5cc934fa6909ae
+guid: cb0b94754b369ee48a2f9874f31aedb5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Schiff_2
-    2100002: Schiff_3
-    2100004: Schiff_1
-    2100006: Segel1
-    2100008: Flagge_Schiff
+    2100000: Sand
+    2100002: Kokosnuss
+    2100004: Blatt_1
+    2100006: Blatt_3
+    2100008: Blatt_2
+    2100010: Stamm
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Ship
+    4300000: Insel_klein
   externalObjects: {}
   materials:
     importMaterials: 1
