@@ -1,18 +1,19 @@
 fileFormatVersion: 2
-guid: fbe9b8179b2fac747a5cc934fa6909ae
+guid: 84ac0e88d651cdc45875d02b0b20552a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Schiff_2
-    2100002: Schiff_3
-    2100004: Schiff_1
-    2100006: Segel1
-    2100008: Flagge_Schiff
+    2100000: Schiff_1
+    2100002: Schiff_2
+    2100004: Schiff_3
+    2100006: Stein2
+    2100008: Stein3
+    2100010: Stein1
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Ship
+    4300000: Wrack
   externalObjects: {}
   materials:
     importMaterials: 1
