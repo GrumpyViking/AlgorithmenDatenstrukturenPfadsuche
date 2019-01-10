@@ -81,8 +81,7 @@ public class AStarAlgorithmAlt : MonoBehaviour
                 if (!NeighborNode.traversable || closedList.Contains(NeighborNode))
                 {
                     continue; 
-                } 
-                 
+                }                  
                 var MoveCost = currentNode.gCost + GetManhattenDistance(currentNode, NeighborNode); 
 
                 if (MoveCost < NeighborNode.gCost || !openList.Contains(NeighborNode)){
