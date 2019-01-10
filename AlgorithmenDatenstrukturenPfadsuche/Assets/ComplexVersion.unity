@@ -797,7 +797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellSize: 1
-  distanceOfCells: 0
+  distanceOfCells: 1
   gridSize: {x: 100, y: 100}
   obstacle:
     serializedVersion: 2
@@ -1388,20 +1388,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buoys
       objectReference: {fileID: 0}
+    - target: {fileID: 974942224989032163, guid: 4a00eb4797789de4fa8c6ea5e57a9ce0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 974942224989032163, guid: 4a00eb4797789de4fa8c6ea5e57a9ce0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 974942224989032163, guid: 4a00eb4797789de4fa8c6ea5e57a9ce0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969294865895844321, guid: 4a00eb4797789de4fa8c6ea5e57a9ce0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969294865895844321, guid: 4a00eb4797789de4fa8c6ea5e57a9ce0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969294865895844321, guid: 4a00eb4797789de4fa8c6ea5e57a9ce0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2520493026755806114, guid: 4a00eb4797789de4fa8c6ea5e57a9ce0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1459808
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2520493026755806114, guid: 4a00eb4797789de4fa8c6ea5e57a9ce0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -51.757355
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2520493026755806114, guid: 4a00eb4797789de4fa8c6ea5e57a9ce0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 35.66723
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2520493026755806114, guid: 4a00eb4797789de4fa8c6ea5e57a9ce0,
         type: 3}
