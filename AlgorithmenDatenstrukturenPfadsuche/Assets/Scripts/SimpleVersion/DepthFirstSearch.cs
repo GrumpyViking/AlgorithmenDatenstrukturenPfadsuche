@@ -40,22 +40,21 @@ public class DepthFirstSearch : MonoBehaviour {
                 targetNode = node;
             }
         }
-
-        DFS(startNode, targetNode);
+        DFS();
     }
 
-    private void DFS(Node start, Node target) {
-        open.Push(start);
-        start.visited = true;
-        start.parent = null;
+    private void DFS() {
+        open.Push(startNode);
+        startNode.visited = true;
+        startNode.parent = null;
         Node current = null;
 
         while (open.Count > 0) {
             current = open.Pop();
             visualFeedback(new ColorizeAction(Color.cyan, current.fieldCell));
 
-            if (current == target) {
-                GeneratePath(current, start);
+            if (current == targetNode) {
+                GeneratePath(current, startNode);
                 break;
             }
 
@@ -75,16 +74,15 @@ public class DepthFirstSearch : MonoBehaviour {
     private void GeneratePath(Node backTrack, Node start) {
         visualFeedback(new ColorizeAction(Color.red, backTrack.fieldCell));
         List<Node> finalPath = new List<Node>();
-        Node tmp = backTrack;
 
         while (backTrack != start) {
-            finalPath.Add(tmp);
-            tmp = tmp.parent;
+            finalPath.Add(backTrack);
+            backTrack = backTrack.parent;
 
-            if (tmp == start) {
+            if (backTrack == start) {
                 visualFeedback(new ColorizeAction(Color.green, start.fieldCell));
             } else {
-                visualFeedback(new ColorizeAction(Color.blue, tmp.fieldCell));
+                visualFeedback(new ColorizeAction(Color.blue, backTrack.fieldCell));
             }
         }
 

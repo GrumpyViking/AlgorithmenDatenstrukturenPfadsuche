@@ -31,8 +31,7 @@ public class BreadthFirstSearch : MonoBehaviour
         GetComponent<AnimationQueue>().enqueueAction(action);
     }
     
-    private void Execute()
-    {
+    private void Execute(){
         grid = GetComponent<CreateField>();
         foreach (Node node in grid.GetArray())
         {
@@ -48,24 +47,22 @@ public class BreadthFirstSearch : MonoBehaviour
                 targetNode = node;
             }
         }
-
-        BFS(startNode, targetNode);
+        BFS();
     }
 
-    private void BFS(Node start, Node target)
-    {
-        open.Enqueue(start);
-        start.visited = true;
-        start.parent = null;
+    private void BFS(){
+        open.Enqueue(startNode);
+        startNode.visited = true;
+        startNode.parent = null;
         Node current = null;
         
         while (open.Count > 0)
         {
             current = open.Dequeue();
             visualFeedback(new ColorizeAction(Color.cyan, current.fieldCell));
-            if (current == target)
+            if (current == targetNode)
             {
-                GeneratePath(current, start);
+                GeneratePath(current, startNode);
                 break;
             }
             
@@ -83,22 +80,20 @@ public class BreadthFirstSearch : MonoBehaviour
         }
     }
 
-    private void GeneratePath(Node backTrack, Node start)
-    {
+    private void GeneratePath(Node backTrack, Node start){
         visualFeedback(new ColorizeAction(Color.red, backTrack.fieldCell));
         List<Node> finalPath = new List<Node>();
-        Node tmp = backTrack;
         while (backTrack != start)
         {
-            finalPath.Add(tmp); 
-            tmp = tmp.parent;
-            if (tmp == start)
+            finalPath.Add(backTrack); 
+            backTrack = backTrack.parent;
+            if (backTrack == start )
             {
                 visualFeedback(new ColorizeAction(Color.green, start.fieldCell));
             }
             else
             {
-                visualFeedback(new ColorizeAction(Color.blue, tmp.fieldCell));
+                    visualFeedback(new ColorizeAction(Color.blue, backTrack.fieldCell));               
             }
         }
         finalPath.Reverse();
