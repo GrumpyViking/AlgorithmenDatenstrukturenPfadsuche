@@ -27,8 +27,8 @@ public static class SaveSystem {
         stream.Close();
     }
 
-    public static SavableData LoadLevel() {
-        string path = savePath + "/level.grid";
+    public static SavableData LoadLevel(string filename) {
+        string path = savePath + "/" + filename;
         if (File.Exists(path)) {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);

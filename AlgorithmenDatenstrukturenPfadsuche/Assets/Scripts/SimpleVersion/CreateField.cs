@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +20,9 @@ public class CreateField : MonoBehaviour {
     private GameObject field; // Objekt als das die Felder erstellt werden
     public GameObject astarpanel, bfspanel, dfspanel; // Legenden für A*-Algoritmuse und Breitensuche Algoritmus
     public bool paused;
-    public GameObject saveDialogPanel;
+    public GameObject saveDialogPanel, loadDialogPanel;
+
+    public Dropdown levelList;
     /*
      * Initialisierung mit Programmstart
      */
@@ -220,32 +224,43 @@ public class CreateField : MonoBehaviour {
         SaveSystem.levelName = name.text;
         SaveSystem.SaveData(modifyedNodes);
         saveDialogPanel.SetActive(false);
-        GenerateScreenShot(name.text);
         paused = false;
     }
 
-    private void GenerateScreenShot(string filename)
-    {
-        string path = Application.dataPath + "/levels"  + "/" +name +".png";
-        ScreenCapture.CaptureScreenshot(path);
-    }
 
     public void ShowSaveDialog()
     {
         saveDialogPanel.SetActive(true);
         paused = true;
     }
+
+    public void ShowLoadDialog()
+    {
+        string filePath = Application.dataPath + "/levels";
+        DirectoryInfo dir = new DirectoryInfo(filePath);
+        FileInfo[] info = dir.GetFiles("*.grid");
+        levelList.options.Clear();
+        foreach (FileInfo f in info)
+        {
+            levelList.options.Add(new Dropdown.OptionData(f.Name));
+        }
+        
+        loadDialogPanel.SetActive(true);
+        paused = true;
+    }
     
 
-    public void LoadLevel() {
-        SavableData savedLevel = SaveSystem.LoadLevel();
+    public void LoadLevel(Text filename)
+    {
+        ClearGrid();
+        SavableData savedLevel = SaveSystem.LoadLevel(filename.text);
+        
         foreach (Node node in fieldCellArray)
         {
             foreach (LevelData ld in savedLevel.saveNodes)
             {
                 if (node.index == ld.index)
                 {
-                    Debug.Log(node.fieldCell);
                     if (ld.start)
                     {
                         node.start = true;
@@ -265,6 +280,24 @@ public class CreateField : MonoBehaviour {
                     }
                 }
             }
+        }
+        loadDialogPanel.SetActive(false);
+        paused = false;
+    }
+
+    void ClearGrid()
+    {
+        foreach (Node node in fieldCellArray)
+        {
+            node.start = false;
+            node.target = false;
+            node.traversable = true;
+            node.parent = null;
+            node.gCost = Int32.MaxValue;
+            node.hCost = Int32.MaxValue;
+            node.visited = false;
+            new ModifyNode().ChangeColor(node.fieldCell, Color.white);
+
         }
     }
 }
