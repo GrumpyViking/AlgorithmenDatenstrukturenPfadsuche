@@ -5,6 +5,7 @@ public class Node {
     public int cordY; // Y Position im NodeArray
     public int gCost; // Distanz zum Start
     public int hCost; // Distanz zum Ziel
+    public int index;
     public float[] nodeGlobalPosition = new float[3]; // Weltkoordinaten der Node.
 
     public Node parent; // Von wo kam der aktuelle Knoten (wichtig für Rückverfolgung)

@@ -46,7 +46,8 @@ public class CreateField : MonoBehaviour {
                 field.GetComponent<Rigidbody>().useGravity = false;
                 field.GetComponent<Rigidbody>().isKinematic = true; // wichtig um Kollision unter den Felder zu vermeiden
                 fieldCellArray[x, y] = new Node(traversable, cordinate, x, y, field); // Fügt das aktuelle Feld dem array zu
-                counter++;
+                fieldCellArray[x, y].index = counter;
+                 counter++;
             }
         }
     }
@@ -86,6 +87,7 @@ public class CreateField : MonoBehaviour {
             if (field.transform.position == node.GetGlobalPosition()) {
                 node.traversable = false; // Feld als nicht mehr begehbar markiert
                 LevelData mnode = new LevelData(node);
+                mnode.index = node.index;
                 modifyedNodes.Add(mnode);
             }
         }
@@ -100,6 +102,7 @@ public class CreateField : MonoBehaviour {
             if (field.transform.position == node.GetGlobalPosition()) {
                 node.start = true; // Feld wird als Startpunkt markiert
                 LevelData mnode = new LevelData(node);
+                mnode.index = node.index;
                 modifyedNodes.Add(mnode);
             }
         }
@@ -115,6 +118,7 @@ public class CreateField : MonoBehaviour {
             if (field.transform.position == node.GetGlobalPosition()) {
                 node.target = true; // Feld wird als Zielpunkt markiert
                 LevelData mnode = new LevelData(node);
+                mnode.index = node.index;
                 modifyedNodes.Add(mnode);
             }
         }
@@ -215,30 +219,32 @@ public class CreateField : MonoBehaviour {
 
     public void LoadLevel() {
         SavableData savedLevel = SaveSystem.LoadLevel();
-        Debug.Log(savedLevel.saveNodes.Count);
-        /*
-        foreach (var node in savedLevel.saveNodes) {
-            for (int i = 0; i < fieldCellArray.GetLength(0); i++) {
-                for (int j = 0; j < fieldCellArray.GetLength(1); i++) {
-                    if (node.xCord == i && node.yCord == j) {
-                        if (node.start) {
-                            fieldCellArray[i, j].start = node.start;
-                            startSelected = true;
-                            new ModifyNode().ChangeColor(fieldCellArray[i, j].fieldCell, Color.green);
-                        }
-                        if (node.target) {
-                            fieldCellArray[i, j].target = node.target;
-                            targetSelected = true;
-                            new ModifyNode().ChangeColor(fieldCellArray[i, j].fieldCell, Color.red);
-                        }
-                        if (!node.traversable) {
-                            fieldCellArray[i, j].traversable = node.traversable;
-                            new ModifyNode().ChangeColor(fieldCellArray[i, j].fieldCell, Color.yellow);
-                        }
+        foreach (Node node in fieldCellArray)
+        {
+            foreach (LevelData ld in savedLevel.saveNodes)
+            {
+                if (node.index == ld.index)
+                {
+                    Debug.Log(node.fieldCell);
+                    if (ld.start)
+                    {
+                        node.start = true;
+                        new ModifyNode().ChangeColor(node.fieldCell, Color.green);
+                        startSelected = true;
+                    }
+                    if (ld.target)
+                    {
+                        node.target = true;
+                        new ModifyNode().ChangeColor(node.fieldCell, Color.red);
+                        targetSelected = true;
+                    }
+                    if (!ld.traversable)
+                    {
+                        node.traversable = false;
+                        new ModifyNode().ChangeColor(node.fieldCell, Color.yellow);
                     }
                 }
             }
         }
-        */
     }
 }

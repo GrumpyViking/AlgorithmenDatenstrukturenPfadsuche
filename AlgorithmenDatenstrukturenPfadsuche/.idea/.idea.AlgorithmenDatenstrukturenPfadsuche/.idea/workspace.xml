@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="52fef374-8974-4877-97b2-e32d19acb113" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelEditor/LevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelEditor/LevelData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Node.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SimpleVersion/CreateField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SimpleVersion/CreateField.cs" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelEditor/LevelData.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+              <folding>
+                <marker date="1547208603806" expanded="false" signature="6:78" ph="..." />
+                <marker date="1547208603806" expanded="true" signature="125:404" ph="{...}" />
+                <marker date="1547208603806" expanded="true" signature="241:402" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Node.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+              <folding>
+                <marker date="1547208621571" expanded="true" signature="38:1385" ph="{...}" />
+                <marker date="1547208621571" expanded="true" signature="710:1031" ph="{...}" />
+                <marker date="1547208621571" expanded="true" signature="1051:1059" ph="{...}" />
+                <marker date="1547208621571" expanded="true" signature="1082:1161" ph="{...}" />
+                <marker date="1547208621571" expanded="true" signature="1202:1383" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/SimpleVersion/CreateField.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="624">
+              <caret line="243" column="67" selection-start-line="243" selection-start-column="67" selection-end-line="243" selection-end-column="67" />
+              <folding>
+                <marker date="1547209176766" expanded="false" signature="6:74" ph="..." />
+                <marker date="1547209176766" expanded="true" signature="76:125" ph="/* CreatField Klasse erstellt das Spielfeld ... */" />
+                <marker date="1547209176766" expanded="true" signature="167:10500" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="1122:1173" ph="/* Initialisierung mit Programmstart ... */" />
+                <marker date="1547209176766" expanded="true" signature="1191:1424" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="1430:1473" ph="/* Erstellen des Spielfeldes ... */" />
+                <marker date="1547209176766" expanded="true" signature="1509:2997" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="1948:2991" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="2003:2981" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="3003:3095" ph="/* Interaktion durch den Benutzer um Start, Ziel und Hindernisse zu bestimmen ... */" />
+                <marker date="1547209176766" expanded="true" signature="3114:4101" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="3174:4095" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="3518:4085" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="3569:3733" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="3777:3901" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="3944:4071" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="4107:4178" ph="/* Bestimmt das dass ausgewählte Feld eine Hindernis ist ... */" />
+                <marker date="1547209176766" expanded="true" signature="4227:4659" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="4334:4653" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="4406:4643" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="4665:4731" ph="/* Bestimmt das dass ausgewählte Feld der Start ist ... */" />
+                <marker date="1547209176766" expanded="true" signature="4768:5218" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="4874:5182" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="4946:5172" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="5224:5289" ph="/* Bestimmt das dass ausgewählte Feld das Ziel ist ... */" />
+                <marker date="1547209176766" expanded="true" signature="5327:5776" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="5431:5739" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="5503:5729" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="5861:5899" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="5905:5978" ph="/* Liefert die Nachbarfelder eines Feldes als Liste zurück ... */" />
+                <marker date="1547209176766" expanded="true" signature="6035:7579" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="6407:6569" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="6473:6559" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="6733:6895" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="6799:6885" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="7059:7221" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="7125:7211" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="7384:7546" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="7450:7536" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="7585:7657" ph="/* Anzeige der richtigen Legende zum gewählten Algoritmus ... */" />
+                <marker date="1547209176766" expanded="true" signature="7696:9284" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="7726:9278" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="9353:9404" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="9434:10498" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="9538:10492" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="9607:10482" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="9665:10468" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="9764:9980" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="10015:10231" ph="{...}" />
+                <marker date="1547209176766" expanded="true" signature="10272:10450" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelEditor/LevelData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Node.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SimpleVersion/CreateField.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelEditor/LevelData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Node.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SimpleVersion/CreateField.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1940" />
+    <option name="height" value="1100" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="UnityExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="UnityExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+              <item name="LevelEditor" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+              <item name="SimpleVersion" type="1045f7f1:UnityExplorerNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-hidden-items" value="false" />
+      </pane>
+      <pane id="FileSystemExplorer" />
+      <pane id="AssemblyExplorer" />
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="52fef374-8974-4877-97b2-e32d19acb113" name="Default Changelist" comment="" />
+      <created>1547208456462</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1547208456462</updated>
+      <workItem from="1547208460836" duration="765000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="765000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Captures" />
+      <window_info id="Capture Tool" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="NuGet" />
+      <window_info anchor="bottom" id="Android Profiler" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Performance Profiler" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Logcat" />
+      <window_info anchor="bottom" id="Unit Tests" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Unit Tests Coverage" />
+      <window_info anchor="right" id="Errors In Solution" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelEditor/LevelData.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+          <folding>
+            <marker date="1547208603806" expanded="false" signature="6:78" ph="..." />
+            <marker date="1547208603806" expanded="true" signature="125:404" ph="{...}" />
+            <marker date="1547208603806" expanded="true" signature="241:402" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Node.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding>
+            <marker date="1547208621571" expanded="true" signature="38:1385" ph="{...}" />
+            <marker date="1547208621571" expanded="true" signature="710:1031" ph="{...}" />
+            <marker date="1547208621571" expanded="true" signature="1051:1059" ph="{...}" />
+            <marker date="1547208621571" expanded="true" signature="1082:1161" ph="{...}" />
+            <marker date="1547208621571" expanded="true" signature="1202:1383" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/SimpleVersion/CreateField.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="243" column="67" selection-start-line="243" selection-start-column="67" selection-end-line="243" selection-end-column="67" />
+          <folding>
+            <marker date="1547209176766" expanded="false" signature="6:74" ph="..." />
+            <marker date="1547209176766" expanded="true" signature="76:125" ph="/* CreatField Klasse erstellt das Spielfeld ... */" />
+            <marker date="1547209176766" expanded="true" signature="167:10500" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="1122:1173" ph="/* Initialisierung mit Programmstart ... */" />
+            <marker date="1547209176766" expanded="true" signature="1191:1424" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="1430:1473" ph="/* Erstellen des Spielfeldes ... */" />
+            <marker date="1547209176766" expanded="true" signature="1509:2997" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="1948:2991" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="2003:2981" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="3003:3095" ph="/* Interaktion durch den Benutzer um Start, Ziel und Hindernisse zu bestimmen ... */" />
+            <marker date="1547209176766" expanded="true" signature="3114:4101" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="3174:4095" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="3518:4085" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="3569:3733" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="3777:3901" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="3944:4071" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="4107:4178" ph="/* Bestimmt das dass ausgewählte Feld eine Hindernis ist ... */" />
+            <marker date="1547209176766" expanded="true" signature="4227:4659" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="4334:4653" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="4406:4643" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="4665:4731" ph="/* Bestimmt das dass ausgewählte Feld der Start ist ... */" />
+            <marker date="1547209176766" expanded="true" signature="4768:5218" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="4874:5182" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="4946:5172" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="5224:5289" ph="/* Bestimmt das dass ausgewählte Feld das Ziel ist ... */" />
+            <marker date="1547209176766" expanded="true" signature="5327:5776" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="5431:5739" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="5503:5729" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="5861:5899" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="5905:5978" ph="/* Liefert die Nachbarfelder eines Feldes als Liste zurück ... */" />
+            <marker date="1547209176766" expanded="true" signature="6035:7579" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="6407:6569" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="6473:6559" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="6733:6895" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="6799:6885" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="7059:7221" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="7125:7211" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="7384:7546" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="7450:7536" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="7585:7657" ph="/* Anzeige der richtigen Legende zum gewählten Algoritmus ... */" />
+            <marker date="1547209176766" expanded="true" signature="7696:9284" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="7726:9278" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="9353:9404" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="9434:10498" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="9538:10492" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="9607:10482" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="9665:10468" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="9764:9980" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="10015:10231" ph="{...}" />
+            <marker date="1547209176766" expanded="true" signature="10272:10450" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

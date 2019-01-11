@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class LevelData {
-    public int xCord, yCord;
+    public int xCord, yCord, index;
 
     public bool start, target, traversable;
 
