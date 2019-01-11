@@ -11,7 +11,7 @@ public class CreateField : MonoBehaviour {
     private float fieldCellSize = 0.5f; // größe der einzelnen Felder
     private int fieldSizeXAxis, fieldSizeYAxis; // anzahl Felder auf der X bzw. Y Achse
     private float fieldCellDiameter; // Für Korrekte Feldgrößen berechnung notwendig 
-
+    private List<LevelData> modifyedNodes = new List<LevelData>();
     public Node[,] fieldCellArray; // Zweidimensionales Array zum Speichern der einzelnen Felder und derer Eigenschaften
     private bool startSelected, targetSelected; // Status ob Start/Ziel ausgewählt wurde
     public List<Node> path; // Speichert den Pfad zwischen Start und Ziel
@@ -85,6 +85,8 @@ public class CreateField : MonoBehaviour {
         foreach (Node node in fieldCellArray) {
             if (field.transform.position == node.GetGlobalPosition()) {
                 node.traversable = false; // Feld als nicht mehr begehbar markiert
+                LevelData mnode = new LevelData(node);
+                modifyedNodes.Add(mnode);
             }
         }
     }
@@ -97,6 +99,8 @@ public class CreateField : MonoBehaviour {
         foreach (Node node in fieldCellArray) {
             if (field.transform.position == node.GetGlobalPosition()) {
                 node.start = true; // Feld wird als Startpunkt markiert
+                LevelData mnode = new LevelData(node);
+                modifyedNodes.Add(mnode);
             }
         }
         startSelected = true;
@@ -110,6 +114,8 @@ public class CreateField : MonoBehaviour {
         foreach (Node node in fieldCellArray) {
             if (field.transform.position == node.GetGlobalPosition()) {
                 node.target = true; // Feld wird als Zielpunkt markiert
+                LevelData mnode = new LevelData(node);
+                modifyedNodes.Add(mnode);
             }
         }
         targetSelected = true;
@@ -204,21 +210,35 @@ public class CreateField : MonoBehaviour {
 
     // Save Load for Binarry Formatter
     public void SaveLevel() {
-        GenerateSaveData();
-        SaveSystem.SaveData(fieldCellArray);
+        SaveSystem.SaveData(modifyedNodes);
     }
 
     public void LoadLevel() {
-        LevelData savedLevel = SaveSystem.LoadLevel();
-
-        foreach (Node node in fieldCellArray) {
-            if (node.cordX == savedLevel.xCord) {
-                new ModifyNode().ChangeColor(node.fieldCell, Color.yellow);
+        SavableData savedLevel = SaveSystem.LoadLevel();
+        Debug.Log(savedLevel.saveNodes.Count);
+        /*
+        foreach (var node in savedLevel.saveNodes) {
+            for (int i = 0; i < fieldCellArray.GetLength(0); i++) {
+                for (int j = 0; j < fieldCellArray.GetLength(1); i++) {
+                    if (node.xCord == i && node.yCord == j) {
+                        if (node.start) {
+                            fieldCellArray[i, j].start = node.start;
+                            startSelected = true;
+                            new ModifyNode().ChangeColor(fieldCellArray[i, j].fieldCell, Color.green);
+                        }
+                        if (node.target) {
+                            fieldCellArray[i, j].target = node.target;
+                            targetSelected = true;
+                            new ModifyNode().ChangeColor(fieldCellArray[i, j].fieldCell, Color.red);
+                        }
+                        if (!node.traversable) {
+                            fieldCellArray[i, j].traversable = node.traversable;
+                            new ModifyNode().ChangeColor(fieldCellArray[i, j].fieldCell, Color.yellow);
+                        }
+                    }
+                }
             }
         }
-    }
-
-    private LevelData GenerateSaveData() {
-
+        */
     }
 }

@@ -1,15 +1,13 @@
-﻿using UnityEngine;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public static class SavableData {
+[System.Serializable]
+public class SavableData {
 
+    public List<LevelData> saveNodes;
 
-    public SavableData() {
-
+    public SavableData(List<LevelData> nodes) {
+        saveNodes = nodes;
     }
-    public SavableData() {
-
-    }
-
 }
