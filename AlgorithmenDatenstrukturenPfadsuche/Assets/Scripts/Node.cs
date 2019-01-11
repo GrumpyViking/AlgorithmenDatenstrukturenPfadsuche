@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using System.Xml;
+using System.Xml.Serialization;
 
-[System.Serializable]
+[XmlRoot("Base")]
 public class Node {
     public int cordX; // X Position im NodeArray
     public int cordY; // Y Position im NodeArray
@@ -20,6 +22,10 @@ public class Node {
         this.cordX = cordX;
         this.cordY = cordY;
         this.fieldCell = fieldCell;
+    }
+
+    public Node() {
+
     }
 
     public int fCost {

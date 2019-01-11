@@ -11,7 +11,8 @@ public class CreateField : MonoBehaviour {
     private float fieldCellSize = 0.5f; // größe der einzelnen Felder
     private int fieldSizeXAxis, fieldSizeYAxis; // anzahl Felder auf der X bzw. Y Achse
     private float fieldCellDiameter; // Für Korrekte Feldgrößen berechnung notwendig 
-    private Node[,] fieldCellArray; // Zweidimensionales Array zum Speichern der einzelnen Felder und derer Eigenschaften
+
+    public Node[,] fieldCellArray; // Zweidimensionales Array zum Speichern der einzelnen Felder und derer Eigenschaften
     private bool startSelected, targetSelected; // Status ob Start/Ziel ausgewählt wurde
     public List<Node> path; // Speichert den Pfad zwischen Start und Ziel
     private GameObject field; // Objekt als das die Felder erstellt werden
@@ -202,6 +203,12 @@ public class CreateField : MonoBehaviour {
     }
 
     public void SaveLevel() {
+        SavableData sd = new SavableData(fieldCellArray);
+        sd.SaveLevel();
+    }
+
+    /* Save Load for Binarry Formatter
+    public void SaveLevel() {
         SaveSystem.SaveData(fieldCellArray);
     }
 
@@ -215,4 +222,5 @@ public class CreateField : MonoBehaviour {
             }
         }
     }
+    */
 }
