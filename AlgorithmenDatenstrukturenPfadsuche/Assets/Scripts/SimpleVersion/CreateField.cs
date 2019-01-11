@@ -202,25 +202,23 @@ public class CreateField : MonoBehaviour {
         }
     }
 
+    // Save Load for Binarry Formatter
     public void SaveLevel() {
-        SavableData sd = new SavableData(fieldCellArray);
-        sd.SaveLevel();
-    }
-
-    /* Save Load for Binarry Formatter
-    public void SaveLevel() {
+        GenerateSaveData();
         SaveSystem.SaveData(fieldCellArray);
     }
 
     public void LoadLevel() {
-        SavableData oldLevel = SaveSystem.LoadLevel();
-        fieldCellArray = oldLevel.grid;
+        LevelData savedLevel = SaveSystem.LoadLevel();
 
         foreach (Node node in fieldCellArray) {
-            if (!node.traversable) {
+            if (node.cordX == savedLevel.xCord) {
                 new ModifyNode().ChangeColor(node.fieldCell, Color.yellow);
             }
         }
     }
-    */
+
+    private LevelData GenerateSaveData() {
+
+    }
 }

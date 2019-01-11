@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
-using System.Xml;
-using System.Xml.Serialization;
 
-[XmlRoot("Base")]
 public class Node {
     public int cordX; // X Position im NodeArray
     public int cordY; // Y Position im NodeArray
