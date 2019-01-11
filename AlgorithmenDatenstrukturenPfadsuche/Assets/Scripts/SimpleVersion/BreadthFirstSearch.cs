@@ -18,9 +18,13 @@ public class BreadthFirstSearch : MonoBehaviour
     private Node targetNode;
     private GameObject targetPosition;
     
+    void Awake()
+    {
+        grid = GetComponent<CreateField>();
+    }   
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !grid.paused)
         {
             Execute();
         }
@@ -32,7 +36,6 @@ public class BreadthFirstSearch : MonoBehaviour
     }
     
     private void Execute(){
-        grid = GetComponent<CreateField>();
         foreach (Node node in grid.GetArray())
         {
             if (node.start == true)

@@ -17,7 +17,8 @@ public class CreateField : MonoBehaviour {
     public List<Node> path; // Speichert den Pfad zwischen Start und Ziel
     private GameObject field; // Objekt als das die Felder erstellt werden
     public GameObject astarpanel, bfspanel, dfspanel; // Legenden für A*-Algoritmuse und Breitensuche Algoritmus
-
+    public bool paused;
+    public GameObject saveDialogPanel;
     /*
      * Initialisierung mit Programmstart
      */
@@ -26,6 +27,7 @@ public class CreateField : MonoBehaviour {
         fieldSizeXAxis = Mathf.RoundToInt(fieldSize.x / fieldCellDiameter);
         fieldSizeYAxis = Mathf.RoundToInt(fieldSize.y / fieldCellDiameter);
         CreateFieldGrid();
+        paused = false;
     }
 
     /*
@@ -56,7 +58,7 @@ public class CreateField : MonoBehaviour {
      * Interaktion durch den Benutzer um Start, Ziel und Hindernisse zu bestimmen
      */
     void Update() {
-        if (Input.GetMouseButtonDown(0)) // Linkemaustaste
+        if (Input.GetMouseButtonDown(0) && !paused) // Linkemaustaste
         {
             Vector3 mouse = Input.mousePosition;
             Ray castPoint = Camera.main.ScreenPointToRay(mouse);
@@ -213,9 +215,27 @@ public class CreateField : MonoBehaviour {
     }
 
     // Save Load for Binarry Formatter
-    public void SaveLevel() {
+    public void SaveLevel(Text name)
+    {
+        SaveSystem.levelName = name.text;
         SaveSystem.SaveData(modifyedNodes);
+        saveDialogPanel.SetActive(false);
+        GenerateScreenShot(name.text);
+        paused = false;
     }
+
+    private void GenerateScreenShot(string filename)
+    {
+        string path = Application.dataPath + "/levels"  + "/" +name +".png";
+        ScreenCapture.CaptureScreenshot(path);
+    }
+
+    public void ShowSaveDialog()
+    {
+        saveDialogPanel.SetActive(true);
+        paused = true;
+    }
+    
 
     public void LoadLevel() {
         SavableData savedLevel = SaveSystem.LoadLevel();

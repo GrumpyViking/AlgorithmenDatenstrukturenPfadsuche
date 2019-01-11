@@ -2,14 +2,22 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.UI;
 
 public static class SaveSystem {
     // Application.persistentDataPath
-    private static string savePath = "C:/SavePath";
+    private static string savePath = Application.dataPath + "/levels";
 
+    public static string levelName;
+
+    public static void SetName(Text name)
+    {
+        levelName = name.text;
+    }
+    
     public static void SaveData(List<LevelData> data) {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = savePath + "/level.grid";
+        string path = savePath + "/" + levelName + ".grid";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         SavableData saveData = new SavableData(data);

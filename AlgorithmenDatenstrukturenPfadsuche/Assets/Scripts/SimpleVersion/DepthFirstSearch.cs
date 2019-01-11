@@ -14,7 +14,7 @@ public class DepthFirstSearch : MonoBehaviour {
     private GameObject targetPosition;
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space) && !grid.paused) {
             Execute();
         }
     }

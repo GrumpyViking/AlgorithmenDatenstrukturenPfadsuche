@@ -8,14 +8,18 @@ public class AStarAlgorithmAlt : MonoBehaviour
     private Node startNode, targetNode;
     public List<Node> openList = new List<Node>(); 
     public HashSet<Node> closedList = new HashSet<Node>();
-    
+
+    void Awake()
+    {
+             grid = GetComponent<CreateField>();
+    }     
     private void visualFeedback(IAction action)
     {
         GetComponent<AnimationQueue>().enqueueAction(action);
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !grid.paused)
         {
             Execute();
             visualFeedback(new ColorizeAction(Color.green, startNode.fieldCell));
@@ -24,7 +28,7 @@ public class AStarAlgorithmAlt : MonoBehaviour
     }    
     public void Execute()
     {
-        grid = GetComponent<CreateField>();
+        
         
         foreach (Node node in grid.GetArray())
         {
