@@ -2,7 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlaceObjects : MonoBehaviour {
+public class PlaceObjects : MonoBehaviour
+{
     /*
      * PlaceObject Klasse fügt Hindernisse dem Spielfeld hinzu
      * Aufruf erfolgt über die Button an der linken Seite
@@ -12,8 +13,10 @@ public class PlaceObjects : MonoBehaviour {
     public GameObject island, islandbig, barrel, kraken, wrack; // Objekte müssen in Unity Editor zugewiesen werden 
     private GameObject obstacle;
 
-    public void PlaceObject(Text objectToPlace) {
-        switch (objectToPlace.text) {
+    public void PlaceObject(Text objectToPlace)
+    {
+        switch (objectToPlace.text)
+        {
             case "Wrack":
                 obstacle = Instantiate(wrack, new Vector3(0, 0, 0), Quaternion.identity); // Erstllet Objekt
                 obstacle.layer = 30; // Fügt Objekt dem "Obstacle" Layer hinzu (relevant für erkennung im A*-Algoritmus)
@@ -21,9 +24,9 @@ public class PlaceObjects : MonoBehaviour {
                 break;
             case "Kraken":
                 obstacle = Instantiate(kraken, new Vector3(0, 0, 0), Quaternion.identity); // Erstllet Objekt
-                obstacle.layer = 30; // Fügt Objekt dem "Obstacle" Layer hinzu (relevant für erkennung im A*-Algoritmus)
+                obstacle.layer = 30; // Fügt Objekt dem "Obstacle" Layer hinzu (relevant für erkennung im A*-Algoritmus)                
                 obstacle.AddComponent<FollowMouse>();
-                break;           
+                break;
             case "Fass":
                 obstacle = Instantiate(barrel, new Vector3(0, 0, 0),
                     Quaternion.identity);

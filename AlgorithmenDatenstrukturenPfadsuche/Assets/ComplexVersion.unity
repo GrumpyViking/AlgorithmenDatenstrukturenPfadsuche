@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1299,6 +1299,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1570073029}
+    - target: {fileID: 1306522027005732487, guid: a09f46b2d0a71334da2e4f1c2a2da7a9,
+        type: 3}
+      propertyPath: kraken
+      value: 
+      objectReference: {fileID: 6865714417117687624, guid: affceafa4fbbfa64a9f5e4d2cbb98bbc,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a09f46b2d0a71334da2e4f1c2a2da7a9, type: 3}
 --- !u!1001 &4729662372672797660
