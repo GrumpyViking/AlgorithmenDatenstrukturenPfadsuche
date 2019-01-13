@@ -78,6 +78,7 @@ public class AStarAlgorithmAlt : MonoBehaviour
             if (currentNode == targetNode)
             {
                 GetPath(startNode, targetNode);
+                print("A* Besuchte: " + openList.Count);
                 break;
             } 
             
@@ -106,10 +107,12 @@ public class AStarAlgorithmAlt : MonoBehaviour
     private void GetPath(Node startingNode, Node endNode)
     {
         List<Node> finalPath = new List<Node>();
-        Node currentNode = endNode; 
+        Node currentNode = endNode;
+        int count = 0;
 
-        while (currentNode != startingNode) 
+        while (currentNode != startingNode)
         {
+            count++;
             finalPath.Add(currentNode); 
             currentNode = currentNode.parent;
             visualFeedback(new ColorizeAction(Color.blue, currentNode.fieldCell));
@@ -117,6 +120,7 @@ public class AStarAlgorithmAlt : MonoBehaviour
 
         finalPath.Reverse();
         grid.path = finalPath;
+        print("A* Pfadlänge: " + count);
     }
 
     private int GetManhattenDistance(Node nodeA, Node nodeB)
