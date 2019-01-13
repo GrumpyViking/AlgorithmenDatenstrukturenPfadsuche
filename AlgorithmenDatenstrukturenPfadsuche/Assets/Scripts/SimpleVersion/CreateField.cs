@@ -288,6 +288,14 @@ public class CreateField : MonoBehaviour {
     #region LevelPicture
     void ScreenShot(string filename) {
         string savePath = Application.dataPath + "/levels";
+        try {
+            if (!Directory.Exists(savePath)) {
+                // Try to create the directory.
+                DirectoryInfo di = Directory.CreateDirectory(savePath);
+            }
+        } catch (IOException ioex) {
+            Debug.Log(ioex.Message);
+        }
         byte[] bytes = toTexture2D(renderTexture).EncodeToPNG();
         System.IO.File.WriteAllBytes(savePath + "/" + filename + ".png", bytes);
     }

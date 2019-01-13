@@ -10,13 +10,20 @@ public static class SaveSystem {
 
     public static string levelName;
 
-    public static void SetName(Text name)
-    {
+    public static void SetName(Text name) {
         levelName = name.text;
     }
-    
+
     public static void SaveData(List<LevelData> data) {
         BinaryFormatter formatter = new BinaryFormatter();
+        try {
+            if (!Directory.Exists(savePath)) {
+                // Try to create the directory.
+                DirectoryInfo di = Directory.CreateDirectory(savePath);
+            }
+        } catch (IOException ioex) {
+            Debug.Log(ioex.Message);
+        }
         string path = savePath + "/" + levelName + ".grid";
         FileStream stream = new FileStream(path, FileMode.Create);
 
