@@ -47,7 +47,7 @@ public class AStarAlgorithm : MonoBehaviour
             if (current == targetNode)
             {
                 GetPath(startNode, targetNode);
-                statistics.setVisited(openList.Count);
+                statistics.setVisited(closedList.Count);
                 break;
             }
 

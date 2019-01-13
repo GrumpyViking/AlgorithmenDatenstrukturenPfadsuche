@@ -64,6 +64,8 @@ public class BreadthFirstSearch : MonoBehaviour
         {
             current = open.Dequeue();
             visualFeedback(new ColorizeAction(Color.cyan, current.fieldCell));
+            visited++;
+            
             if (current == targetNode)
             {
                 GeneratePath(current, startNode);
@@ -80,7 +82,6 @@ public class BreadthFirstSearch : MonoBehaviour
                     neighbor.visited = true;
                     neighbor.parent = current;
                     visualFeedback(new ColorizeAction(Color.magenta, neighbor.fieldCell));
-                    visited++;
                 } 
             }
         }
@@ -104,6 +105,8 @@ public class BreadthFirstSearch : MonoBehaviour
                     pathCount++;
             }
         }
+
+        pathCount++;
         print("Breitensuche Pfadlänge: " + pathCount);
         finalPath.Reverse();
         grid.path = finalPath;

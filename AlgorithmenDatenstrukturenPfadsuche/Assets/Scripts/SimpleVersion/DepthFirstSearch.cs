@@ -48,13 +48,16 @@ public class DepthFirstSearch : MonoBehaviour {
         startNode.visited = true;
         startNode.parent = null;
         Node current = null;
+        int count = 0;
 
         while (open.Count > 0) {
             current = open.Pop();
             visualFeedback(new ColorizeAction(Color.cyan, current.fieldCell));
+            count++;
 
             if (current == targetNode) {
                 GeneratePath(current, startNode);
+                print("Tiefensuche Besucht: " + count);
                 break;
             }
 
@@ -65,7 +68,7 @@ public class DepthFirstSearch : MonoBehaviour {
                     open.Push(neighbor);
                     neighbor.visited = true;
                     neighbor.parent = current;
-                    visualFeedback(new ColorizeAction(Color.magenta, neighbor.fieldCell)); ;
+                    visualFeedback(new ColorizeAction(Color.magenta, neighbor.fieldCell));
                 }
             }
         }
@@ -74,6 +77,7 @@ public class DepthFirstSearch : MonoBehaviour {
     private void GeneratePath(Node backTrack, Node start) {
         visualFeedback(new ColorizeAction(Color.red, backTrack.fieldCell));
         List<Node> finalPath = new List<Node>();
+        int count = 0;
 
         while (backTrack != start) {
             finalPath.Add(backTrack);
@@ -83,10 +87,13 @@ public class DepthFirstSearch : MonoBehaviour {
                 visualFeedback(new ColorizeAction(Color.green, start.fieldCell));
             } else {
                 visualFeedback(new ColorizeAction(Color.blue, backTrack.fieldCell));
+                count++;
             }
         }
 
         finalPath.Reverse();
         grid.path = finalPath;
+        count++;
+        print("Tiefensuche Pfadlänge: " + count);
     }
 }

@@ -78,7 +78,7 @@ public class AStarAlgorithmAlt : MonoBehaviour
             if (currentNode == targetNode)
             {
                 GetPath(startNode, targetNode);
-                print("A* Besuchte: " + openList.Count);
+                print("A* Besuchte: " + closedList.Count);
                 break;
             } 
             
