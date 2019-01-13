@@ -326,6 +326,14 @@ public class CreateField : MonoBehaviour {
     #region LoadingLevel
     public void ShowLoadDialog() {
         string filePath = Application.dataPath + "/levels";
+        try {
+            if (!Directory.Exists(filePath)) {
+                // Try to create the directory.
+                DirectoryInfo di = Directory.CreateDirectory(filePath);
+            }
+        } catch (IOException ioex) {
+            Debug.Log(ioex.Message);
+        }
         DirectoryInfo dir = new DirectoryInfo(filePath);
         FileInfo[] names = dir.GetFiles("*.grid");
         levelList.options.Clear();
