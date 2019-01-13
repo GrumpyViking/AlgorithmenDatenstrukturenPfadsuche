@@ -2,99 +2,84 @@
 using UnityEngine;
 using Event;
 
-public class AStarAlgorithmAlt : MonoBehaviour
-{
-    private CreateField grid; 
+public class AStarAlgorithmAlt : MonoBehaviour {
+    private CreateField grid;
     private Node startNode, targetNode;
-    public List<Node> openList = new List<Node>(); 
+    public List<Node> openList = new List<Node>();
     public HashSet<Node> closedList = new HashSet<Node>();
+    private Statistics2 statistics;
 
-    void Awake()
-    {
-             grid = GetComponent<CreateField>();
-    }     
-    private void visualFeedback(IAction action)
-    {
+    void Awake() {
+        statistics = GetComponent<Statistics2>();
+        grid = GetComponent<CreateField>();
+    }
+    private void visualFeedback(IAction action) {
         GetComponent<AnimationQueue>().enqueueAction(action);
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && !grid.paused)
-        {
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Space) && !grid.paused) {
             Execute();
             visualFeedback(new ColorizeAction(Color.green, startNode.fieldCell));
             visualFeedback(new ColorizeAction(Color.red, targetNode.fieldCell));
         }
-    }    
-    public void Execute()
-    {
-        
-        
-        foreach (Node node in grid.GetArray())
-        {
-            if (node.start == true)
-            {
+    }
+    public void Execute() {
+
+
+        foreach (Node node in grid.GetArray()) {
+            if (node.start == true) {
                 startNode = node;
             }
 
-            if (node.target == true)
-            {
+            if (node.target == true) {
                 targetNode = node;
             }
         }
         AStarAlgo();
     }
 
-    private void AStarAlgo()
-    {
+    private void AStarAlgo() {
         openList.Add(startNode);
         startNode.gCost = 0;
         startNode.hCost = GetManhattenDistance(startNode, targetNode);
-        
-        while (openList.Count > 0) 
-        {
+
+        while (openList.Count > 0) {
             Node currentNode = openList[0];
-            
-            for (int i = 1; i < openList.Count; i++)
-            {
-                if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost)
-                {
-                    currentNode = openList[i]; 
-                } 
-            } 
-                    
-            openList.Remove(currentNode); 
+
+            for (int i = 1; i < openList.Count; i++) {
+                if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost) {
+                    currentNode = openList[i];
+                }
+            }
+
+            openList.Remove(currentNode);
             closedList.Add(currentNode);
-            if (currentNode != startNode)
-            {
+            if (currentNode != startNode) {
                 visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
             }
 
-            if (currentNode != targetNode)
-            {
+            if (currentNode != targetNode) {
                 visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
             }
-            
-            if (currentNode == targetNode)
-            {
+
+            if (currentNode == targetNode) {
                 GetPath(startNode, targetNode);
                 print("A* Besuchte: " + closedList.Count);
+                statistics.setVisited(closedList.Count);
                 break;
-            } 
-            
-            foreach (Node NeighborNode in grid.GetNeighboringNodes(currentNode)){
-                if (!NeighborNode.traversable || closedList.Contains(NeighborNode))
-                {
-                    continue; 
-                }                  
-                var MoveCost = currentNode.gCost + GetManhattenDistance(currentNode, NeighborNode); 
+            }
 
-                if (MoveCost < NeighborNode.gCost || !openList.Contains(NeighborNode)){
-                    NeighborNode.gCost = MoveCost; 
-                    NeighborNode.hCost = GetManhattenDistance(NeighborNode, targetNode); 
+            foreach (Node NeighborNode in grid.GetNeighboringNodes(currentNode)) {
+                if (!NeighborNode.traversable || closedList.Contains(NeighborNode)) {
+                    continue;
+                }
+                var MoveCost = currentNode.gCost + GetManhattenDistance(currentNode, NeighborNode);
+
+                if (MoveCost < NeighborNode.gCost || !openList.Contains(NeighborNode)) {
+                    NeighborNode.gCost = MoveCost;
+                    NeighborNode.hCost = GetManhattenDistance(NeighborNode, targetNode);
                     NeighborNode.parent = currentNode;
-                    if (!openList.Contains(NeighborNode))
-                    {
+                    if (!openList.Contains(NeighborNode)) {
                         openList.Add(NeighborNode);
                         visualFeedback(new ColorizeAction(Color.cyan, NeighborNode.fieldCell));
                     }
@@ -104,30 +89,27 @@ public class AStarAlgorithmAlt : MonoBehaviour
     }
 
 
-    private void GetPath(Node startingNode, Node endNode)
-    {
+    private void GetPath(Node startingNode, Node endNode) {
         List<Node> finalPath = new List<Node>();
         Node currentNode = endNode;
         int count = 0;
 
-        while (currentNode != startingNode)
-        {
+        while (currentNode != startingNode) {
             count++;
-            finalPath.Add(currentNode); 
+            finalPath.Add(currentNode);
             currentNode = currentNode.parent;
             visualFeedback(new ColorizeAction(Color.blue, currentNode.fieldCell));
         }
-
+        statistics.setPathLength(count);
         finalPath.Reverse();
         grid.path = finalPath;
         print("A* Pfadlänge: " + count);
     }
 
-    private int GetManhattenDistance(Node nodeA, Node nodeB)
-    {
-        int disX = Mathf.Abs(nodeA.cordX - nodeB.cordX); 
-        int disY = Mathf.Abs(nodeA.cordY - nodeB.cordY); 
+    private int GetManhattenDistance(Node nodeA, Node nodeB) {
+        int disX = Mathf.Abs(nodeA.cordX - nodeB.cordX);
+        int disY = Mathf.Abs(nodeA.cordY - nodeB.cordY);
 
-        return disX + disY; 
+        return disX + disY;
     }
 }
