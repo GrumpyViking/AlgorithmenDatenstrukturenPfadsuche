@@ -7,6 +7,10 @@ namespace ComplexVersion {
          * Objekt folgt der Mausbewegung des Nutzers
          */
         float speed = 200f; // Geschwindigkeit der Rotation von Objekten
+        private MouseWheelManager mouseWheelManager;
+        void Awake() {
+            mouseWheelManager = GameObject.Find("MouseWheelManager").GetComponent<MouseWheelManager>();
+        }
         void Update() {
             // Quelle: https://forum.unity.com/threads/solved-moving-gameobject-along-x-and-z-axis-by-drag-and-drop-using-x-and-y-from-screenspace.488476/#post-3185720
             float planeY = 0;
@@ -27,10 +31,12 @@ namespace ComplexVersion {
                 if (Input.GetAxis("Mouse ScrollWheel") < 0) {
                     transform.Rotate(-Vector3.up * speed * Time.deltaTime);
                 }
+
             }
 
             // Das Objekt wird bei Mausklick platziert in dem das Skript vom Objekt entfernt wird
             if (Input.GetMouseButtonDown(0)) {
+                mouseWheelManager.SetAvailability(true);
                 Destroy(GetComponent<FollowMouse>());
             }
         }
