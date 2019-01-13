@@ -1,11 +1,15 @@
 fileFormatVersion: 2
-guid: 4d22dccb5ed68cb4eb62e09926ad7c83
+guid: fbe9b8179b2fac747a5cc934fa6909ae
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert1
+    2100000: Schiff_2
+    2100002: Schiff_3
+    2100004: Schiff_1
+    2100006: Segel1
+    2100008: Flagge_Schiff
     2300000: //RootNode
     3300000: //RootNode
     4300000: Ship

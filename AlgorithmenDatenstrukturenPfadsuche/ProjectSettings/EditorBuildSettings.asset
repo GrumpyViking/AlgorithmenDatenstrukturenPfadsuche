@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ComplexVersion.unity
     guid: 304aef126b2004745bb68fb2054b064e
+  - enabled: 1
+    path: Assets/Editor(Testing).unity
+    guid: 0f94528c37722d54ea220dd1ef9272fd
   m_configObjects: {}

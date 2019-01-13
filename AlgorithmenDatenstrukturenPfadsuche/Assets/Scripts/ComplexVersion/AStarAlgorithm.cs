@@ -6,7 +6,8 @@ public class AStarAlgorithm : MonoBehaviour
 {
     private CreateGrid grid;
     private Node startNode, targetNode;
-    public Transform startPosition; 
+    public Transform startPosition;
+    private Statistics statistics;
 
     public Transform targetPosition; 
     public List<Node> openList = new List<Node>(); 
@@ -20,6 +21,7 @@ public class AStarAlgorithm : MonoBehaviour
     private void FindPath()
     {
         grid = GetComponent<CreateGrid>();
+        statistics = GetComponent<Statistics>();
         startNode = grid.NodeFromGlobalPosition(startPosition.position);
         targetNode = grid.NodeFromGlobalPosition(targetPosition.position);
         openList.Clear();
@@ -45,6 +47,7 @@ public class AStarAlgorithm : MonoBehaviour
             if (current == targetNode)
             {
                 GetPath(startNode, targetNode);
+                statistics.setVisited(closedList.Count);
                 break;
             }
 
@@ -75,16 +78,19 @@ public class AStarAlgorithm : MonoBehaviour
     private void GetPath(Node startingNode, Node endNode)
     {
         List<Node> finalPath = new List<Node>();
-        Node currentNode = endNode; 
+        Node currentNode = endNode;
+        int count = 0;
 
-        while (currentNode != startingNode) 
+        while (currentNode != startingNode)
         {
+            count++;
             finalPath.Add(currentNode); 
             currentNode = currentNode.parent;
         }
 
         finalPath.Reverse();
         grid.path = finalPath;
+        statistics.setPathLength(count);
     }
 
     private int GetManhattenDistance(Node nodeA, Node nodeB)

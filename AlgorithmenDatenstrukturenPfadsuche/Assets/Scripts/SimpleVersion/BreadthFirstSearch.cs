@@ -18,9 +18,13 @@ public class BreadthFirstSearch : MonoBehaviour
     private Node targetNode;
     private GameObject targetPosition;
     
+    void Awake()
+    {
+        grid = GetComponent<CreateField>();
+    }   
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !grid.paused)
         {
             Execute();
         }
@@ -31,9 +35,7 @@ public class BreadthFirstSearch : MonoBehaviour
         GetComponent<AnimationQueue>().enqueueAction(action);
     }
     
-    private void Execute()
-    {
-        grid = GetComponent<CreateField>();
+    private void Execute(){
         foreach (Node node in grid.GetArray())
         {
             if (node.start == true)
@@ -48,24 +50,26 @@ public class BreadthFirstSearch : MonoBehaviour
                 targetNode = node;
             }
         }
-
-        BFS(startNode, targetNode);
+        BFS();
     }
 
-    private void BFS(Node start, Node target)
-    {
-        open.Enqueue(start);
-        start.visited = true;
-        start.parent = null;
+    private void BFS(){
+        open.Enqueue(startNode);
+        startNode.visited = true;
+        startNode.parent = null;
         Node current = null;
+        int visited = 0;
         
         while (open.Count > 0)
         {
             current = open.Dequeue();
             visualFeedback(new ColorizeAction(Color.cyan, current.fieldCell));
-            if (current == target)
+            visited++;
+            
+            if (current == targetNode)
             {
-                GeneratePath(current, start);
+                GeneratePath(current, startNode);
+                print("Breitensuche besuchte: " + visited);
                 break;
             }
             
@@ -83,24 +87,27 @@ public class BreadthFirstSearch : MonoBehaviour
         }
     }
 
-    private void GeneratePath(Node backTrack, Node start)
-    {
+    private void GeneratePath(Node backTrack, Node start){
         visualFeedback(new ColorizeAction(Color.red, backTrack.fieldCell));
         List<Node> finalPath = new List<Node>();
-        Node tmp = backTrack;
+        int pathCount = 0;
         while (backTrack != start)
         {
-            finalPath.Add(tmp); 
-            tmp = tmp.parent;
-            if (tmp == start)
+            finalPath.Add(backTrack); 
+            backTrack = backTrack.parent;
+            if (backTrack == start )
             {
                 visualFeedback(new ColorizeAction(Color.green, start.fieldCell));
             }
             else
             {
-                visualFeedback(new ColorizeAction(Color.blue, tmp.fieldCell));
+                    visualFeedback(new ColorizeAction(Color.blue, backTrack.fieldCell));
+                    pathCount++;
             }
         }
+
+        pathCount++;
+        print("Breitensuche Pfadlänge: " + pathCount);
         finalPath.Reverse();
         grid.path = finalPath;
     }

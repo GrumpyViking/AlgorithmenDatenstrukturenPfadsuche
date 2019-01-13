@@ -1,14 +1,19 @@
 fileFormatVersion: 2
-guid: 4173dec18c9dc6a4b8b058dbc5873ded
+guid: cb0b94754b369ee48a2f9874f31aedb5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert1
+    2100000: Sand
+    2100002: Kokosnuss
+    2100004: Blatt_1
+    2100006: Blatt_3
+    2100008: Blatt_2
+    2100010: Stamm
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Insel
+    4300000: Insel_klein
   externalObjects: {}
   materials:
     importMaterials: 1

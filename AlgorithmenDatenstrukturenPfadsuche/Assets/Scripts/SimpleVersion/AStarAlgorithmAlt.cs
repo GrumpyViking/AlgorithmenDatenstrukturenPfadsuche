@@ -8,14 +8,18 @@ public class AStarAlgorithmAlt : MonoBehaviour
     private Node startNode, targetNode;
     public List<Node> openList = new List<Node>(); 
     public HashSet<Node> closedList = new HashSet<Node>();
-    
+
+    void Awake()
+    {
+             grid = GetComponent<CreateField>();
+    }     
     private void visualFeedback(IAction action)
     {
         GetComponent<AnimationQueue>().enqueueAction(action);
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !grid.paused)
         {
             Execute();
             visualFeedback(new ColorizeAction(Color.green, startNode.fieldCell));
@@ -24,7 +28,7 @@ public class AStarAlgorithmAlt : MonoBehaviour
     }    
     public void Execute()
     {
-        grid = GetComponent<CreateField>();
+        
         
         foreach (Node node in grid.GetArray())
         {
@@ -74,6 +78,7 @@ public class AStarAlgorithmAlt : MonoBehaviour
             if (currentNode == targetNode)
             {
                 GetPath(startNode, targetNode);
+                print("A* Besuchte: " + closedList.Count);
                 break;
             } 
             
@@ -81,8 +86,7 @@ public class AStarAlgorithmAlt : MonoBehaviour
                 if (!NeighborNode.traversable || closedList.Contains(NeighborNode))
                 {
                     continue; 
-                } 
-                 
+                }                  
                 var MoveCost = currentNode.gCost + GetManhattenDistance(currentNode, NeighborNode); 
 
                 if (MoveCost < NeighborNode.gCost || !openList.Contains(NeighborNode)){
@@ -103,10 +107,12 @@ public class AStarAlgorithmAlt : MonoBehaviour
     private void GetPath(Node startingNode, Node endNode)
     {
         List<Node> finalPath = new List<Node>();
-        Node currentNode = endNode; 
+        Node currentNode = endNode;
+        int count = 0;
 
-        while (currentNode != startingNode) 
+        while (currentNode != startingNode)
         {
+            count++;
             finalPath.Add(currentNode); 
             currentNode = currentNode.parent;
             visualFeedback(new ColorizeAction(Color.blue, currentNode.fieldCell));
@@ -114,6 +120,7 @@ public class AStarAlgorithmAlt : MonoBehaviour
 
         finalPath.Reverse();
         grid.path = finalPath;
+        print("A* Pfadlänge: " + count);
     }
 
     private int GetManhattenDistance(Node nodeA, Node nodeB)

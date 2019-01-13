@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using Event;
 using UnityEngine;
 
-public class DeaphtFirstSearch : MonoBehaviour
-{
+public class DepthFirstSearch : MonoBehaviour {
     private CreateField grid;
     // Start is called before the first frame update
     // Queue<Node> open = new Queue<Node>();
@@ -14,102 +13,87 @@ public class DeaphtFirstSearch : MonoBehaviour
     private Node targetNode;
     private GameObject targetPosition;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Space) && !grid.paused) {
             Execute();
         }
     }
 
-    void Awake()
-    {
+    void Awake() {
         grid = GetComponent<CreateField>();
     }
 
-    private void visualFeedback(IAction action)
-    {
+    private void visualFeedback(IAction action) {
         GetComponent<AnimationQueue>().enqueueAction(action);
     }
 
-    private void Execute()
-    {
-        foreach (Node node in grid.GetArray())
-        {
-            
-            if (node.start == true)
-            {
+    private void Execute() {
+        foreach (Node node in grid.GetArray()) {
+
+            if (node.start == true) {
                 startPosition = node.fieldCell;
                 startNode = node;
             }
 
-            if (node.target == true)
-            {
+            if (node.target == true) {
                 targetPosition = node.fieldCell;
                 targetNode = node;
             }
         }
-        
-        DFS(startNode, targetNode);
+        DFS();
     }
 
-    private void DFS(Node start, Node target)
-    {
-        open.Push(start);
-        start.visited = true;
-        start.parent = null;
+    private void DFS() {
+        open.Push(startNode);
+        startNode.visited = true;
+        startNode.parent = null;
         Node current = null;
+        int count = 0;
 
-        while (open.Count > 0)
-        {
+        while (open.Count > 0) {
             current = open.Pop();
             visualFeedback(new ColorizeAction(Color.cyan, current.fieldCell));
+            count++;
 
-            if (current == target)
-            {
-                GeneratePath(current, start);
+            if (current == targetNode) {
+                GeneratePath(current, startNode);
+                print("Tiefensuche Besucht: " + count);
                 break;
             }
 
-            foreach (Node neighbor in grid.GetNeighboringNodes(current))
-            {
-                if (!neighbor.traversable || neighbor.visited)
-                {
+            foreach (Node neighbor in grid.GetNeighboringNodes(current)) {
+                if (!neighbor.traversable || neighbor.visited) {
                     continue;
-                }
-                else
-                {
+                } else {
                     open.Push(neighbor);
                     neighbor.visited = true;
                     neighbor.parent = current;
-                    visualFeedback(new ColorizeAction(Color.magenta, neighbor.fieldCell));;
+                    visualFeedback(new ColorizeAction(Color.magenta, neighbor.fieldCell));
                 }
             }
         }
     }
 
-    private void GeneratePath(Node backTrack, Node start)
-    {
+    private void GeneratePath(Node backTrack, Node start) {
         visualFeedback(new ColorizeAction(Color.red, backTrack.fieldCell));
         List<Node> finalPath = new List<Node>();
-        Node tmp = backTrack;
+        int count = 0;
 
-        while (backTrack != start)
-        {
-            finalPath.Add(tmp);
-            tmp = tmp.parent;
-            
-            if (tmp == start)
-            {
+        while (backTrack != start) {
+            finalPath.Add(backTrack);
+            backTrack = backTrack.parent;
+
+            if (backTrack == start) {
                 visualFeedback(new ColorizeAction(Color.green, start.fieldCell));
-            }
-            else
-            {
-                visualFeedback(new ColorizeAction(Color.blue, tmp.fieldCell));
+            } else {
+                visualFeedback(new ColorizeAction(Color.blue, backTrack.fieldCell));
+                count++;
             }
         }
-        
+
         finalPath.Reverse();
         grid.path = finalPath;
+        count++;
+        print("Tiefensuche Pfadlänge: " + count);
     }
 }
