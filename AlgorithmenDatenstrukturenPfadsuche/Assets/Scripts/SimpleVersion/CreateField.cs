@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /*
-* CreatField Klasse erstellt das Spielfeld 
+CreatField Klasse erstellt das Spielfeld und ist für den Programmverlauf der SimpleVersion Scene verantwortlich 
 */
 public class CreateField : MonoBehaviour {
     public GameObject fieldCell; // Objekt aus dem das Feldbesteht (in Unity hinzufügen)
