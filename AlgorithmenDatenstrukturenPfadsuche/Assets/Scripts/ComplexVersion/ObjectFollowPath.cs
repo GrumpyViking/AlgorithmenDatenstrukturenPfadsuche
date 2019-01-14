@@ -69,7 +69,6 @@ namespace ComplexVersion {
         void RotateShip(Vector3 target) {
 
             Vector3 targetDir = target - transform.position;
-            Debug.Log(targetDir);
             // The step size is equal to speed times frame time.
             float step = speed * Time.deltaTime;
 
