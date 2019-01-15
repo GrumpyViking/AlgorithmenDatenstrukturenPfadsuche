@@ -12,6 +12,7 @@ public class DepthFirstSearch : MonoBehaviour {
     private GameObject startPosition;
     private Node targetNode;
     private GameObject targetPosition;
+    private Statistics2 statistics;
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Space) && !grid.paused) {
@@ -21,6 +22,7 @@ public class DepthFirstSearch : MonoBehaviour {
 
     void Awake() {
         grid = GetComponent<CreateField>();
+        statistics = GetComponent<Statistics2>();
     }
 
     private void visualFeedback(IAction action) {
@@ -44,6 +46,7 @@ public class DepthFirstSearch : MonoBehaviour {
     }
 
     private void DFS() {
+        open.Clear();
         open.Push(startNode);
         startNode.visited = true;
         startNode.parent = null;
@@ -58,6 +61,7 @@ public class DepthFirstSearch : MonoBehaviour {
             if (current == targetNode) {
                 GeneratePath(current, startNode);
                 print("Tiefensuche Besucht: " + count);
+                statistics.setVisited(count);
                 break;
             }
 
@@ -95,5 +99,6 @@ public class DepthFirstSearch : MonoBehaviour {
         grid.path = finalPath;
         count++;
         print("Tiefensuche Pfadlänge: " + count);
+        statistics.setPathLength(count);
     }
 }

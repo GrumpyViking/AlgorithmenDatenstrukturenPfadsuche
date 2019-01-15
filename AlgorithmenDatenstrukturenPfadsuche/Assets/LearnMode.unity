@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 195938606}
   - component: {fileID: 195938605}
   m_Layer: 5
-  m_Name: LiveDemo
+  m_Name: AStarAlgorithm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -311,9 +311,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Demonstration
-
-    (A* Algorithmus)'
+  m_Text: A* Algorithmus
 --- !u!222 &553325896
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -434,7 +432,7 @@ GameObject:
   - component: {fileID: 621175079}
   - component: {fileID: 621175078}
   m_Layer: 5
-  m_Name: Tutorial
+  m_Name: BreathFirstSearch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -506,7 +504,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -620,7 +618,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Experimentier Modus
+  m_Text: Breitensuche
 --- !u!222 &690191037
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -699,7 +697,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Beenden
+  m_Text: "Zur\xFCck"
 --- !u!222 &890008208
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -963,7 +961,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lern Modus
+  m_Text: TiefenSuche
 --- !u!222 &1282837754
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1052,8 +1050,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1814673456}
-        m_MethodName: ExitProgram
-        m_Mode: 1
+        m_MethodName: ChangeScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1114,7 +1112,7 @@ GameObject:
   - component: {fileID: 1564056778}
   - component: {fileID: 1564056777}
   m_Layer: 5
-  m_Name: LearnMode
+  m_Name: DeapthFirstSearch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1186,7 +1184,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1409,12 +1407,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Algorithmen und Datenstrukturen
-
-    Thema: Pfadsuche in gerichtetet Graphen
-
-
-    Gruppe:  05'
+  m_Text: "W\xE4hle einen Algorithmus zu dem du genauere Informationen willst aus."
 --- !u!222 &2024544893
 CanvasRenderer:
   m_ObjectHideFlags: 0
