@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: caa65bb50865ac84a9cac2e150d4e8a8
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Arm1_Joint1
+    100002: Arm1_Joint2
+    100004: Arm1_Joint3
+    100006: Arm1_Joint4
+    100008: Arm1_Joint5
+    100010: Arm1_Joint6
+    100012: Arm1_Joint7
+    100014: Arm1_Joint8
+    100016: Arm2_Joint
+    100018: Arm3_Joint1
+    100020: Arm3_Joint2
+    100022: Arm3_Joint3
+    100024: Arm3_Joint4
+    100026: Arm3_Joint5
+    100028: Arm3_Joint6
+    100030: Arm3_Joint7
+    100032: Arm3_Joint8
+    100034: Arm4_Joint1
+    100036: Arm4_Joint2
+    100038: Arm4_Joint3
+    100040: Arm4_Joint4
+    100042: Arm4_Joint5
+    100044: Arm4_Joint6
+    100046: Arm4_Joint7
+    100048: Arm4_Joint8
+    100050: Arm5_Joint10
+    100052: Arm5_Joint11
+    100054: Arm5_Joint12
+    100056: Arm5_Joint13
+    100058: Arm5_Joint14
+    100060: Arm5_Joint15
+    100062: Arm5_Joint16
+    100064: Arm5_Joint9
+    100066: Arm6_Joint17
+    100068: Arm6_Joint18
+    100070: Arm6_Joint19
+    100072: Arm6_Joint20
+    100074: Arm6_Joint21
+    100076: Arm6_Joint22
+    100078: Arm6_Joint23
+    100080: Arm6_Joint24
+    100082: joint10
+    100084: joint11
+    100086: joint12
+    100088: joint13
+    100090: joint3
+    100092: joint4
+    100094: joint5
+    100096: joint6
+    100098: joint7
+    100100: joint8
+    100102: joint9
+    100104: //RootNode
+    400000: Arm1_Joint1
+    400002: Arm1_Joint2
+    400004: Arm1_Joint3
+    400006: Arm1_Joint4
+    400008: Arm1_Joint5
+    400010: Arm1_Joint6
+    400012: Arm1_Joint7
+    400014: Arm1_Joint8
+    400016: Arm2_Joint
+    400018: Arm3_Joint1
+    400020: Arm3_Joint2
+    400022: Arm3_Joint3
+    400024: Arm3_Joint4
+    400026: Arm3_Joint5
+    400028: Arm3_Joint6
+    400030: Arm3_Joint7
+    400032: Arm3_Joint8
+    400034: Arm4_Joint1
+    400036: Arm4_Joint2
+    400038: Arm4_Joint3
+    400040: Arm4_Joint4
+    400042: Arm4_Joint5
+    400044: Arm4_Joint6
+    400046: Arm4_Joint7
+    400048: Arm4_Joint8
+    400050: Arm5_Joint10
+    400052: Arm5_Joint11
+    400054: Arm5_Joint12
+    400056: Arm5_Joint13
+    400058: Arm5_Joint14
+    400060: Arm5_Joint15
+    400062: Arm5_Joint16
+    400064: Arm5_Joint9
+    400066: Arm6_Joint17
+    400068: Arm6_Joint18
+    400070: Arm6_Joint19
+    400072: Arm6_Joint20
+    400074: Arm6_Joint21
+    400076: Arm6_Joint22
+    400078: Arm6_Joint23
+    400080: Arm6_Joint24
+    400082: joint10
+    400084: joint11
+    400086: joint12
+    400088: joint13
+    400090: joint3
+    400092: joint4
+    400094: joint5
+    400096: joint6
+    400098: joint7
+    400100: joint8
+    400102: joint9
+    400104: //RootNode
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
