@@ -18,7 +18,7 @@ public class CreateField : MonoBehaviour {
     private bool startSelected, targetSelected; // Status ob Start/Ziel ausgewählt wurde
     public List<Node> path; // Speichert den Pfad zwischen Start und Ziel
     private GameObject field; // Objekt als das die Felder erstellt werden
-    public GameObject astarpanel, bfspanel, dfspanel; // Legenden für A*-Algoritmuse und Breitensuche Algoritmus
+    public GameObject astarpanel, bfspanel, dfspanel, gbfspanel; // Legenden für A*-Algoritmuse und Breitensuche Algoritmus
     public bool paused;
     public GameObject saveDialogPanel, loadDialogPanel;
     public RenderTexture renderTexture;
@@ -260,25 +260,41 @@ public class CreateField : MonoBehaviour {
                 GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = true;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = false;
                 astarpanel.SetActive(true);
                 bfspanel.SetActive(false);
                 dfspanel.SetActive(false);
+                gbfspanel.SetActive(false);
                 break;
             case "Breitensuche - Algorithmus":
                 GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = true;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = false;
                 astarpanel.SetActive(false);
                 bfspanel.SetActive(true);
                 dfspanel.SetActive(false);
+                gbfspanel.SetActive(false);
                 break;
             case "Tiefensuche - Algorithmus":
                 GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = true;
+                GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = false;
                 astarpanel.SetActive(false);
                 bfspanel.SetActive(false);
                 dfspanel.SetActive(true);
+                gbfspanel.SetActive(false);
+                break;
+            case "GreedyBestFirstSearch - Algorithmus":
+                GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = true;
+                astarpanel.SetActive(false);
+                bfspanel.SetActive(false);
+                dfspanel.SetActive(false);
+                gbfspanel.SetActive(true);
                 break;
             default:
                 break;
