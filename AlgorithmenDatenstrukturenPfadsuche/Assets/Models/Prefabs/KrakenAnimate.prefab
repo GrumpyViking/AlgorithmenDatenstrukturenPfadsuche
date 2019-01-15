@@ -1,37 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &2992754104094962235
+--- !u!114 &3737582307967553323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4291874814165981112}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1706382b28604194e94a55250e58ac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
   ship: {fileID: 0}
---- !u!1 &4291874814165981112
+--- !u!1 &6865714417117687624
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7262097854938391669, guid: 122066eba204e9c42b38d1f85861152f,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2992754104094962235}
+  - component: {fileID: 6865714417117687626}
+  - component: {fileID: 6865714417117687625}
   m_Layer: 0
-  m_Name: 
+  m_Name: KrakenAnimate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
+--- !u!4 &6865714417117687626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6865714417117687624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7553044006549232608}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6865714417117687625
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6865714417117687624}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13.062195, y: 6.945298, z: 14.109782}
+  m_Center: {x: 0, y: 2.3860664, z: 0}
 --- !u!1001 &6865714416041964493
-Prefab:
+PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
@@ -100,46 +128,15 @@ Prefab:
     m_RemovedComponents:
     - {fileID: 4451778792990600711, guid: 122066eba204e9c42b38d1f85861152f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 122066eba204e9c42b38d1f85861152f, type: 3}
-  m_RootGameObject: {fileID: 0}
-  m_IsPrefabAsset: 0
---- !u!1 &6865714417117687624
+--- !u!1 &4291874814165981112 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6865714417117687626}
-  - component: {fileID: 6865714417117687625}
-  m_Layer: 0
-  m_Name: KrakenAnimate
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &6865714417117687625
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 6865714417117687624}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 13.062195, y: 6.945298, z: 14.109782}
-  m_Center: {x: 0, y: 2.3860664, z: 0}
---- !u!4 &6865714417117687626
+  m_CorrespondingSourceObject: {fileID: 7262097854938391669, guid: 122066eba204e9c42b38d1f85861152f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6865714416041964493}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7553044006549232608 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 6865714417117687624}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_CorrespondingSourceObject: {fileID: 4005432225657464877, guid: 122066eba204e9c42b38d1f85861152f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6865714416041964493}
+  m_PrefabAsset: {fileID: 0}

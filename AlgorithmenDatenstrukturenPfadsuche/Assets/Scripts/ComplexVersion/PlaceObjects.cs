@@ -9,7 +9,7 @@ public class PlaceObjects : MonoBehaviour {
      * je nach gedrückten Button wird ein entsprechendes Objekt erstellt
      */
 
-    public GameObject island, islandbig, barrel, kraken, wrack; // Objekte müssen in Unity Editor zugewiesen werden 
+    public GameObject island, islandbig, barrel, kraken, wrack, cliff; // Objekte müssen in Unity Editor zugewiesen werden 
     private GameObject obstacle;
     private MouseWheelManager mouseWheelManager;
 
@@ -19,6 +19,12 @@ public class PlaceObjects : MonoBehaviour {
 
     public void PlaceObject(Text objectToPlace) {
         switch (objectToPlace.text) {
+            case "Klippe":
+                obstacle = Instantiate(cliff, new Vector3(0, 0, 0), Quaternion.identity); // Erstllet Objekt
+                obstacle.layer = 30; // Fügt Objekt dem "Obstacle" Layer hinzu (relevant für erkennung im A*-Algoritmus)
+                obstacle.AddComponent<FollowMouse>();
+                mouseWheelManager.SetAvailability(false);
+                break;
             case "Wrack":
                 obstacle = Instantiate(wrack, new Vector3(0, 0, 0), Quaternion.identity); // Erstllet Objekt
                 obstacle.layer = 30; // Fügt Objekt dem "Obstacle" Layer hinzu (relevant für erkennung im A*-Algoritmus)
