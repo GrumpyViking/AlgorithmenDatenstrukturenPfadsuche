@@ -42,9 +42,9 @@ public class AStarAlgorithmAlt : MonoBehaviour {
         openList.Add(startNode);
         startNode.gCost = 0;
         startNode.hCost = GetManhattenDistance(startNode, targetNode);
-
+        Node currentNode;
         while (openList.Count > 0) {
-            Node currentNode = openList[0];
+            currentNode = openList[0];
 
             for (int i = 1; i < openList.Count; i++) {
                 if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost) {
@@ -75,7 +75,7 @@ public class AStarAlgorithmAlt : MonoBehaviour {
                 }
                 var MoveCost = currentNode.gCost + GetManhattenDistance(currentNode, NeighborNode);
 
-                if (MoveCost < NeighborNode.gCost || !openList.Contains(NeighborNode)) {
+                if (!openList.Contains(NeighborNode)) {
                     NeighborNode.gCost = MoveCost;
                     NeighborNode.hCost = GetManhattenDistance(NeighborNode, targetNode);
                     NeighborNode.parent = currentNode;

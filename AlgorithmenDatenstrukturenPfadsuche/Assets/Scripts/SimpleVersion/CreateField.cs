@@ -401,7 +401,7 @@ public class CreateField : MonoBehaviour {
         startSelected = false;
         targetSelected = false;
         paused = false;
-        path = null;
+        path.Clear();
         modifyedNodes.Clear();
         foreach (Node node in fieldCellArray) {
             node.start = false;
@@ -434,4 +434,30 @@ public class CreateField : MonoBehaviour {
     }
 
     #endregion
+
+    public void ResetLevel() {
+        path.Clear();
+        bool isSet = false;
+        foreach (Node node in fieldCellArray) {
+            isSet = false;
+            foreach (LevelData ld in modifyedNodes) {
+                if (node.index == ld.index) {
+                    if (ld.start) {
+                        node.visited = false;
+                    }
+                    if (ld.target) {
+                        node.visited = false;
+                    }
+                    isSet = true;
+                }
+            }
+            if (!isSet) {
+                node.parent = null;
+                node.gCost = Int32.MaxValue;
+                node.hCost = Int32.MaxValue;
+                node.visited = false;
+                new ModifyNode().ChangeColor(node.fieldCell, Color.white);
+            }
+        }
+    }
 }
