@@ -16,7 +16,7 @@ public class CreateField : MonoBehaviour {
     private List<LevelData> modifyedNodes = new List<LevelData>();
     public Node[,] fieldCellArray; // Zweidimensionales Array zum Speichern der einzelnen Felder und derer Eigenschaften
     private bool startSelected, targetSelected; // Status ob Start/Ziel ausgewählt wurde
-    public List<Node> path; // Speichert den Pfad zwischen Start und Ziel
+    public List<Node> path = new List<Node>(); // Speichert den Pfad zwischen Start und Ziel
     private GameObject field; // Objekt als das die Felder erstellt werden
     public GameObject astarpanel, bfspanel, dfspanel; // Legenden für A*-Algoritmuse und Breitensuche Algoritmus
     public bool paused;
