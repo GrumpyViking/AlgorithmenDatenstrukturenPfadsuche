@@ -16,7 +16,7 @@ public class CreateField : MonoBehaviour {
     private List<LevelData> modifyedNodes = new List<LevelData>();
     public Node[,] fieldCellArray; // Zweidimensionales Array zum Speichern der einzelnen Felder und derer Eigenschaften
     private bool startSelected, targetSelected; // Status ob Start/Ziel ausgewählt wurde
-    public List<Node> path; // Speichert den Pfad zwischen Start und Ziel
+    public List<Node> path = new List<Node>(); // Speichert den Pfad zwischen Start und Ziel
     private GameObject field; // Objekt als das die Felder erstellt werden
     public GameObject astarpanel, bfspanel, dfspanel, gbfspanel; // Legenden für A*-Algoritmuse und Breitensuche Algoritmus
     public bool paused;
@@ -325,7 +325,7 @@ public class CreateField : MonoBehaviour {
     #endregion
 
     #region SaveLevel
-    void ShowSaveDialog() {
+    public void ShowSaveDialog() {
         saveDialogPanel.SetActive(true);
         paused = true;
     }
@@ -360,6 +360,11 @@ public class CreateField : MonoBehaviour {
         paused = true;
     }
 
+    public void CloseLoadDialog() {
+        loadDialogPanel.SetActive(false);
+        paused = false;
+    }
+
     public void LoadLevel(Text filename) {
         ClearGrid();
         SavableData savedLevel = SaveSystem.LoadLevel(filename.text);
@@ -391,7 +396,29 @@ public class CreateField : MonoBehaviour {
         paused = false;
     }
 
-    void ClearGrid() {
+    public void DeleteLevel(Text fileName) {
+        string file = fileName.text.Substring(0, fileName.text.Length - 5);
+        string filePath = Application.dataPath + "/levels/" + file;
+
+        if (!File.Exists(filePath + ".grid")) {
+            Debug.Log("Die Datei " + filePath + " existiert nicht"); //Debug.Log( "no " + fileName + " file exists" );
+        } else {
+            Debug.Log("Die Datei " + filePath + " wurde gelöscht"); //Debug.Log( fileName + " file exists, deleting..." );
+
+            File.Delete(filePath + ".grid");
+            File.Delete(filePath + ".grid.meta");
+            File.Delete(filePath + ".png");
+            File.Delete(filePath + ".png.meta");
+            UnityEditor.AssetDatabase.Refresh();
+        }
+    }
+
+    public void ClearGrid() {
+        startSelected = false;
+        targetSelected = false;
+        paused = false;
+        path.Clear();
+        modifyedNodes.Clear();
         foreach (Node node in fieldCellArray) {
             node.start = false;
             node.target = false;
@@ -423,4 +450,30 @@ public class CreateField : MonoBehaviour {
     }
 
     #endregion
+
+    public void ResetLevel() {
+        path.Clear();
+        bool isSet = false;
+        foreach (Node node in fieldCellArray) {
+            isSet = false;
+            foreach (LevelData ld in modifyedNodes) {
+                if (node.index == ld.index) {
+                    if (ld.start) {
+                        node.visited = false;
+                    }
+                    if (ld.target) {
+                        node.visited = false;
+                    }
+                    isSet = true;
+                }
+            }
+            if (!isSet) {
+                node.parent = null;
+                node.gCost = Int32.MaxValue;
+                node.hCost = Int32.MaxValue;
+                node.visited = false;
+                new ModifyNode().ChangeColor(node.fieldCell, Color.white);
+            }
+        }
+    }
 }

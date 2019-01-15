@@ -17,4 +17,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Editor(Testing).unity
     guid: 0f94528c37722d54ea220dd1ef9272fd
+  - enabled: 1
+    path: Assets/LearnMode.unity
+    guid: d8d0e58c28513124b9af3026dbabd3b3
+  - enabled: 1
+    path: Assets/DFSAlgorithmDescription.unity
+    guid: ff0e34709e236484a9fa99a9d275fb84
+  - enabled: 1
+    path: Assets/BFSAlgorithmDescription.unity
+    guid: 2f82a02b45006e64db8c7571bfa999b4
+  - enabled: 1
+    path: Assets/AStarAlgorithmDescription.unity
+    guid: 834759c2493c9884e888afae836b4710
+  - enabled: 1
+    path: Assets/Examples.unity
+    guid: 3506d8390a203cb47a6f128209498acc
   m_configObjects: {}

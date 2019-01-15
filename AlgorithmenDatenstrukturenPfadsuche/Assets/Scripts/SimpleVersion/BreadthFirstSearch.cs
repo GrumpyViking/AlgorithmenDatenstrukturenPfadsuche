@@ -48,6 +48,7 @@ public class BreadthFirstSearch : MonoBehaviour {
     }
 
     private void BFS() {
+        open.Clear();
         open.Enqueue(startNode);
         startNode.visited = true;
         startNode.parent = null;
