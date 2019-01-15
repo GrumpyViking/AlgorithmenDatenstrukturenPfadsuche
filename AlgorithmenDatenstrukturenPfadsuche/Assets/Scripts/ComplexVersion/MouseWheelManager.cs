@@ -5,6 +5,9 @@ using System.Collections;
 public class MouseWheelManager : MonoBehaviour {
     private bool mouseWheelAvailable;
 
+    void Start() {
+        mouseWheelAvailable = true;
+    }
     public void SetAvailability(bool state) {
         mouseWheelAvailable = state;
     }
