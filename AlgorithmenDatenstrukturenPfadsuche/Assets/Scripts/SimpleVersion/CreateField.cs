@@ -309,7 +309,7 @@ public class CreateField : MonoBehaviour {
     #endregion
 
     #region SaveLevel
-    void ShowSaveDialog() {
+    public void ShowSaveDialog() {
         saveDialogPanel.SetActive(true);
         paused = true;
     }
@@ -344,6 +344,11 @@ public class CreateField : MonoBehaviour {
         paused = true;
     }
 
+    public void CloseLoadDialog() {
+        loadDialogPanel.SetActive(false);
+        paused = false;
+    }
+
     public void LoadLevel(Text filename) {
         ClearGrid();
         SavableData savedLevel = SaveSystem.LoadLevel(filename.text);
@@ -375,7 +380,29 @@ public class CreateField : MonoBehaviour {
         paused = false;
     }
 
-    void ClearGrid() {
+    public void DeleteLevel(Text fileName) {
+        string file = fileName.text.Substring(0, fileName.text.Length - 5);
+        string filePath = Application.dataPath + "/levels/" + file;
+
+        if (!File.Exists(filePath + ".grid")) {
+            Debug.Log("Die Datei " + filePath + " existiert nicht"); //Debug.Log( "no " + fileName + " file exists" );
+        } else {
+            Debug.Log("Die Datei " + filePath + " wurde gelöscht"); //Debug.Log( fileName + " file exists, deleting..." );
+
+            File.Delete(filePath + ".grid");
+            File.Delete(filePath + ".grid.meta");
+            File.Delete(filePath + ".png");
+            File.Delete(filePath + ".png.meta");
+            UnityEditor.AssetDatabase.Refresh();
+        }
+    }
+
+    public void ClearGrid() {
+        startSelected = false;
+        targetSelected = false;
+        paused = false;
+        path = null;
+        modifyedNodes.Clear();
         foreach (Node node in fieldCellArray) {
             node.start = false;
             node.target = false;

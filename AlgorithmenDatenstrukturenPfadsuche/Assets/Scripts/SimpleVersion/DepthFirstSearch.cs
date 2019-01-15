@@ -46,6 +46,7 @@ public class DepthFirstSearch : MonoBehaviour {
     }
 
     private void DFS() {
+        open.Clear();
         open.Push(startNode);
         startNode.visited = true;
         startNode.parent = null;

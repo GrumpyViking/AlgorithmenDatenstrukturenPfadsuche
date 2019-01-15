@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
     public void ChangeScene(int sceneID) {
+        PlayerSceneData.lastScene = SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(LoadAsynchronously(sceneID));//Koroutinen ermöglichen es während der Ausführung Rückmeldungen zum gesamten Programm zu geben
+    }
+
+    public void LastScene() {
+        ChangeScene(PlayerSceneData.lastScene);
     }
 
     //IEnumerator ist der Rückgabetyp für Koroutinen 

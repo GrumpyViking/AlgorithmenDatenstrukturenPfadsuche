@@ -19,8 +19,6 @@ public class AStarAlgorithmAlt : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space) && !grid.paused) {
             Execute();
-            visualFeedback(new ColorizeAction(Color.green, startNode.fieldCell));
-            visualFeedback(new ColorizeAction(Color.red, targetNode.fieldCell));
         }
     }
     public void Execute() {
@@ -39,6 +37,8 @@ public class AStarAlgorithmAlt : MonoBehaviour {
     }
 
     private void AStarAlgo() {
+        openList.Clear();
+        closedList.Clear();
         openList.Add(startNode);
         startNode.gCost = 0;
         startNode.hCost = GetManhattenDistance(startNode, targetNode);
@@ -104,6 +104,8 @@ public class AStarAlgorithmAlt : MonoBehaviour {
         finalPath.Reverse();
         grid.path = finalPath;
         print("A* Pfadlänge: " + count);
+        visualFeedback(new ColorizeAction(Color.green, startNode.fieldCell));
+        visualFeedback(new ColorizeAction(Color.red, targetNode.fieldCell));
     }
 
     private int GetManhattenDistance(Node nodeA, Node nodeB) {
