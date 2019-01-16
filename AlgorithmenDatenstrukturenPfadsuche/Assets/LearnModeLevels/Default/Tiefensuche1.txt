@@ -1,13 +1,13 @@
 Tiefensuche Beispiel #1 
 
-Dieses erste Beispiel enthält noch keine Hindernisse, es soll dir die grundlegende Arbeitsweise der Tiefensuche zeigen.
+Dieses erste Beispiel enthÃ¤lt noch keine Hindernisse, es soll dir die grundlegende Arbeitsweise der Tiefensuche zeigen.
 
-Vielleicht erkennst du auch schon die eine oder andere Schwäche bzw. Stärke der Tiefensuche.
+Vielleicht erkennst du auch schon die eine oder andere SchwÃ¤che bzw. StÃ¤rke der Tiefensuche.
 
-Um mehr über den Algorithmus der Tiefensuche zu erfahren, solltest du dir das Skript dazu nehmen.
+Um mehr Ã¼ber den Algorithmus der Tiefensuche zu erfahren, solltest du dir das Skript dazu nehmen.
 
-Außerdem könntest du mal hin und wieder einen Blick auf die Statistik unten rechts werfen, dort kannst du schon einige Eigenschaften der Tiefensuche ableiten.
+AuÃŸerdem kÃ¶nntest du mal hin und wieder einen Blick auf die Statistik unten rechts werfen, dort kannst du schon einige Eigenschaften der Tiefensuche ableiten.
 
-Drücke nun auf “Start Animation” und sieh dir die Tiefensuche einmal an.
-Falls du dir noch einmal die Animation ansehen willst, drücke auf “Reload”.
-In das nächste Menü gelangst du mit dem Button “Next” unten rechts.
+DrÃ¼cke nun auf â€œStart Animationâ€ und sieh dir die Tiefensuche einmal an.
+Falls du dir noch einmal die Animation ansehen willst, drÃ¼cke auf â€œReloadâ€.
+In das nÃ¤chste MenÃ¼ gelangst du mit dem Button â€œNextâ€ unten rechts.

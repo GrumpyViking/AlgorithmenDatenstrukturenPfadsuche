@@ -16,11 +16,13 @@ public class AStarAlgorithmLM : MonoBehaviour {
     private void visualFeedback(IAction action) {
         GetComponent<AnimationQueue>().enqueueAction(action);
     }
-    void Update() {
+    /*
+        void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             Execute();
         }
     }
+     */
     public void Execute() {
 
 

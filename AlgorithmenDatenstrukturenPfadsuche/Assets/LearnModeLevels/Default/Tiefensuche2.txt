@@ -4,8 +4,8 @@ In diesem Beispiel wurden schon ein paar Hindernisse platziert.
 
 Schau dir einmal an, wie die Tiefensuche damit klar kommt.
 
-Kannst du eine Veränderung an der Vorgehensweise erkennen?
+Kannst du eine VerÃ¤nderung an der Vorgehensweise erkennen?
 
-Fallen dir Änderungen in der Statistik auf?
+Fallen dir Ã„nderungen in der Statistik auf?
 
-Wenn du fertig bist, dann wechsel in das nächste Beispiel.
+Wenn du fertig bist, dann wechsel in das nÃ¤chste Beispiel.

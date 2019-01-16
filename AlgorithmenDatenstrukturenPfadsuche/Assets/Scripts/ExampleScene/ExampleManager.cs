@@ -257,6 +257,43 @@ public class ExampleManager : MonoBehaviour {
         }
 
         return neighbors;
+    }
 
+    public void ResetLevel() {
+        path.Clear();
+        bool isSet = false;
+        foreach (Node node in fieldCellArray) {
+            isSet = false;
+            foreach (LevelData ld in modifyedNodes) {
+                if (node.index == ld.index) {
+                    if (ld.start) {
+                        node.visited = false;
+                    }
+                    if (ld.target) {
+                        node.visited = false;
+                    }
+                    isSet = true;
+                }
+            }
+            if (!isSet) {
+                node.parent = null;
+                node.gCost = Int32.MaxValue;
+                node.hCost = Int32.MaxValue;
+                node.visited = false;
+                new ModifyNode().ChangeColor(node.fieldCell, Color.white);
+            }
+        }
+    }
+
+    public void ExecuteAlg() {
+        if (bfsActiv) {
+            GameObject.Find("ExampleManager").GetComponent<BreadthFirstSearchLM>().Execute();
+        }
+        if (dfsActiv) {
+            GameObject.Find("ExampleManager").GetComponent<DepthFirstSearchLM>().Execute();
+        }
+        if (aStarActiv) {
+            GameObject.Find("ExampleManager").GetComponent<AStarAlgorithmLM>().Execute();
+        }
     }
 }

@@ -22,17 +22,19 @@ public class BreadthFirstSearchLM : MonoBehaviour {
         grid = GetComponent<ExampleManager>();
         statistics = GetComponent<Statistics2>();
     }
+    /*
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             Execute();
         }
     }
+     */
 
     private void visualFeedback(IAction action) {
         GetComponent<AnimationQueue>().enqueueAction(action);
     }
 
-    private void Execute() {
+    public void Execute() {
         foreach (Node node in grid.GetArray()) {
             if (node.start == true) {
                 startPosition = node.fieldCell;

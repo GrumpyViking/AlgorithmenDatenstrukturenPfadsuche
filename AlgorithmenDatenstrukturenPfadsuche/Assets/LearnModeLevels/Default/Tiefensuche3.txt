@@ -8,10 +8,10 @@ Wir geben dir noch ein paar Fragen mit auf den Weg:
 
 Welchen Engpass wird der Algorithmus bei der Suche als erstes durchschreiten?
 
-Ist der gefundene Weg, der kürzeste Weg, oder gibt es noch kürzere?
+Ist der gefundene Weg, der kÃ¼rzeste Weg, oder gibt es noch kÃ¼rzere?
 
-Kannst du noch weitere Wege der selben Länge erkennen?
+Kannst du noch weitere Wege der selben LÃ¤nge erkennen?
  
 
 
-Wenn du fertig bist, dann wechsel in das nächste Beispiel.
+Wenn du fertig bist, dann wechsel in das nÃ¤chste Beispiel.

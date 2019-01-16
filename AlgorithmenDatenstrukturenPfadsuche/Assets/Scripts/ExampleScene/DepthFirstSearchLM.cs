@@ -14,11 +14,13 @@ public class DepthFirstSearchLM : MonoBehaviour {
     private GameObject targetPosition;
     private Statistics2 statistics;
 
+    /*
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             Execute();
         }
     }
+     */
 
     void Awake() {
         grid = GetComponent<ExampleManager>();
@@ -29,7 +31,7 @@ public class DepthFirstSearchLM : MonoBehaviour {
         GetComponent<AnimationQueue>().enqueueAction(action);
     }
 
-    private void Execute() {
+    public void Execute() {
         foreach (Node node in grid.GetArray()) {
 
             if (node.start == true) {
