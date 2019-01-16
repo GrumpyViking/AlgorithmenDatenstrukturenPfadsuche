@@ -178,6 +178,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1074217162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1074217163}
+  - component: {fileID: 1074217165}
+  - component: {fileID: 1074217164}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1074217163
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074217162}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7731156774686442098}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 174.99998, y: 50.000004}
+  m_SizeDelta: {x: 300, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1074217164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074217162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Quelle: https://de.wikipedia.org/wiki/Breitensuche'
+--- !u!222 &1074217165
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074217162}
+  m_CullTransparentMesh: 0
 --- !u!1 &1368153487
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,5 +624,152 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5818559573818235996, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -237.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818559573818235996, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381528009200898360, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Direction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381528009200898360, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612315582640493554, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612315582640493554, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612315582640493554, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608387362628385712, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -125.000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608387362628385712, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 249.99997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382463541420928974, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Text
+      value: "Breitensuche (englisch breadth-first search, BFS) ist ein Verfahren
+        in der Informatik zum Durchsuchen bzw. Durchlaufen der Knoten eines Graphen.
+        Sie z\xE4hlt zu den uninformierten Suchalgorithmen. Im Gegensatz zur Tiefensuche
+        werden zun\xE4chst alle Knoten beschritten, die vom Ausgangsknoten direkt
+        erreichbar sind. Erst danach werden Folgeknoten beschritten.\n\nDie Breitensuche
+        ist eine uninformierte Suche, welche durch Expansion der einzelnen Level der
+        Graphen ausgehend vom Startknoten den Graph in die Breite nach einem Element
+        durchsucht.\r\n\r\nZuerst wird ein Startknoten u ausgew\xE4hlt. Von diesem
+        Knoten aus wird nun jede Kante (u,v) betrachtet und getestet, ob der gegen\xFCberliegende
+        Knoten v schon entdeckt wurde bzw. das gesuchte Element ist. Ist dies noch
+        nicht der Fall, so wird der entsprechende Knoten in einer Warteschlange gespeichert
+        und im n\xE4chsten Schritt bearbeitet. Hierbei ist zu beachten, dass Breitensuche
+        immer zuerst alle Knoten der gleichen Ebene bearbeitet, und nicht wie die
+        Tiefensuche einem Pfad in die Tiefe folgt. Nachdem alle Kanten des Ausgangsknotens
+        betrachtet wurden, wird der erste Knoten der Warteschlange entnommen und das
+        Verfahren wiederholt."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345234878994988281, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345234878994988281, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345234878994988281, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345234878994988281, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853637521615684731, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172367829128951738, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -97.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703403928094319479, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703403928094319479, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703403928094319479, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419796942923996610, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Direction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419796942923996610, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419796942923996610, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Size
+      value: 0.7271255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502336642932676928, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Text
+      value: "BFS(start_node, goal_node) {\r\n for(all nodes i) visited[i] = false;
+        // anfangs sind keine Knoten besucht\r\n queue.push(start_node);              //
+        mit Start-Knoten beginnen\r\n visited[start_node] = true;\r\n while(! queue.empty()
+        ) {            // solange queue nicht leer ist\r\n  node = queue.pop();                 //
+        erstes Element von der queue nehmen\r\n  if(node == goal_node) {\r\n   return
+        true;                       // testen, ob Ziel-Knoten gefunden\r\n  }\r\n
+        \ foreach(child in expand(node)) {    // alle Nachfolge-Knoten, \u2026\r\n
+        \  if(visited[child] == false) {      // \u2026 die noch nicht besucht wurden
+        \u2026\r\n    queue.push(child);                // \u2026 zur queue hinzuf\xFCgen\u2026\r\n
+        \   visited[child] = true;            // \u2026 und als bereits gesehen markieren\r\n
+        \  }\r\n  }\r\n }\r\n return false;                        // Knoten kann
+        nicht erreicht werden\r\n}"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b959b8777e5b394e89a001f7e326039, type: 3}
+--- !u!224 &7731156774686442098 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7731156776558462444, guid: 7b959b8777e5b394e89a001f7e326039,
+    type: 3}
+  m_PrefabInstance: {fileID: 7731156774686442097}
+  m_PrefabAsset: {fileID: 0}

@@ -112,6 +112,85 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &800381715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 800381716}
+  - component: {fileID: 800381718}
+  - component: {fileID: 800381717}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &800381716
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800381715}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7731156774686442098}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 174.99998, y: 50.000004}
+  m_SizeDelta: {x: 300, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &800381717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800381715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Quelle: https://de.wikipedia.org/wiki/Tiefensuche'
+--- !u!222 &800381718
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800381715}
+  m_CullTransparentMesh: 0
 --- !u!1 &811004082
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,5 +624,171 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5818559573818235996, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -237.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818559573818235996, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381528009200898360, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Direction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381528009200898360, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612315582640493554, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612315582640493554, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612315582640493554, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608387362628385712, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -250
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608387362628385712, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382463541420928974, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Text
+      value: "Tiefensuche (englisch depth-first search, DFS) ist in der Informatik
+        ein Verfahren zum Suchen von Knoten in einem Graphen. Sie z\xE4hlt zu den
+        uninformierten Suchalgorithmen. Im Gegensatz zur Breitensuche wird bei der
+        Tiefensuche zun\xE4chst ein Pfad vollst\xE4ndig in die Tiefe beschritten,
+        bevor abzweigende Pfade beschritten werden[1]. Dabei sollen alle erreichbaren
+        Knoten des Graphen besucht werden. F\xFCr Graphen mit potentiell wenigen,
+        langen Pfaden bietet sich die beschr\xE4nkte Tiefensuche an, bei der jeder
+        Pfad nur bis zu einer bestimmten Tiefe beschritten wird.\n\nDie Tiefensuche
+        ist eine uninformierte Suche, welche durch Expansion des jeweils ersten auftretenden
+        Nachfolgeknotens im Graph nach und nach vom Startknoten aus weiter in die
+        Tiefe sucht. In welcher Reihenfolge die Nachfolger eines Knotens dabei bestimmt
+        werden, h\xE4ngt von der Repr\xE4sentation der Nachfolger ab. Bei der Repr\xE4sentation
+        \xFCber eine Adjazenzliste mittels einer verketteten Liste werden beispielsweise
+        die Knoten in der Reihenfolge ihres Eintrags in dieser Liste durchlaufen.
+        Im oben angegebenen Bild wird implizit davon ausgegangen, dass die Nachfolger
+        \"von links nach rechts\" ausgew\xE4hlt werden.\r\n\r\nF\xFCr ungerichtete
+        Graphen sieht das Verfahren wie folgt aus: Zuerst wird ein Startknoten {\\displaystyle
+        \\left.u\\right.} \\left.u\\right. ausgew\xE4hlt. Von diesem Knoten aus wird
+        nun die erste Kante {\\displaystyle \\left(u,v\\right)} \\left(u,v\\right)
+        betrachtet und getestet, ob der gegen\xFCberliegende Knoten {\\displaystyle
+        \\left.v\\right.} \\left.v\\right. schon entdeckt wurde bzw. das gesuchte
+        Element ist. Ist dies noch nicht der Fall, so wird rekursiv f\xFCr diesen
+        Knoten die Tiefensuche aufgerufen, wodurch wieder der erste Nachfolger dieses
+        Knotens expandiert wird. Diese Art der Suche wird solange fortgesetzt, bis
+        das gesuchte Element entweder gefunden wurde oder die Suche bei einer Senke
+        im Graphen angekommen ist und somit keine weiteren Nachfolgeknoten mehr untersuchen
+        kann. An dieser Stelle kehrt der Algorithmus nun zum zuletzt expandierten
+        Knoten {\\displaystyle \\left.u\\right.} \\left.u\\right. zur\xFCck und untersucht
+        den n\xE4chsten Nachfolger des Knotens. Sollte es hier keine weiteren Nachfolger
+        mehr geben, geht der Algorithmus wieder Schritt f\xFCr Schritt zum jeweiligen
+        Vorg\xE4nger zur\xFCck und versucht es dort erneut. Ein Beispiel f\xFCr die
+        Anwendung der Tiefensuche auf einem Baum findet man im oben stehenden Bild.\r\n\r\nDie
+        Kanten des Graphen, die vom Tiefensuche-Algorithmus zum Durchlaufen des Graphen
+        benutzt werden, werden als Baumkanten bezeichnet. Diejenigen Kanten, die nicht
+        benutzt werden und von einem Knoten zu einem anderen Knoten im selben Teilbaum
+        f\xFChren, der bei der Tiefensuche sp\xE4ter besucht wird, hei\xDFen Vorw\xE4rtskanten.
+        Diejenigen Kanten, die nicht benutzt werden und von einem Knoten zu einem
+        anderen Knoten im selben Teilbaum f\xFChren, der bei der Tiefensuche bereits
+        vorher besucht wurde, hei\xDFen R\xFCckw\xE4rtskanten. Diejenigen Kanten,
+        die \u201Equer\u201C von einem Teilbaum zu einem anderen Teilbaum verlaufen,
+        hei\xDFen Querkanten. Innerhalb des Tiefensuchbaums w\xFCrde der Pfad zwischen
+        zwei \xFCber eine Querkante verbundenen Knoten zun\xE4chst ein Auf- und dann
+        ein Absteigen im Baum erfordern. Vorw\xE4rtskanten, R\xFCckw\xE4rtskanten,
+        Querkanten und Baumkanten ergeben insgesamt die Kantenmenge des Graphen."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345234878994988281, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345234878994988281, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345234878994988281, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345234878994988281, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853637521615684731, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172367829128951738, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -97.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703403928094319479, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703403928094319479, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703403928094319479, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419796942923996610, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Direction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419796942923996610, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502336642932676928, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Text
+      value: "DFS(node, goal) {\r\n  if (node == goal) {\r\n    return node;\r\n  }
+        else {\r\n    stack := expand (node)\r\n    while (stack is not empty) {\r\n
+        \     node' := pop(stack);\r\n      DFS(node', goal);\r\n    }\r\n  }\r\n}"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502336642932676928, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b959b8777e5b394e89a001f7e326039, type: 3}
+--- !u!224 &7731156774686442098 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7731156776558462444, guid: 7b959b8777e5b394e89a001f7e326039,
+    type: 3}
+  m_PrefabInstance: {fileID: 7731156774686442097}
+  m_PrefabAsset: {fileID: 0}

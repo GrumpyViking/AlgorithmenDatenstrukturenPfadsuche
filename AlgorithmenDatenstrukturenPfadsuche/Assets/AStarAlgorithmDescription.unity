@@ -178,6 +178,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1240460412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1240460413}
+  - component: {fileID: 1240460415}
+  - component: {fileID: 1240460414}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1240460413
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240460412}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1937417737}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 175, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1240460414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240460412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Quelle: https://de.wikipedia.org/wiki/A*-Algorithmus'
+--- !u!222 &1240460415
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240460412}
+  m_CullTransparentMesh: 0
 --- !u!1 &1368153487
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +382,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1937417737 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7731156776489105681, guid: 7b959b8777e5b394e89a001f7e326039,
+    type: 3}
+  m_PrefabInstance: {fileID: 7731156774686442097}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7731156774686442097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -584,6 +669,343 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818559573818235996, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818559573818235996, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818559573818235996, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -215
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818559573818235996, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -470
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084712311767826406, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084712311767826406, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084712311767826406, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084712311767826406, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383542089564740955, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383542089564740955, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383542089564740955, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 382.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383542089564740955, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383542089564740955, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383542089564740955, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -775
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381528009200898360, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Direction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381528009200898360, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381528009200898360, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Size
+      value: 0.50981086
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381528009200898360, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_NumberOfSteps
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612315582640493554, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612315582640493554, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612315582640493554, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608387362628385712, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608387362628385712, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608387362628385712, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608387362628385712, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382463541420928974, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Text
+      value: "Der A*-Algorithmus (\u201EA Stern\u201C oder englisch \u201Ea star\u201C,
+        auch A*-Suche) geh\xF6rt zur Klasse der informierten Suchalgorithmen. Er dient
+        in der Informatik der Berechnung eines k\xFCrzesten Pfades zwischen zwei Knoten
+        in einem Graphen mit positiven Kantengewichten. Er wurde das erste Mal 1968
+        von Peter Hart, Nils J. Nilsson und Bertram Raphael beschrieben. Der Algorithmus
+        gilt als Verallgemeinerung und Erweiterung des Dijkstra-Algorithmus, in vielen
+        F\xE4llen kann aber umgekehrt A* auch auf Dijkstra reduziert werden.\r\n\r\nIm
+        Gegensatz zu uninformierten Suchalgorithmen verwendet der A*-Algorithmus eine
+        Sch\xE4tzfunktion (Heuristik), um zielgerichtet zu suchen und damit die Laufzeit
+        zu verringern. Der Algorithmus ist vollst\xE4ndig und optimal. Das hei\xDFt,
+        dass immer eine optimale L\xF6sung gefunden wird, falls eine existiert.\n\nDer
+        A*-Algorithmus untersucht immer die Knoten zuerst, die wahrscheinlich schnell
+        zum Ziel f\xFChren. Um den vielversprechendsten Knoten zu ermitteln, wird
+        allen bekannten Knoten x jeweils ein Wert f(x) zugeordnet, der angibt, wie
+        lang der Pfad vom Start zum Ziel unter Verwendung des betrachteten Knotens
+        im g\xFCnstigsten Fall ist. Der Knoten mit dem niedrigsten  f-Wert wird als
+        n\xE4chster untersucht.\r\n\r\nf(x)=g(x)+h(x)\r\n\r\nF\xFCr einen Knoten x
+        bezeichnet g(x) die bisherigen Kosten vom Startknoten aus, um  x zu erreichen.
+        h(x) bezeichnet die gesch\xE4tzten Kosten von  x bis zum Zielknoten. Die verwendete
+        Heuristik darf die Kosten nie \xFCbersch\xE4tzen. F\xFCr das Beispiel der
+        Wegsuche ist die Luftlinie eine geeignete Sch\xE4tzung: Die tats\xE4chliche
+        Strecke ist nie k\xFCrzer als die direkte Verbindung.\n\nFunktionsweise:\n\nDie
+        Knoten werden w\xE4hrend der Suche in drei verschiedene Klassen eingeteilt:\r\n\r\nunbekannte
+        Knoten: Diese Knoten wurden w\xE4hrend der Suche noch nicht gefunden. Zu ihnen
+        ist noch kein Weg bekannt. Jeder Knoten (au\xDFer dem Startknoten) ist zu
+        Beginn des Algorithmus unbekannt.\r\nbekannte Knoten: Zu diesen Knoten ist
+        ein (m\xF6glicherweise suboptimaler) Weg bekannt. Alle bekannten Knoten werden
+        zusammen mit ihrem  f-Wert in der sogenannten Open List gespeichert. Aus dieser
+        Liste wird immer der vielversprechendste Knoten ausgew\xE4hlt und untersucht.
+        Die Implementierung der Open List hat gro\xDFen Einfluss auf die Laufzeit
+        und wird oft als einfache Priorit\xE4tswarteschlange (z. B. bin\xE4rer Heap)
+        realisiert. Zu Beginn ist nur der Startknoten bekannt.\r\nabschlie\xDFend
+        untersuchte Knoten: Zu diesen Knoten ist der k\xFCrzeste Weg bekannt. Die
+        abschlie\xDFend untersuchten Knoten werden in der sogenannten Closed List
+        gespeichert, damit sie nicht mehrfach untersucht werden. Um effizient entscheiden
+        zu k\xF6nnen, ob sich ein Element auf der Closed List befindet, wird diese
+        oft als Menge implementiert. Die Closed List ist zu Beginn leer.\r\nJeder
+        bekannte oder abschlie\xDFend besuchte Knoten enth\xE4lt einen Zeiger auf
+        seinen Vorg\xE4ngerknoten. Mit Hilfe dieser Zeiger kann der Pfad bis zum Startknoten
+        r\xFCckverfolgt werden.\r\n\r\nWird ein Knoten x abschlie\xDFend untersucht
+        (auch expandiert oder relaxiert), so werden seine Nachfolgeknoten in die Open
+        List eingef\xFCgt und x in die Closed List aufgenommen. Die Vorg\xE4ngerzeiger
+        der Nachfolgeknoten werden auf x gesetzt. Ist ein Nachfolgeknoten bereits
+        auf der Closed List, so wird er nicht erneut in die Open List eingef\xFCgt
+        und auch sein Vorg\xE4ngerzeiger nicht ge\xE4ndert. Ist ein Nachfolgeknoten
+        bereits auf der Open List, so wird der Knoten nur aktualisiert (f-Wert und
+        Vorg\xE4ngerzeiger), wenn der neue Weg dorthin k\xFCrzer ist als der bisherige.\r\n\r\nFalls
+        der Zielknoten abschlie\xDFend untersucht wird, terminiert der Algorithmus.
+        Der gefundene Weg wird mit Hilfe der Vorg\xE4ngerzeiger rekonstruiert und
+        ausgegeben. Falls die Open List leer ist, gibt es keine Knoten mehr, die untersucht
+        werden k\xF6nnten. In diesem Fall terminiert der Algorithmus, da es keine
+        L\xF6sung gibt.\r\n\r\nBedingt durch die Vorg\xE4ngerzeiger wird der gefundene
+        Weg vom Ziel ausgehend r\xFCckw\xE4rts bis zum Start ausgegeben. Um den Weg
+        in der richtigen Reihenfolge zu erhalten kann z. B. vor der Wegsuche Start
+        und Ziel vertauscht werden. Somit wird vom eigentlichen Ziel zum Start gesucht
+        und die Wegausgabe beginnt beim urspr\xFCnglichen Startknoten."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382463541420928974, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382463541420928974, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576342829562798537, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576342829562798537, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 412.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576342829562798537, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -845
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345234878994988281, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345234878994988281, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345234878994988281, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345234878994988281, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853637521615684731, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 198
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853637521615684731, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853637521615684731, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853637521615684731, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -406
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172367829128951738, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -495.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172367829128951738, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 990.0002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703403928094319479, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703403928094319479, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703403928094319479, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419796942923996610, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Direction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419796942923996610, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419796942923996610, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Size
+      value: 0.7271255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502336642932676928, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_Text
+      value: "Pseudo-Code:\n\ndeclare openlist as PriorityQueue with Nodes // Priorit\xE4tenwarteschlange\r\ndeclare
+        closedlist as Set with Nodes\n\nprogram a-star\r\n    // Initialisierung der
+        Open List, die Closed List ist noch leer\r\n    // (die Priorit\xE4t bzw.
+        der f-Wert des Startknotens ist unerheblich)\r\n    openlist.enqueue(startknoten,
+        0)\r\n    // diese Schleife wird durchlaufen bis entweder\r\n    // - die
+        optimale L\xF6sung gefunden wurde oder\r\n    // - feststeht, dass keine L\xF6sung
+        existiert\r\n    repeat\r\n        // Knoten mit dem geringsten f-Wert aus
+        der Open List entfernen\r\n        currentNode := openlist.removeMin()\r\n
+        \       // Wurde das Ziel gefunden?\r\n        if currentNode == zielknoten
+        then\r\n            return PathFound\r\n        // Der aktuelle Knoten soll
+        durch nachfolgende Funktionen\r\n        // nicht weiter untersucht werden,
+        damit keine Zyklen entstehen\r\n        closedlist.add(currentNode)\r\n        //
+        Wenn das Ziel noch nicht gefunden wurde: Nachfolgeknoten\r\n        // des
+        aktuellen Knotens auf die Open List setzen\r\n        expandNode(currentNode)\r\n
+        \   until openlist.isEmpty()\r\n    // die Open List ist leer, es existiert
+        kein Pfad zum Ziel\r\n    return NoPathFound\r\nend\r\n// \xFCberpr\xFCft
+        alle Nachfolgeknoten und f\xFCgt sie der Open List hinzu, wenn entweder\r\n//
+        - der Nachfolgeknoten zum ersten Mal gefunden wird oder\r\n// - ein besserer
+        Weg zu diesem Knoten gefunden wird\r\nfunction expandNode(currentNode)\r\n
+        \   foreach successor of currentNode\r\n        // wenn der Nachfolgeknoten
+        bereits auf der Closed List ist \u2013 tue nichts\r\n        if closedlist.contains(successor)
+        then\r\n            continue\r\n        // g-Wert f\xFCr den neuen Weg berechnen:
+        g-Wert des Vorg\xE4ngers plus\r\n        // die Kosten der gerade benutzten
+        Kante\r\n        tentative_g = g(currentNode) + c(currentNode, successor)\r\n
+        \       // wenn der Nachfolgeknoten bereits auf der Open List ist,\r\n        //
+        aber der neue Weg nicht besser ist als der alte \u2013 tue nichts\r\n        if
+        openlist.contains(successor) and tentative_g >= g(successor) then\r\n            continue\r\n
+        \       // Vorg\xE4ngerzeiger setzen und g Wert merken\r\n        successor.predecessor
+        := currentNode\r\n        g(successor) = tentative_g\r\n        // f-Wert
+        des Knotens in der Open List aktualisieren\r\n        // bzw. Knoten mit f-Wert
+        in die Open List einf\xFCgen\r\n        f := tentative_g + h(successor)\r\n
+        \       if openlist.contains(successor) then\r\n            openlist.decreaseKey(successor,
+        f)\r\n        else\r\n            openlist.enqueue(successor, f)\r\n    end\r\nend"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502336642932676928, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502336642932676928, guid: 7b959b8777e5b394e89a001f7e326039,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b959b8777e5b394e89a001f7e326039, type: 3}

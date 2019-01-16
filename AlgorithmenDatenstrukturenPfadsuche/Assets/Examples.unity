@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6187732}
+  - component: {fileID: 6187733}
   m_Layer: 0
   m_Name: ExampleManager
   m_TagString: Untagged
@@ -142,6 +143,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6187733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6187731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e824be01b044ed747978f74423e4444f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &187761056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -521,6 +534,8 @@ MonoBehaviour:
   astarpanel: {fileID: 0}
   bfspanel: {fileID: 0}
   dfspanel: {fileID: 0}
+  gbfspanel: {fileID: 0}
+  dijkpanel: {fileID: 0}
   paused: 0
   saveDialogPanel: {fileID: 0}
   loadDialogPanel: {fileID: 0}
