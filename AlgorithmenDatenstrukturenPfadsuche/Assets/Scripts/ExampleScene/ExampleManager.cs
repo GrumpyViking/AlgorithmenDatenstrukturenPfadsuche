@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExampleManager : MonoBehaviour {
 
@@ -17,7 +18,8 @@ public class ExampleManager : MonoBehaviour {
     private GameObject field;
     private bool startSelected, targetSelected, paused;
     private int examples;
-    public GameObject astarpanel, bfspanel, dfspanel;
+    public GameObject astarpanel, bfspanel, dfspanel, questions;
+    private bool bfsActiv, dfsActiv, aStarActiv;
 
     void Start() {
         switch (PlayerSceneData.lastScene) {
@@ -29,8 +31,11 @@ public class ExampleManager : MonoBehaviour {
                 astarpanel.SetActive(false);
                 bfspanel.SetActive(false);
                 dfspanel.SetActive(true);
+                dfsActiv = true;
                 LoadLevel("Standard");
                 examples = 1;
+                ChangeQuestions();
+
                 break;
             case 6:
                 Debug.Log("Breitensuche");
@@ -40,8 +45,11 @@ public class ExampleManager : MonoBehaviour {
                 astarpanel.SetActive(false);
                 bfspanel.SetActive(true);
                 dfspanel.SetActive(false);
+                bfsActiv = true;
                 LoadLevel("Standard");
                 examples = 1;
+                ChangeQuestions();
+
                 break;
             case 7:
                 Debug.Log("A*");
@@ -51,8 +59,11 @@ public class ExampleManager : MonoBehaviour {
                 astarpanel.SetActive(true);
                 bfspanel.SetActive(false);
                 dfspanel.SetActive(false);
+                aStarActiv = true;
                 LoadLevel("Standard");
                 examples = 1;
+                ChangeQuestions();
+
                 break;
             default:
                 Debug.Log("Fehler im ExampleMode!");
@@ -61,7 +72,9 @@ public class ExampleManager : MonoBehaviour {
     }
 
     void Awake() {
-
+        aStarActiv = false;
+        bfsActiv = false;
+        dfsActiv = false;
         fieldCellDiameter = fieldCellSize * 2;
         fieldSizeXAxis = Mathf.RoundToInt(fieldSize.x / fieldCellDiameter);
         fieldSizeYAxis = Mathf.RoundToInt(fieldSize.y / fieldCellDiameter);
@@ -95,10 +108,12 @@ public class ExampleManager : MonoBehaviour {
             case 1:
                 LoadLevel("Hindernis_wenig");
                 examples++;
+                ChangeQuestions();
                 break;
             case 2:
                 LoadLevel("Hindernis_mittel");
                 examples++;
+                ChangeQuestions();
                 break;
             default:
                 Debug.Log("keine Level mehr!");
@@ -111,14 +126,17 @@ public class ExampleManager : MonoBehaviour {
             case 2:
                 LoadLevel("Standard");
                 examples--;
+                ChangeQuestions();
                 break;
             case 3:
                 LoadLevel("Hindernis_wenig");
                 examples--;
+                ChangeQuestions();
                 break;
             case 4:
                 LoadLevel("Hindernis_mittel");
                 examples--;
+                ChangeQuestions();
                 break;
             default:
                 Debug.Log("keine Level mehr!");
@@ -126,6 +144,27 @@ public class ExampleManager : MonoBehaviour {
         }
     }
 
+    private void ChangeQuestions() {
+        if (bfsActiv) {
+            LoadNewQuestions(examples, "Breitensuche");
+        }
+        if (dfsActiv) {
+            LoadNewQuestions(examples, "Tiefensuche");
+        }
+        /*
+        if (aStarActiv) {
+            LoadNewQuestions(examples, "ASternsuche");
+        }
+        */
+    }
+
+    private void LoadNewQuestions(int number, string filename) {
+        string path = "Assets/LearnModeLevels/Default/" + filename + "" + number + ".txt";
+        //Read the text from directly from the test.txt file
+        StreamReader reader = new StreamReader(path, System.Text.Encoding.UTF8, true);
+        questions.GetComponent<Text>().text = reader.ReadToEnd();
+        reader.Close();
+    }
     public void LoadLevel(string filename) {
         ClearGrid();
         SavableData savedLevel = SaveSystem.LoadLevelDefault(filename + ".grid");

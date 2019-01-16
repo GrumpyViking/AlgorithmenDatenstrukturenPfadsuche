@@ -166,6 +166,7 @@ MonoBehaviour:
   astarpanel: {fileID: 187761061}
   bfspanel: {fileID: 187761060}
   dfspanel: {fileID: 187761059}
+  questions: {fileID: 187761062}
 --- !u!114 &6187734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,6 +654,12 @@ GameObject:
 --- !u!1 &187761061 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8652164180008111927, guid: 353ea7b987aadfa40a37d4c2f649db7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 187761056}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &187761062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8434915604393169533, guid: 353ea7b987aadfa40a37d4c2f649db7f,
     type: 3}
   m_PrefabInstance: {fileID: 187761056}
   m_PrefabAsset: {fileID: 0}
