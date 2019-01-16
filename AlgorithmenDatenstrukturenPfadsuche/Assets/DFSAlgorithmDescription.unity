@@ -676,7 +676,7 @@ PrefabInstance:
         ein Verfahren zum Suchen von Knoten in einem Graphen. Sie z\xE4hlt zu den
         uninformierten Suchalgorithmen. Im Gegensatz zur Breitensuche wird bei der
         Tiefensuche zun\xE4chst ein Pfad vollst\xE4ndig in die Tiefe beschritten,
-        bevor abzweigende Pfade beschritten werden[1]. Dabei sollen alle erreichbaren
+        bevor abzweigende Pfade beschritten werden. Dabei sollen alle erreichbaren
         Knoten des Graphen besucht werden. F\xFCr Graphen mit potentiell wenigen,
         langen Pfaden bietet sich die beschr\xE4nkte Tiefensuche an, bei der jeder
         Pfad nur bis zu einer bestimmten Tiefe beschritten wird.\n\nDie Tiefensuche
@@ -688,34 +688,32 @@ PrefabInstance:
         die Knoten in der Reihenfolge ihres Eintrags in dieser Liste durchlaufen.
         Im oben angegebenen Bild wird implizit davon ausgegangen, dass die Nachfolger
         \"von links nach rechts\" ausgew\xE4hlt werden.\r\n\r\nF\xFCr ungerichtete
-        Graphen sieht das Verfahren wie folgt aus: Zuerst wird ein Startknoten {\\displaystyle
-        \\left.u\\right.} \\left.u\\right. ausgew\xE4hlt. Von diesem Knoten aus wird
-        nun die erste Kante {\\displaystyle \\left(u,v\\right)} \\left(u,v\\right)
-        betrachtet und getestet, ob der gegen\xFCberliegende Knoten {\\displaystyle
-        \\left.v\\right.} \\left.v\\right. schon entdeckt wurde bzw. das gesuchte
+        Graphen sieht das Verfahren wie folgt aus: Zuerst wird ein Startknoten ausgew\xE4hlt.
+        Von diesem Knoten aus wird nun die erste Kante (u,v) betrachtet und getestet,
+        ob der gegen\xFCberliegende Knoten schon entdeckt wurde bzw. das gesuchte
         Element ist. Ist dies noch nicht der Fall, so wird rekursiv f\xFCr diesen
         Knoten die Tiefensuche aufgerufen, wodurch wieder der erste Nachfolger dieses
         Knotens expandiert wird. Diese Art der Suche wird solange fortgesetzt, bis
         das gesuchte Element entweder gefunden wurde oder die Suche bei einer Senke
         im Graphen angekommen ist und somit keine weiteren Nachfolgeknoten mehr untersuchen
         kann. An dieser Stelle kehrt der Algorithmus nun zum zuletzt expandierten
-        Knoten {\\displaystyle \\left.u\\right.} \\left.u\\right. zur\xFCck und untersucht
-        den n\xE4chsten Nachfolger des Knotens. Sollte es hier keine weiteren Nachfolger
-        mehr geben, geht der Algorithmus wieder Schritt f\xFCr Schritt zum jeweiligen
-        Vorg\xE4nger zur\xFCck und versucht es dort erneut. Ein Beispiel f\xFCr die
-        Anwendung der Tiefensuche auf einem Baum findet man im oben stehenden Bild.\r\n\r\nDie
-        Kanten des Graphen, die vom Tiefensuche-Algorithmus zum Durchlaufen des Graphen
-        benutzt werden, werden als Baumkanten bezeichnet. Diejenigen Kanten, die nicht
-        benutzt werden und von einem Knoten zu einem anderen Knoten im selben Teilbaum
-        f\xFChren, der bei der Tiefensuche sp\xE4ter besucht wird, hei\xDFen Vorw\xE4rtskanten.
-        Diejenigen Kanten, die nicht benutzt werden und von einem Knoten zu einem
-        anderen Knoten im selben Teilbaum f\xFChren, der bei der Tiefensuche bereits
-        vorher besucht wurde, hei\xDFen R\xFCckw\xE4rtskanten. Diejenigen Kanten,
-        die \u201Equer\u201C von einem Teilbaum zu einem anderen Teilbaum verlaufen,
-        hei\xDFen Querkanten. Innerhalb des Tiefensuchbaums w\xFCrde der Pfad zwischen
-        zwei \xFCber eine Querkante verbundenen Knoten zun\xE4chst ein Auf- und dann
-        ein Absteigen im Baum erfordern. Vorw\xE4rtskanten, R\xFCckw\xE4rtskanten,
-        Querkanten und Baumkanten ergeben insgesamt die Kantenmenge des Graphen."
+        Knoten zur\xFCck und untersucht den n\xE4chsten Nachfolger des Knotens. Sollte
+        es hier keine weiteren Nachfolger mehr geben, geht der Algorithmus wieder
+        Schritt f\xFCr Schritt zum jeweiligen Vorg\xE4nger zur\xFCck und versucht
+        es dort erneut. Ein Beispiel f\xFCr die Anwendung der Tiefensuche auf einem
+        Baum findet man im oben stehenden Bild.\r\n\r\nDie Kanten des Graphen, die
+        vom Tiefensuche-Algorithmus zum Durchlaufen des Graphen benutzt werden, werden
+        als Baumkanten bezeichnet. Diejenigen Kanten, die nicht benutzt werden und
+        von einem Knoten zu einem anderen Knoten im selben Teilbaum f\xFChren, der
+        bei der Tiefensuche sp\xE4ter besucht wird, hei\xDFen Vorw\xE4rtskanten. Diejenigen
+        Kanten, die nicht benutzt werden und von einem Knoten zu einem anderen Knoten
+        im selben Teilbaum f\xFChren, der bei der Tiefensuche bereits vorher besucht
+        wurde, hei\xDFen R\xFCckw\xE4rtskanten. Diejenigen Kanten, die \u201Equer\u201C
+        von einem Teilbaum zu einem anderen Teilbaum verlaufen, hei\xDFen Querkanten.
+        Innerhalb des Tiefensuchbaums w\xFCrde der Pfad zwischen zwei \xFCber eine
+        Querkante verbundenen Knoten zun\xE4chst ein Auf- und dann ein Absteigen im
+        Baum erfordern. Vorw\xE4rtskanten, R\xFCckw\xE4rtskanten, Querkanten und Baumkanten
+        ergeben insgesamt die Kantenmenge des Graphen."
       objectReference: {fileID: 0}
     - target: {fileID: 4345234878994988281, guid: 7b959b8777e5b394e89a001f7e326039,
         type: 3}
