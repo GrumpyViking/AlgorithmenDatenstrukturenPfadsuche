@@ -12,6 +12,7 @@ public static class SaveSystem {
     // Application.persistentDataPath Programm sucht sich einen beschreibbaren berreich in dem ZielSystem
     // Application.dataPath speichern im bereich des Programms
     private static string savePath = Application.dataPath + "/levels";
+    private static string defaultPath = Application.dataPath + "/LearnModeLevels/Default";
 
     public static string levelName;
 
@@ -43,6 +44,20 @@ public static class SaveSystem {
      */
     public static SavableData LoadLevel(string filename) {
         string path = savePath + "/" + filename;
+        if (File.Exists(path)) {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            SavableData data = formatter.Deserialize(stream) as SavableData;
+            stream.Close();
+            return data;
+        } else {
+            Debug.Log("Save file not found in " + path);
+            return null;
+        }
+    }
+
+    public static SavableData LoadLevelDefault(string filename) {
+        string path = defaultPath + "/" + filename;
         if (File.Exists(path)) {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
