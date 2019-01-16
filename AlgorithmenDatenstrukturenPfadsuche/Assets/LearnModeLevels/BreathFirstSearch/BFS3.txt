@@ -1,0 +1,17 @@
+<b>Breitensuche Beispiel #3</b>
+
+Hier wurden noch mehr Hindernisse eingebaut, es soll ja nicht zu einfach sein.
+
+Wir geben dir noch ein paar Fragen mit auf den Weg:
+
+
+
+Welchen Engpass wird der Algorithmus bei der Suche als erstes durchschreiten?
+
+Ist der gefundene Weg, der kürzeste Weg, oder gibt es noch kürzere?
+
+Kannst du noch weitere Wege der selben Länge erkennen?
+ 
+
+
+Wenn du fertig bist, dann wechsel in das nächste Beispiel.

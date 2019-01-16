@@ -363,6 +363,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangeScene
       objectReference: {fileID: 0}
+    - target: {fileID: 9022204249659932908, guid: 353ea7b987aadfa40a37d4c2f649db7f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1083710267941971348, guid: 353ea7b987aadfa40a37d4c2f649db7f,
         type: 3}
       propertyPath: m_AnchorMin.y

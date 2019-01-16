@@ -32,8 +32,8 @@ public class ExampleManager : MonoBehaviour {
                 bfspanel.SetActive(false);
                 dfspanel.SetActive(true);
                 dfsActiv = true;
-                LoadLevel("Standard");
                 examples = 1;
+                LoadLevel("DFSLevel" + examples, "DeapthFirstSearch");
                 ChangeQuestions();
 
                 break;
@@ -46,8 +46,8 @@ public class ExampleManager : MonoBehaviour {
                 bfspanel.SetActive(true);
                 dfspanel.SetActive(false);
                 bfsActiv = true;
-                LoadLevel("Standard");
                 examples = 1;
+                LoadLevel("BFSLevel" + examples, "BreathFirstSearch");
                 ChangeQuestions();
 
                 break;
@@ -60,10 +60,9 @@ public class ExampleManager : MonoBehaviour {
                 bfspanel.SetActive(false);
                 dfspanel.SetActive(false);
                 aStarActiv = true;
-                LoadLevel("Standard");
                 examples = 1;
+                LoadLevel("AStarLevel" + examples, "AStar");
                 ChangeQuestions();
-
                 break;
             default:
                 Debug.Log("Fehler im ExampleMode!");
@@ -71,6 +70,11 @@ public class ExampleManager : MonoBehaviour {
         }
     }
 
+    int GetLevelCount(string folder) {
+        DirectoryInfo dir = new DirectoryInfo(Application.dataPath + "/" + "LearnModeLevels/" + folder + "/");
+        FileInfo[] level = dir.GetFiles("*.grid");
+        return level.Length;
+    }
     void Awake() {
         aStarActiv = false;
         bfsActiv = false;
@@ -104,70 +108,66 @@ public class ExampleManager : MonoBehaviour {
     }
 
     public void ChangeNextLevel() {
-        switch (examples) {
-            case 1:
-                LoadLevel("Hindernis_wenig");
-                examples++;
-                ChangeQuestions();
-                break;
-            case 2:
-                LoadLevel("Hindernis_mittel");
-                examples++;
-                ChangeQuestions();
-                break;
-            default:
-                Debug.Log("keine Level mehr!");
-                break;
+        if (aStarActiv && examples < GetLevelCount("AStar")) {
+            examples++;
+            LoadLevel("AStarLevel" + examples, "AStar");
+            ChangeQuestions();
         }
+        if (bfsActiv && examples < GetLevelCount("BreathFirstSearch")) {
+            examples++;
+            LoadLevel("BFSLevel" + examples, "BreathFirstSearch");
+            ChangeQuestions();
+        }
+        if (dfsActiv && examples < GetLevelCount("DeapthFirstSearch")) {
+            examples++;
+            LoadLevel("DFSLevel" + examples, "DeapthFirstSearch");
+            ChangeQuestions();
+        }
+
     }
 
     public void ChangePrevLevel() {
-        switch (examples) {
-            case 2:
-                LoadLevel("Standard");
-                examples--;
-                ChangeQuestions();
-                break;
-            case 3:
-                LoadLevel("Hindernis_wenig");
-                examples--;
-                ChangeQuestions();
-                break;
-            case 4:
-                LoadLevel("Hindernis_mittel");
-                examples--;
-                ChangeQuestions();
-                break;
-            default:
-                Debug.Log("keine Level mehr!");
-                break;
+        if (aStarActiv && examples > 1) {
+            examples--;
+            LoadLevel("AStarLevel" + examples, "AStar");
+            ChangeQuestions();
+        }
+        if (bfsActiv && examples > 1) {
+            examples--;
+            LoadLevel("BFSLevel" + examples, "BreathFirstSearch");
+            ChangeQuestions();
+        }
+        if (dfsActiv && examples > 1) {
+            examples--;
+            LoadLevel("DFSLevel" + examples, "DeapthFirstSearch");
+            ChangeQuestions();
         }
     }
 
     private void ChangeQuestions() {
         if (bfsActiv) {
-            LoadNewQuestions(examples, "Breitensuche");
+            LoadNewQuestions(examples, "BFS", "BreathFirstSearch");
         }
         if (dfsActiv) {
-            LoadNewQuestions(examples, "Tiefensuche");
+            LoadNewQuestions(examples, "DFS", "DeapthFirstSearch");
         }
-        /*
+
         if (aStarActiv) {
-            LoadNewQuestions(examples, "ASternsuche");
+            LoadNewQuestions(examples, "AStar", "AStar");
         }
-        */
+
     }
 
-    private void LoadNewQuestions(int number, string filename) {
-        string path = "Assets/LearnModeLevels/Default/" + filename + "" + number + ".txt";
+    private void LoadNewQuestions(int number, string filename, string folder) {
+        string path = "Assets/LearnModeLevels/" + folder + "/" + filename + "" + number + ".txt";
         //Read the text from directly from the test.txt file
         StreamReader reader = new StreamReader(path, System.Text.Encoding.UTF8, true);
         questions.GetComponent<Text>().text = reader.ReadToEnd();
         reader.Close();
     }
-    public void LoadLevel(string filename) {
+    public void LoadLevel(string filename, string folder) {
         ClearGrid();
-        SavableData savedLevel = SaveSystem.LoadLevelDefault(filename + ".grid");
+        SavableData savedLevel = SaveSystem.LoadLevelExamples((filename + ".grid"), folder);
 
         foreach (Node node in fieldCellArray) {
             foreach (LevelData ld in savedLevel.saveNodes) {
