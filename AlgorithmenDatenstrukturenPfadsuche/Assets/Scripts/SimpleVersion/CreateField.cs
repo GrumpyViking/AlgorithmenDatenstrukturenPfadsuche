@@ -257,7 +257,7 @@ public class CreateField : MonoBehaviour {
         switch (panel.text) {
             case "A* - Algorithmus":
                 print("A*");
-                GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = true;
+                GameObject.Find("GameManager").GetComponent<AStarAlgorithmNew>().enabled = true;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = false;
@@ -269,7 +269,7 @@ public class CreateField : MonoBehaviour {
                 dijkpanel.SetActive(false);
                 break;
             case "Breitensuche - Algorithmus":
-                GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<AStarAlgorithmNew>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = true;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = false;
@@ -281,7 +281,7 @@ public class CreateField : MonoBehaviour {
                 dijkpanel.SetActive(false);
                 break;
             case "Tiefensuche - Algorithmus":
-                GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<AStarAlgorithmNew>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = true;
                 GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = false;
@@ -293,7 +293,7 @@ public class CreateField : MonoBehaviour {
                 dijkpanel.SetActive(false);
                 break;
             case "GreedyBestFirstSearch - Algorithmus":
-                GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<AStarAlgorithmNew>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = true;
@@ -305,7 +305,7 @@ public class CreateField : MonoBehaviour {
                 dijkpanel.SetActive(false);
                 break;
             case "DijkstraSearch - Algorithmus":
-                GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<AStarAlgorithmNew>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = false;

@@ -5,8 +5,7 @@ using Event;
 public class AStarAlgorithmNew : MonoBehaviour {
     private CreateField grid;
     private Node startNode, targetNode;
-    public List<Node> openList = new List<Node>();
-    public HashSet<Node> closedList = new HashSet<Node>();
+    
     private Statistics2 statistics;
     
     public Dictionary<Node, Node> cameFrom
@@ -44,11 +43,7 @@ public class AStarAlgorithmNew : MonoBehaviour {
 
     private void AStarAlgo() {
         print("AstarNew");
-        openList.Clear();
-        closedList.Clear();
-        openList.Add(startNode);
-        startNode.gCost = 0;
-        startNode.hCost = GetManhattenDistance(startNode, targetNode);
+       
         Node currentNode;
         
         // new Stuff
@@ -57,7 +52,6 @@ public class AStarAlgorithmNew : MonoBehaviour {
         cameFrom[startNode] = startNode;
         costSoFar[startNode] = 0;
 
-        openList.Add(startNode);
 
         while (frontier.Count > 0)
         {
@@ -74,20 +68,24 @@ public class AStarAlgorithmNew : MonoBehaviour {
             if (currentNode == targetNode)
             {
                 GetPath(startNode, targetNode);
-                statistics.setVisited(closedList.Count);
                 break;
             }
 
             foreach (var next in grid.GetNeighboringNodes(currentNode))
             {
+                if (!next.traversable || cameFrom.ContainsKey(next)) {
+                    continue;
+                }
                 int newCost = costSoFar[currentNode] + GetManhattenDistance(currentNode, next);
 
-                if (newCost < costSoFar[next] || !costSoFar.ContainsKey(next))
+                if (!costSoFar.ContainsKey(next) ||newCost < costSoFar[next])
                 {
                     costSoFar[next] = newCost;
                     int priority = newCost + GetManhattenDistance(next, targetNode);
                     frontier.Enqueue(next, priority);
-                    cameFrom[next] = currentNode;
+                    next.parent = currentNode;
+                    visualFeedback(new ColorizeAction(Color.cyan, next.fieldCell));
+
                 }
             }
         }

@@ -78,6 +78,7 @@ public class AStarAlgorithmAlt : MonoBehaviour {
                 if (!openList.Contains(NeighborNode)) {
                     NeighborNode.gCost = MoveCost;
                     NeighborNode.hCost = GetManhattenDistance(NeighborNode, targetNode);
+                    print(NeighborNode.hCost);
                     NeighborNode.parent = currentNode;
                     if (!openList.Contains(NeighborNode)) {
                         openList.Add(NeighborNode);

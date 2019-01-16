@@ -82,12 +82,11 @@ public class DijkstraNew: MonoBehaviour
                 {
                     costSoFar[next] = newCost;
                     frontier.Enqueue(next, costSoFar[next]);
-                    cameFrom[next] = currentNode;
-                    if (!costSoFar.ContainsKey((next)))
-                    {
+                    next.parent = currentNode;
+                    
                         visualFeedback(new ColorizeAction(Color.cyan, next.fieldCell));
 
-                    }
+                    
                 }
             }
         }
