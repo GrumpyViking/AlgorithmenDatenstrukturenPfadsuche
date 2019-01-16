@@ -16,6 +16,8 @@ public class ExampleManager : MonoBehaviour {
     public List<Node> path = new List<Node>(); // Speichert den Pfad zwischen Start und Ziel
     private GameObject field;
     private bool startSelected, targetSelected, paused;
+    private int examples;
+    public GameObject astarpanel, bfspanel, dfspanel;
 
     void Start() {
         switch (PlayerSceneData.lastScene) {
@@ -24,21 +26,33 @@ public class ExampleManager : MonoBehaviour {
                 GameObject.Find("ExampleManager").GetComponent<AStarAlgorithmLM>().enabled = false;
                 GameObject.Find("ExampleManager").GetComponent<BreadthFirstSearchLM>().enabled = false;
                 GameObject.Find("ExampleManager").GetComponent<DepthFirstSearchLM>().enabled = true;
+                astarpanel.SetActive(false);
+                bfspanel.SetActive(false);
+                dfspanel.SetActive(true);
                 LoadLevel("Standard");
+                examples = 1;
                 break;
             case 6:
                 Debug.Log("Breitensuche");
                 GameObject.Find("ExampleManager").GetComponent<AStarAlgorithmLM>().enabled = false;
                 GameObject.Find("ExampleManager").GetComponent<BreadthFirstSearchLM>().enabled = true;
                 GameObject.Find("ExampleManager").GetComponent<DepthFirstSearchLM>().enabled = false;
+                astarpanel.SetActive(false);
+                bfspanel.SetActive(true);
+                dfspanel.SetActive(false);
                 LoadLevel("Standard");
+                examples = 1;
                 break;
             case 7:
                 Debug.Log("A*");
                 GameObject.Find("ExampleManager").GetComponent<AStarAlgorithmLM>().enabled = true;
                 GameObject.Find("ExampleManager").GetComponent<BreadthFirstSearchLM>().enabled = false;
                 GameObject.Find("ExampleManager").GetComponent<DepthFirstSearchLM>().enabled = false;
+                astarpanel.SetActive(true);
+                bfspanel.SetActive(false);
+                dfspanel.SetActive(false);
                 LoadLevel("Standard");
+                examples = 1;
                 break;
             default:
                 Debug.Log("Fehler im ExampleMode!");
@@ -73,6 +87,42 @@ public class ExampleManager : MonoBehaviour {
                 fieldCellArray[x, y].index = counter;
                 counter++;
             }
+        }
+    }
+
+    public void ChangeNextLevel() {
+        switch (examples) {
+            case 1:
+                LoadLevel("Hindernis_wenig");
+                examples++;
+                break;
+            case 2:
+                LoadLevel("Hindernis_mittel");
+                examples++;
+                break;
+            default:
+                Debug.Log("keine Level mehr!");
+                break;
+        }
+    }
+
+    public void ChangePrevLevel() {
+        switch (examples) {
+            case 2:
+                LoadLevel("Standard");
+                examples--;
+                break;
+            case 3:
+                LoadLevel("Hindernis_wenig");
+                examples--;
+                break;
+            case 4:
+                LoadLevel("Hindernis_mittel");
+                examples--;
+                break;
+            default:
+                Debug.Log("keine Level mehr!");
+                break;
         }
     }
 
