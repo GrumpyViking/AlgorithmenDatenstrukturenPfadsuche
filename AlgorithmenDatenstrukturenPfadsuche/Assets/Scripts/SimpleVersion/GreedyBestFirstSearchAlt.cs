@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using Event;
 
-public class GreedyBestFirstSearch : MonoBehaviour {
+public class GreedyBestFirstSearchAlt : MonoBehaviour {
     private CreateField grid;
     private Node startNode, targetNode;
     public List<Node> openList = new List<Node>();
@@ -43,52 +44,39 @@ public class GreedyBestFirstSearch : MonoBehaviour {
 
     private void GBFS() {
         openList.Add(startNode);
-        startNode.hCost = GetManhattenDistance(startNode, targetNode);
+        List<Node> closedList = new List<Node>();
 
         while (openList.Count > 0) {
-            Node currentNode = openList[0];
-
-            for (int i = 1; i < openList.Count; i++) {
-                if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost) {
-                    currentNode = openList[i];
-                }
-            }
-
-            openList.Remove(currentNode);
-            closedList.Add(currentNode);
-
-            if (currentNode != startNode) {
-                visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
-            }
-
-            if (currentNode != targetNode) {
-                visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
-            }
-
-            if (currentNode == targetNode) {
+            Node best = GetNextNode(openList);
+            closedList.Add(best);
+            if (best == targetNode) {
                 GetPath(startNode, targetNode);
-                print("GreedyBestFS Besuchte: " + closedList.Count);
-                statistics.setVisited(closedList.Count);
                 break;
             }
 
-            foreach (Node NeighborNode in grid.GetNeighboringNodes(currentNode)) {
-                if (!NeighborNode.traversable || closedList.Contains(NeighborNode)) {
-                    continue;
-                }
-
-                if (!closedList.Contains(NeighborNode)) {
-                    NeighborNode.hCost = GetManhattenDistance(NeighborNode, targetNode);
-                    NeighborNode.parent = currentNode;
-                    if (!openList.Contains(NeighborNode)) {
-                        openList.Add(NeighborNode);
-                        visualFeedback(new ColorizeAction(Color.cyan, NeighborNode.fieldCell));
+            foreach (Node next in grid.GetNeighboringNodes(best)) {
+                if (!closedList.Contains(next)) {
+                    next.hCost = GetManhattenDistance(targetNode, next);
+                    openList.Add(next);
+                    next.parent = best;
+                } else {
+                    if (next.fCost > best.fCost) {
+                        next.parent = best;
                     }
                 }
-
-
             }
         }
+    }
+
+    Node GetNextNode(List<Node> nodes) {
+        Node bestnextnode = new Node();
+        int cost = Int32.MaxValue;
+        foreach (Node node in nodes) {
+            if (node.fCost < cost) {
+                bestnextnode = node;
+            }
+        }
+        return bestnextnode;
     }
 
     private void GetPath(Node startingNode, Node endNode) {

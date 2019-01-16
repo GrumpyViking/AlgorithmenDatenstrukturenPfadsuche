@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1608,14 +1608,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Experimantel Mode
       objectReference: {fileID: 0}
-    - target: {fileID: 227206278, guid: 67d14c47251cd0440ab4645aa1bfe6c4, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1464798274}
-    - target: {fileID: 227206278, guid: 67d14c47251cd0440ab4645aa1bfe6c4, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangePreview
-      objectReference: {fileID: 0}
     - target: {fileID: 219507215742203689, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1720,6 +1712,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 227206278, guid: 67d14c47251cd0440ab4645aa1bfe6c4, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1464798274}
+    - target: {fileID: 227206278, guid: 67d14c47251cd0440ab4645aa1bfe6c4, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangePreview
       objectReference: {fileID: 0}
     - target: {fileID: 5539279162425382889, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
         type: 3}
@@ -1948,6 +1948,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Options.m_Options.Array.data[4].m_Text
       value: DijkstraSearch - Algorithmus
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247315303848558830, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4884497442174546722, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
         type: 3}
@@ -2912,8 +2917,8 @@ GameObject:
   - component: {fileID: 1464798277}
   - component: {fileID: 1464798278}
   - component: {fileID: 1464798280}
-  - component: {fileID: 1464798281}
   - component: {fileID: 1464798279}
+  - component: {fileID: 1464798282}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3037,7 +3042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263c77efbd474943af9b184c55b0d7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1464798281
+--- !u!114 &1464798282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3046,7 +3051,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1464798272}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16ac81cc41c44fc82fc96ab9af5ba6d, type: 3}
+  m_Script: {fileID: 11500000, guid: f0cc373541362f74c864c4d8a81c1920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1468808979
