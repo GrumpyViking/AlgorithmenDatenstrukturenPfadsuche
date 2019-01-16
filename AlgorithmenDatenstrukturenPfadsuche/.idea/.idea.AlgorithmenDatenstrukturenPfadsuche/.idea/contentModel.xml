@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\GitHub\AlgorithmenDatenstrukturenPfadsuche\AlgorithmenDatenstrukturenPfadsuche" t="IncludeRecursive">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="AlgorithmenDatenstrukturenPfadsuche.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="LearnModeLevels" t="Include">
+          <e p="Default" t="Include">
+            <e p="Breitensuche1.txt" t="Include" />
+            <e p="Breitensuche2.txt" t="Include" />
+            <e p="Breitensuche3.txt" t="Include" />
+            <e p="Tiefensuche1.txt" t="Include" />
+            <e p="Tiefensuche2.txt" t="Include" />
+            <e p="Tiefensuche3.txt" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="ComplexVersion" t="Include">
+            <e p="AnimateKraken.cs" t="Include" />
             <e p="AStarAlgorithm.cs" t="Include" />
+            <e p="CameraController.cs" t="Include" />
             <e p="CreateGrid.cs" t="Include" />
             <e p="FollowMouse.cs" t="Include" />
+            <e p="MouseWheelManager.cs" t="Include" />
             <e p="MoveStart.cs" t="Include" />
             <e p="MoveTarget.cs" t="Include" />
             <e p="ObjectFollowPath.cs" t="Include" />
             <e p="PlaceObjects.cs" t="Include" />
+            <e p="Statistics.cs" t="Include" />
           </e>
           <e p="Event" t="Include">
             <e p="BasicAction.cs" t="Include" />
@@ -22,6 +36,12 @@
             <e p="ColorizeAction.cs" t="Include" />
             <e p="EmptyInterface.cs" t="Include" />
             <e p="IAction.cs" t="Include" />
+          </e>
+          <e p="ExampleScene" t="Include">
+            <e p="AStarAlgorithmLM.cs" t="Include" />
+            <e p="BreadthFirstSearchLM.cs" t="Include" />
+            <e p="DepthFirstSearchLM.cs" t="Include" />
+            <e p="ExampleManager.cs" t="Include" />
           </e>
           <e p="LevelEditor" t="Include">
             <e p="LevelData.cs" t="Include" />
@@ -37,13 +57,20 @@
             <e p="ObjectMapper.cs" t="Include" />
           </e>
           <e p="Node.cs" t="Include" />
+          <e p="PlayerSceneData.cs" t="Include" />
+          <e p="PriorityQueue.cs" t="Include" />
           <e p="SimpleVersion" t="Include">
             <e p="AnimationQueue.cs" t="Include" />
             <e p="AStarAlgorithmAlt.cs" t="Include" />
+            <e p="AStarAlgorithmNew.cs" t="Include" />
             <e p="BreadthFirstSearch.cs" t="Include" />
             <e p="CreateField.cs" t="Include" />
             <e p="DepthFirstSearch.cs" t="Include" />
+            <e p="DijkstraNew.cs" t="Include" />
+            <e p="DijsktraSearch.cs" t="Include" />
+            <e p="GreedyBestFirstSearch.cs" t="Include" />
             <e p="ModifyNode.cs" t="Include" />
+            <e p="Statistics2.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -54,7 +81,7 @@
         <e p="bin" t="ExcludeRecursive" />
       </e>
     </e>
-    <e p="C:\Users\marti\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\marti\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_AlgorithmenDatenstrukturenPfadsuche.-1441555226.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.3/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_AlgorithmenDatenstrukturenPfadsuche.921873616.00" t="ExcludeRecursive" />
   </component>
 </project>

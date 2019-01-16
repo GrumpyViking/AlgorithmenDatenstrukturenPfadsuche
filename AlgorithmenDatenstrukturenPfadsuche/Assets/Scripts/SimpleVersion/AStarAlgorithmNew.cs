@@ -1,13 +1,18 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using Event;
 
-public class AStarAlgorithmAlt : MonoBehaviour {
+public class AStarAlgorithmNew : MonoBehaviour {
     private CreateField grid;
     private Node startNode, targetNode;
     public List<Node> openList = new List<Node>();
     public HashSet<Node> closedList = new HashSet<Node>();
     private Statistics2 statistics;
+    
+    public Dictionary<Node, Node> cameFrom
+        = new Dictionary<Node, Node>();
+    public Dictionary<Node, int> costSoFar
+        = new Dictionary<Node, int>();
 
     void Awake() {
         statistics = GetComponent<Statistics2>();
@@ -24,6 +29,7 @@ public class AStarAlgorithmAlt : MonoBehaviour {
     public void Execute() {
 
 
+        print("new AStar");
         foreach (Node node in grid.GetArray()) {
             if (node.start == true) {
                 startNode = node;
@@ -37,24 +43,26 @@ public class AStarAlgorithmAlt : MonoBehaviour {
     }
 
     private void AStarAlgo() {
-        print("Astar");
+        print("AstarNew");
         openList.Clear();
         closedList.Clear();
         openList.Add(startNode);
         startNode.gCost = 0;
         startNode.hCost = GetManhattenDistance(startNode, targetNode);
         Node currentNode;
-        while (openList.Count > 0) {
-            currentNode = openList[0];
+        
+        // new Stuff
+        var frontier = new PriorityQueue<Node>();
+        frontier.Enqueue(startNode, 0);
+        cameFrom[startNode] = startNode;
+        costSoFar[startNode] = 0;
 
-            for (int i = 1; i < openList.Count; i++) {
-                if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost) {
-                    currentNode = openList[i];
-                }
-            }
+        openList.Add(startNode);
 
-            openList.Remove(currentNode);
-            closedList.Add(currentNode);
+        while (frontier.Count > 0)
+        {
+            currentNode = frontier.Dequeue();
+
             if (currentNode != startNode) {
                 visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
             }
@@ -62,30 +70,29 @@ public class AStarAlgorithmAlt : MonoBehaviour {
             if (currentNode != targetNode) {
                 visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
             }
-
-            if (currentNode == targetNode) {
+            
+            if (currentNode == targetNode)
+            {
                 GetPath(startNode, targetNode);
                 statistics.setVisited(closedList.Count);
                 break;
             }
 
-            foreach (Node NeighborNode in grid.GetNeighboringNodes(currentNode)) {
-                if (!NeighborNode.traversable || closedList.Contains(NeighborNode)) {
-                    continue;
-                }
-                var MoveCost = currentNode.gCost + GetManhattenDistance(currentNode, NeighborNode);
+            foreach (var next in grid.GetNeighboringNodes(currentNode))
+            {
+                int newCost = costSoFar[currentNode] + GetManhattenDistance(currentNode, next);
 
-                if (!openList.Contains(NeighborNode)) {
-                    NeighborNode.gCost = MoveCost;
-                    NeighborNode.hCost = GetManhattenDistance(NeighborNode, targetNode);
-                    NeighborNode.parent = currentNode;
-                    if (!openList.Contains(NeighborNode)) {
-                        openList.Add(NeighborNode);
-                        visualFeedback(new ColorizeAction(Color.cyan, NeighborNode.fieldCell));
-                    }
+                if (newCost < costSoFar[next] || !costSoFar.ContainsKey(next))
+                {
+                    costSoFar[next] = newCost;
+                    int priority = newCost + GetManhattenDistance(next, targetNode);
+                    frontier.Enqueue(next, priority);
+                    cameFrom[next] = currentNode;
                 }
             }
         }
+        
+        
     }
 
 
@@ -114,5 +121,3 @@ public class AStarAlgorithmAlt : MonoBehaviour {
         return disX + disY;
     }
 }
-
-

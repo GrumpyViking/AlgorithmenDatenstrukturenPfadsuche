@@ -261,7 +261,7 @@ public class CreateField : MonoBehaviour {
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = false;
-                GameObject.Find("GameManager").GetComponent<DijsktraSearch>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<DijkstraNew>().enabled = false;
                 astarpanel.SetActive(true);
                 bfspanel.SetActive(false);
                 dfspanel.SetActive(false);
@@ -273,7 +273,7 @@ public class CreateField : MonoBehaviour {
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = true;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = false;
-                GameObject.Find("GameManager").GetComponent<DijsktraSearch>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<DijkstraNew>().enabled = false;
                 astarpanel.SetActive(false);
                 bfspanel.SetActive(true);
                 dfspanel.SetActive(false);
@@ -285,7 +285,7 @@ public class CreateField : MonoBehaviour {
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = true;
                 GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = false;
-                GameObject.Find("GameManager").GetComponent<DijsktraSearch>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<DijkstraNew>().enabled = false;
                 astarpanel.SetActive(false);
                 bfspanel.SetActive(false);
                 dfspanel.SetActive(true);
@@ -297,7 +297,7 @@ public class CreateField : MonoBehaviour {
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = true;
-                GameObject.Find("GameManager").GetComponent<DijsktraSearch>().enabled = false;
+                GameObject.Find("GameManager").GetComponent<DijkstraNew>().enabled = false;
                 astarpanel.SetActive(false);
                 bfspanel.SetActive(false);
                 dfspanel.SetActive(false);
@@ -309,7 +309,7 @@ public class CreateField : MonoBehaviour {
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = false;
-                GameObject.Find("GameManager").GetComponent<DijsktraSearch>().enabled = true;
+                GameObject.Find("GameManager").GetComponent<DijkstraNew>().enabled = true;
                 astarpanel.SetActive(false);
                 bfspanel.SetActive(false);
                 dfspanel.SetActive(false);

@@ -1,13 +1,20 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using Event;
 
-public class AStarAlgorithmAlt : MonoBehaviour {
+public class DijkstraNew: MonoBehaviour
+{
+    
     private CreateField grid;
     private Node startNode, targetNode;
     public List<Node> openList = new List<Node>();
     public HashSet<Node> closedList = new HashSet<Node>();
     private Statistics2 statistics;
+    
+    public Dictionary<Node, Node> cameFrom
+        = new Dictionary<Node, Node>();
+    public Dictionary<Node, int> costSoFar
+        = new Dictionary<Node, int>();
 
     void Awake() {
         statistics = GetComponent<Statistics2>();
@@ -33,28 +40,24 @@ public class AStarAlgorithmAlt : MonoBehaviour {
                 targetNode = node;
             }
         }
-        AStarAlgo();
+        DijkstraAlgo();
     }
 
-    private void AStarAlgo() {
-        print("Astar");
-        openList.Clear();
-        closedList.Clear();
-        openList.Add(startNode);
-        startNode.gCost = 0;
-        startNode.hCost = GetManhattenDistance(startNode, targetNode);
+    private void DijkstraAlgo()
+    {
+        print("Dijkstra New");
+
         Node currentNode;
-        while (openList.Count > 0) {
-            currentNode = openList[0];
+        
+        var frontier = new PriorityQueue<Node>();
+        frontier.Enqueue(startNode, 0);
+        cameFrom[startNode] = startNode;
+        costSoFar[startNode] = 0;
 
-            for (int i = 1; i < openList.Count; i++) {
-                if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost) {
-                    currentNode = openList[i];
-                }
-            }
-
-            openList.Remove(currentNode);
-            closedList.Add(currentNode);
+        while (frontier.Count > 0)
+        {
+            currentNode = frontier.Dequeue();
+            
             if (currentNode != startNode) {
                 visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
             }
@@ -63,33 +66,37 @@ public class AStarAlgorithmAlt : MonoBehaviour {
                 visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
             }
 
-            if (currentNode == targetNode) {
+            if (currentNode == targetNode)
+            {
                 GetPath(startNode, targetNode);
-                statistics.setVisited(closedList.Count);
                 break;
             }
 
-            foreach (Node NeighborNode in grid.GetNeighboringNodes(currentNode)) {
-                if (!NeighborNode.traversable || closedList.Contains(NeighborNode)) {
+            foreach (var next in grid.GetNeighboringNodes(currentNode))
+            {
+                if (!next.traversable || cameFrom.ContainsKey(next)) {
                     continue;
                 }
-                var MoveCost = currentNode.gCost + GetManhattenDistance(currentNode, NeighborNode);
+                int newCost = costSoFar[currentNode] + GetManhattenDistance(currentNode, next);
+                if (!costSoFar.ContainsKey(next) || newCost < costSoFar[next])
+                {
+                    costSoFar[next] = newCost;
+                    frontier.Enqueue(next, costSoFar[next]);
+                    cameFrom[next] = currentNode;
+                    if (!costSoFar.ContainsKey((next)))
+                    {
+                        visualFeedback(new ColorizeAction(Color.cyan, next.fieldCell));
 
-                if (!openList.Contains(NeighborNode)) {
-                    NeighborNode.gCost = MoveCost;
-                    NeighborNode.hCost = GetManhattenDistance(NeighborNode, targetNode);
-                    NeighborNode.parent = currentNode;
-                    if (!openList.Contains(NeighborNode)) {
-                        openList.Add(NeighborNode);
-                        visualFeedback(new ColorizeAction(Color.cyan, NeighborNode.fieldCell));
                     }
                 }
             }
         }
+
     }
 
 
     private void GetPath(Node startingNode, Node endNode) {
+        print("GetPath");
         List<Node> finalPath = new List<Node>();
         Node currentNode = endNode;
         int count = 0;
@@ -106,7 +113,7 @@ public class AStarAlgorithmAlt : MonoBehaviour {
         visualFeedback(new ColorizeAction(Color.green, startNode.fieldCell));
         visualFeedback(new ColorizeAction(Color.red, targetNode.fieldCell));
     }
-
+    
     private int GetManhattenDistance(Node nodeA, Node nodeB) {
         int disX = Mathf.Abs(nodeA.cordX - nodeB.cordX);
         int disY = Mathf.Abs(nodeA.cordY - nodeB.cordY);
@@ -114,5 +121,3 @@ public class AStarAlgorithmAlt : MonoBehaviour {
         return disX + disY;
     }
 }
-
-

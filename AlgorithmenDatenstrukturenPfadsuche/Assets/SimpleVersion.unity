@@ -1608,14 +1608,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Experimantel Mode
       objectReference: {fileID: 0}
-    - target: {fileID: 227206278, guid: 67d14c47251cd0440ab4645aa1bfe6c4, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1464798274}
-    - target: {fileID: 227206278, guid: 67d14c47251cd0440ab4645aa1bfe6c4, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangePreview
-      objectReference: {fileID: 0}
     - target: {fileID: 219507215742203689, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1720,6 +1712,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 227206278, guid: 67d14c47251cd0440ab4645aa1bfe6c4, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1464798274}
+    - target: {fileID: 227206278, guid: 67d14c47251cd0440ab4645aa1bfe6c4, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangePreview
       objectReference: {fileID: 0}
     - target: {fileID: 5539279162425382889, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
         type: 3}
@@ -2913,6 +2913,7 @@ GameObject:
   - component: {fileID: 1464798278}
   - component: {fileID: 1464798280}
   - component: {fileID: 1464798281}
+  - component: {fileID: 1464798282}
   - component: {fileID: 1464798279}
   m_Layer: 0
   m_Name: GameManager
@@ -3047,6 +3048,18 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a16ac81cc41c44fc82fc96ab9af5ba6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1464798282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464798272}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07682dd94ece4316b73eb1ee597cdf6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1468808979
