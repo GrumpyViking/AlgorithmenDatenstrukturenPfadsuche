@@ -479,8 +479,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: f170c76ee97998a479e733f7cc565752,
-        type: 3}
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 902913222460114033, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
       propertyPath: m_FontData.m_FontStyle
@@ -554,12 +553,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: f170c76ee97998a479e733f7cc565752,
-        type: 3}
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 902913223239558321, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
       propertyPath: m_FontData.m_FontStyle
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 902913223239558321, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
@@ -590,6 +588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_LineSpacing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 902913223239558321, guid: 3c38794050d6a7b4b8cbe145b5971c74,
+        type: 3}
+      propertyPath: m_Text
+      value: Experimentier-Modus
       objectReference: {fileID: 0}
     - target: {fileID: 902913221829624517, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
@@ -630,12 +633,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: f170c76ee97998a479e733f7cc565752,
-        type: 3}
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 902913221582099188, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
       propertyPath: m_FontData.m_FontStyle
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 902913221582099188, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
@@ -666,6 +668,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_LineSpacing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 902913221582099188, guid: 3c38794050d6a7b4b8cbe145b5971c74,
+        type: 3}
+      propertyPath: m_Text
+      value: Lern-Modus
       objectReference: {fileID: 0}
     - target: {fileID: 902913222678206241, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
@@ -706,12 +713,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: f170c76ee97998a479e733f7cc565752,
-        type: 3}
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 902913223134153546, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
       propertyPath: m_FontData.m_FontStyle
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 902913223134153546, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
@@ -741,7 +747,7 @@ PrefabInstance:
     - target: {fileID: 902913223134153546, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
       propertyPath: m_FontData.m_LineSpacing
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 902913221700854139, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
@@ -782,12 +788,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: f170c76ee97998a479e733f7cc565752,
-        type: 3}
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 902913223305292930, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
       propertyPath: m_FontData.m_FontStyle
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 902913223305292930, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
@@ -827,7 +832,7 @@ PrefabInstance:
     - target: {fileID: 902913223305292930, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
       propertyPath: m_FontData.m_MaxSize
-      value: 30
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c38794050d6a7b4b8cbe145b5971c74, type: 3}

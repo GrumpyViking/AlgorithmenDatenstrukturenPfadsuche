@@ -3523,13 +3523,19 @@ PrefabInstance:
     - target: {fileID: 417534779, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: f170c76ee97998a479e733f7cc565752,
-        type: 3}
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 417534779, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1771787199, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: f170c76ee97998a479e733f7cc565752,
-        type: 3}
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 1771787199, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1541974469, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4017,11 +4023,18 @@ PrefabInstance:
     - target: {fileID: 562236189, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: f170c76ee97998a479e733f7cc565752,
-        type: 3}
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 562236189, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
       propertyPath: m_Text
       value: HautpMenue
+      objectReference: {fileID: 0}
+    - target: {fileID: 562236189, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 562236189, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 1775973671, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
       propertyPath: m_Sprite
@@ -4047,8 +4060,11 @@ PrefabInstance:
     - target: {fileID: 937735024, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: f170c76ee97998a479e733f7cc565752,
-        type: 3}
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 937735024, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2093499488, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -35.6
@@ -4056,8 +4072,11 @@ PrefabInstance:
     - target: {fileID: 2093499489, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: f170c76ee97998a479e733f7cc565752,
-        type: 3}
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 2093499489, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 350571682, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -36
@@ -4065,8 +4084,11 @@ PrefabInstance:
     - target: {fileID: 350571683, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: f170c76ee97998a479e733f7cc565752,
-        type: 3}
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 350571683, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1771787198, guid: 4719841def2bf2f4d9f9954f19f22830, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 58

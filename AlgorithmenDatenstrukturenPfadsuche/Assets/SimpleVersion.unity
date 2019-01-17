@@ -2634,6 +2634,51 @@ PrefabInstance:
       propertyPath: m_Text
       value: "Hauptmen\xFC"
       objectReference: {fileID: 0}
+    - target: {fileID: 3873598417138067250, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873598417138067250, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857103565469374881, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7353581727459984861, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.79215693
+      objectReference: {fileID: 0}
+    - target: {fileID: 7353581727459984861, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 7353581727459984861, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129289516330095492, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.79215693
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129289516330095492, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129289516330095492, guid: 67d14c47251cd0440ab4645aa1bfe6c4,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.3137255
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67d14c47251cd0440ab4645aa1bfe6c4, type: 3}
 --- !u!114 &1072639199 stripped
