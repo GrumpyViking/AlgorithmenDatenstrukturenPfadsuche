@@ -67,7 +67,6 @@ public class GreedyBestFirstSearch : MonoBehaviour {
 
             if (currentNode == targetNode) {
                 GetPath(startNode, targetNode);
-                print("GreedyBestFS Besuchte: " + closedList.Count);
                 statistics.setVisited(closedList.Count);
                 break;
             }
@@ -77,7 +76,7 @@ public class GreedyBestFirstSearch : MonoBehaviour {
                     continue;
                 }
 
-                if (!closedList.Contains(NeighborNode)) {
+                if (!openList.Contains(NeighborNode)) {
                     NeighborNode.hCost = GetManhattenDistance(NeighborNode, targetNode);
                     NeighborNode.parent = currentNode;
                     if (!openList.Contains(NeighborNode)) {

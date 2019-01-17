@@ -258,7 +258,7 @@ public class CreateField : MonoBehaviour {
         switch (panel.text) {
             case "A* - Algorithmus":
                 print("A*");
-                GameObject.Find("GameManager").GetComponent<AStarAlgorithmNew>().enabled = true;
+                GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = true;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<GreedyBestFirstSearch>().enabled = false;

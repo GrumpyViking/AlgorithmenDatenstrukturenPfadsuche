@@ -43,7 +43,6 @@ public class DijkstraNew : MonoBehaviour {
     }
 
     private void DijkstraAlgo() {
-        print("Dijkstra New");
 
         Node currentNode;
 
@@ -54,6 +53,7 @@ public class DijkstraNew : MonoBehaviour {
 
         while (frontier.Count > 0) {
             currentNode = frontier.Dequeue();
+            closedList.Add(currentNode);
 
             if (currentNode != startNode) {
                 visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
@@ -65,6 +65,7 @@ public class DijkstraNew : MonoBehaviour {
 
             if (currentNode == targetNode) {
                 GetPath(startNode, targetNode);
+                statistics.setVisited(closedList.Count);
                 break;
             }
 
@@ -85,7 +86,6 @@ public class DijkstraNew : MonoBehaviour {
 
 
     private void GetPath(Node startingNode, Node endNode) {
-        print("GetPath");
         List<Node> finalPath = new List<Node>();
         Node currentNode = endNode;
         int count = 0;
