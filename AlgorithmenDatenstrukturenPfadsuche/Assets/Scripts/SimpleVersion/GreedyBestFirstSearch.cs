@@ -27,8 +27,6 @@ public class GreedyBestFirstSearch : MonoBehaviour {
     }
 
     public void Execute() {
-
-
         foreach (Node node in grid.GetArray()) {
             if (node.start == true) {
                 startNode = node;
@@ -42,6 +40,8 @@ public class GreedyBestFirstSearch : MonoBehaviour {
     }
 
     private void GBFS() {
+        openList.Clear();
+        closedList.Clear();
         openList.Add(startNode);
         startNode.hCost = GetManhattenDistance(startNode, targetNode);
 
@@ -58,11 +58,11 @@ public class GreedyBestFirstSearch : MonoBehaviour {
             closedList.Add(currentNode);
 
             if (currentNode != startNode) {
-                visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
+                visualFeedback(new ColorizeAction(Color.cyan, currentNode.fieldCell));
             }
 
             if (currentNode != targetNode) {
-                visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
+                visualFeedback(new ColorizeAction(Color.cyan, currentNode.fieldCell));
             }
 
             if (currentNode == targetNode) {
@@ -82,7 +82,7 @@ public class GreedyBestFirstSearch : MonoBehaviour {
                     NeighborNode.parent = currentNode;
                     if (!openList.Contains(NeighborNode)) {
                         openList.Add(NeighborNode);
-                        visualFeedback(new ColorizeAction(Color.cyan, NeighborNode.fieldCell));
+                        visualFeedback(new ColorizeAction(Color.magenta, NeighborNode.fieldCell));
                     }
                 }
 

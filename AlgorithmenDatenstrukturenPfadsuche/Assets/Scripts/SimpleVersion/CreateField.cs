@@ -84,12 +84,12 @@ public class CreateField : MonoBehaviour {
                 if (!startSelected) {
                     GameObject target = hit.rigidbody.gameObject; // Liefert das getroffene Objekt zurück
                     SetStart(target);
-
                 } else if (startSelected && !targetSelected) {
                     GameObject target = hit.rigidbody.gameObject;
                     SetTarget(target);
                 } else if (startSelected && targetSelected) {
                     GameObject target = hit.rigidbody.gameObject;
+
                     SetBarricade(target);
                 }
             }
@@ -116,6 +116,7 @@ public class CreateField : MonoBehaviour {
      */
     void SetStart(GameObject field) {
         new ModifyNode().ChangeColor(field, Color.green);
+
         foreach (Node node in fieldCellArray) {
             if (field.transform.position == node.GetGlobalPosition()) {
                 node.start = true; // Feld wird als Startpunkt markiert

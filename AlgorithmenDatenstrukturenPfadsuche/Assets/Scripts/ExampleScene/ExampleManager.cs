@@ -16,7 +16,7 @@ public class ExampleManager : MonoBehaviour {
     public Node[,] fieldCellArray; // Zweidimensionales Array zum Speichern der einzelnen Felder und derer Eigenschaften
     public List<Node> path = new List<Node>(); // Speichert den Pfad zwischen Start und Ziel
     private GameObject field;
-    private bool startSelected, targetSelected, paused;
+    private bool paused;
     private int examples;
     public GameObject astarpanel, bfspanel, dfspanel, questions;
     private bool bfsActiv, dfsActiv, aStarActiv;
@@ -175,12 +175,10 @@ public class ExampleManager : MonoBehaviour {
                     if (ld.start) {
                         node.start = true;
                         new ModifyNode().ChangeColor(node.fieldCell, Color.green);
-                        startSelected = true;
                     }
                     if (ld.target) {
                         node.target = true;
                         new ModifyNode().ChangeColor(node.fieldCell, Color.red);
-                        targetSelected = true;
                     }
                     if (!ld.traversable) {
                         node.traversable = false;
@@ -199,8 +197,6 @@ public class ExampleManager : MonoBehaviour {
     }
 
     public void ClearGrid() {
-        startSelected = false;
-        targetSelected = false;
         path.Clear();
         modifyedNodes.Clear();
         foreach (Node node in fieldCellArray) {
