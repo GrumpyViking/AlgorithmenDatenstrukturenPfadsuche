@@ -24,7 +24,6 @@ public class ExampleManager : MonoBehaviour {
     void Start() {
         switch (PlayerSceneData.lastScene) {
             case 5:
-                Debug.Log("Tiefensuche");
                 GameObject.Find("ExampleManager").GetComponent<AStarAlgorithmLM>().enabled = false;
                 GameObject.Find("ExampleManager").GetComponent<BreadthFirstSearchLM>().enabled = false;
                 GameObject.Find("ExampleManager").GetComponent<DepthFirstSearchLM>().enabled = true;
@@ -38,7 +37,6 @@ public class ExampleManager : MonoBehaviour {
 
                 break;
             case 6:
-                Debug.Log("Breitensuche");
                 GameObject.Find("ExampleManager").GetComponent<AStarAlgorithmLM>().enabled = false;
                 GameObject.Find("ExampleManager").GetComponent<BreadthFirstSearchLM>().enabled = true;
                 GameObject.Find("ExampleManager").GetComponent<DepthFirstSearchLM>().enabled = false;
@@ -52,7 +50,6 @@ public class ExampleManager : MonoBehaviour {
 
                 break;
             case 7:
-                Debug.Log("A*");
                 GameObject.Find("ExampleManager").GetComponent<AStarAlgorithmLM>().enabled = true;
                 GameObject.Find("ExampleManager").GetComponent<BreadthFirstSearchLM>().enabled = false;
                 GameObject.Find("ExampleManager").GetComponent<DepthFirstSearchLM>().enabled = false;
@@ -71,7 +68,7 @@ public class ExampleManager : MonoBehaviour {
     }
 
     int GetLevelCount(string folder) {
-        DirectoryInfo dir = new DirectoryInfo(Application.dataPath + "/" + "LearnModeLevels/" + folder + "/");
+        DirectoryInfo dir = new DirectoryInfo(Application.streamingAssetsPath + "/" + "LearnModeLevels/" + folder + "/");
         FileInfo[] level = dir.GetFiles("*.grid");
         return level.Length;
     }
@@ -159,7 +156,7 @@ public class ExampleManager : MonoBehaviour {
     }
 
     private void LoadNewQuestions(int number, string filename, string folder) {
-        string path = "Assets/LearnModeLevels/" + folder + "/" + filename + "" + number + ".txt";
+        string path = Application.streamingAssetsPath + "/LearnModeLevels/" + folder + "/" + filename + "" + number + ".txt";
         //Read the text from directly from the test.txt file
         StreamReader reader = new StreamReader(path, System.Text.Encoding.UTF8, true);
         questions.GetComponent<Text>().text = reader.ReadToEnd();
@@ -168,7 +165,6 @@ public class ExampleManager : MonoBehaviour {
     public void LoadLevel(string filename, string folder) {
         ClearGrid();
         SavableData savedLevel = SaveSystem.LoadLevelExamples((filename + ".grid"), folder);
-
         foreach (Node node in fieldCellArray) {
             foreach (LevelData ld in savedLevel.saveNodes) {
                 if (node.index == ld.index) {

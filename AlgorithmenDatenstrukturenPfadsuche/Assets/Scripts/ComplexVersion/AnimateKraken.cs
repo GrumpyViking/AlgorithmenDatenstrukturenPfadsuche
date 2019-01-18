@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class AnimateKraken : MonoBehaviour {
     private Transform ship;
