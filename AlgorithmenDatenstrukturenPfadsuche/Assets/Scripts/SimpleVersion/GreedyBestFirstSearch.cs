@@ -58,16 +58,15 @@ public class GreedyBestFirstSearch : MonoBehaviour {
             closedList.Add(currentNode);
 
             if (currentNode != startNode) {
-                visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
+                visualFeedback(new ColorizeAction(Color.cyan, currentNode.fieldCell));
             }
 
             if (currentNode != targetNode) {
-                visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
+                visualFeedback(new ColorizeAction(Color.cyan, currentNode.fieldCell));
             }
 
             if (currentNode == targetNode) {
                 GetPath(startNode, targetNode);
-                print("GreedyBestFS Besuchte: " + closedList.Count);
                 statistics.setVisited(closedList.Count);
                 break;
             }
@@ -77,13 +76,12 @@ public class GreedyBestFirstSearch : MonoBehaviour {
                     continue;
                 }
 
-                if (!closedList.Contains(NeighborNode)) {
+                if (!openList.Contains(NeighborNode)) {
                     NeighborNode.hCost = GetManhattenDistance(NeighborNode, targetNode);
-
                     NeighborNode.parent = currentNode;
                     if (!openList.Contains(NeighborNode)) {
                         openList.Add(NeighborNode);
-                        visualFeedback(new ColorizeAction(Color.cyan, NeighborNode.fieldCell));
+                        visualFeedback(new ColorizeAction(Color.magenta, NeighborNode.fieldCell));
                     }
                 }
 

@@ -12,7 +12,7 @@ public static class SaveSystem {
     // Application.persistentDataPath Programm sucht sich einen beschreibbaren berreich in dem ZielSystem
     // Application.dataPath speichern im bereich des Programms
     private static string savePath = Application.dataPath + "/levels";
-    private static string examplePath = Application.dataPath + "/LearnModeLevels/";
+    private static string examplePath = Application.streamingAssetsPath + "/LearnModeLevels";
 
     public static string levelName;
 
@@ -57,7 +57,7 @@ public static class SaveSystem {
     }
 
     public static SavableData LoadLevelExamples(string filename, string folder) {
-        string path = examplePath + folder + "/" + filename;
+        string path = examplePath + "/" + folder + "/" + filename;
         if (File.Exists(path)) {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);

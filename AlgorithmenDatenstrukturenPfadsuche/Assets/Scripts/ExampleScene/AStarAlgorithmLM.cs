@@ -49,7 +49,8 @@ public class AStarAlgorithmLM : MonoBehaviour {
             currentNode = openList[0];
 
             for (int i = 1; i < openList.Count; i++) {
-                if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost) {
+                if (openList[i].fCost < currentNode.fCost ||
+                    openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost) {
                     currentNode = openList[i];
                 }
             }
@@ -70,20 +71,25 @@ public class AStarAlgorithmLM : MonoBehaviour {
                 break;
             }
 
-            foreach (Node NeighborNode in grid.GetNeighboringNodes(currentNode)) {
-                if (!NeighborNode.traversable || closedList.Contains(NeighborNode)) {
+            foreach (Node next in grid.GetNeighboringNodes(currentNode)) {
+                if (!next.traversable || closedList.Contains(next)) {
                     continue;
                 }
-                var MoveCost = currentNode.gCost + GetManhattenDistance(currentNode, NeighborNode);
 
-                if (!openList.Contains(NeighborNode)) {
-                    NeighborNode.gCost = MoveCost;
-                    NeighborNode.hCost = GetManhattenDistance(NeighborNode, targetNode);
-                    NeighborNode.parent = currentNode;
-                    if (!openList.Contains(NeighborNode)) {
-                        openList.Add(NeighborNode);
-                        visualFeedback(new ColorizeAction(Color.cyan, NeighborNode.fieldCell));
+                var moveCost = currentNode.gCost + GetManhattenDistance(currentNode, next);
+
+                if (moveCost < next.gCost || !openList.Contains(next)
+                ) {
+                    next.gCost = moveCost;
+                    next.hCost = GetManhattenDistance(next, targetNode);
+                    next.parent = currentNode;
+
+                    if (!openList.Contains(next)) {
+                        openList.Add(next);
+                        visualFeedback(new ColorizeAction(Color.cyan, next.fieldCell));
                     }
+
+
                 }
             }
         }

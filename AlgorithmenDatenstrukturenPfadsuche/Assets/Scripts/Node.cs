@@ -25,6 +25,9 @@ public class Node {
         this.cordY = cordY;
         this.fieldCell = fieldCell;
     }
+    public Node() {
+
+    }
 
     // Gesamtkosten der Node zum Ziel als Methode da der Wert nicht gespeichert werden muss
     public int fCost {
