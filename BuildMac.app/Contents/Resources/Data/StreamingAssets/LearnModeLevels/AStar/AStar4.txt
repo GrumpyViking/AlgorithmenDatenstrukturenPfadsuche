@@ -1,0 +1,9 @@
+﻿<b>A* Stern Beispiel #4</b>
+
+In dieser Darstellung siehst du ein Beispiel, mit dem der A* Algorithmus Probleme bekommt.
+
+Warum tritt dieses Problem auf?
+
+Wie stark beeinflussen die Positionen von Start und Zielpunkt den Suchvorgang?
+
+Wenn du fertig bist, kannst du zurück ins Lernmenü (oben links) und dir die anderen Algorithmen genauer anschauen.

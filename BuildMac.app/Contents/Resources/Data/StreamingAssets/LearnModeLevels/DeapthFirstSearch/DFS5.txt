@@ -1,0 +1,9 @@
+<b>Tiefensuche Beispiel #5</b>
+
+Sagten wir schon, es geht schlimmer?
+
+Nun hier ist das schlimmste, was der Tiefensuche passieren kann...
+
+Warum ist dieses Beispiel, der Worst-Case? - Sieh dir dazu die Start und Zielpunkte genau an.
+
+Wenn du fertig bist, kannst du zurück ins Lernmenü (oben links) und dir die anderen Algorithmen genauer anschauen.

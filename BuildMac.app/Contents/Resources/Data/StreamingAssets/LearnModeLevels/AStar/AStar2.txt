@@ -1,0 +1,11 @@
+<b>A* Stern Beispiel #2</b> 
+
+In diesem Beispiel wurden schon ein paar Hindernisse platziert.
+
+Schau dir einmal an, wie der A* Algorithmus damit klar kommt.
+
+Kannst du eine Veränderung an der Vorgehensweise erkennen?
+
+Fallen dir Änderungen in der Statistik auf?
+
+Wenn du fertig bist, dann wechsel in das nächste Beispiel.

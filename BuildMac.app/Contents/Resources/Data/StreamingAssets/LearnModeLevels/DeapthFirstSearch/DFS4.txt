@@ -1,0 +1,12 @@
+<b>Tiefensuche Beispiel #4</b>
+
+In dieser Darstellung siehst du ein Worst-Case-Szenario für die Tiefensuche.
+
+Warum ist dieses Beispiel, ein Worst-Case?
+
+Sind noch andere Worst-Case-Szenarien möglich?
+
+Wie stark beeinflussen die Positionen von Start und Zielpunkt den Suchvorgang?
+
+Wenn du fertig bist, dann wechsel in das nächste Beispiel.
+
