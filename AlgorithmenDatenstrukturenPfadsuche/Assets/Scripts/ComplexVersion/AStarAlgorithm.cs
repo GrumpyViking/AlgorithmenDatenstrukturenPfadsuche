@@ -2,21 +2,25 @@
 using ComplexVersion;
 using UnityEngine;
 
+/**
+ * Der A*-Algorithmus für die Demo-Szene
+ * 
+ * Martin Schuster
+ */
 public class AStarAlgorithm : MonoBehaviour {
     private CreateGrid grid;
     private Node startNode, targetNode;
-    public Transform startPosition;
     private Statistics statistics;
-
+    public Transform startPosition;
     public Transform targetPosition;
     public List<Node> openList = new List<Node>();
     public HashSet<Node> closedList = new HashSet<Node>();
 
     void Update() {
-        FindPath();
+        AStar();
     }
 
-    private void FindPath() {
+    private void AStar() {
         grid = GetComponent<CreateGrid>();
         statistics = GetComponent<Statistics>();
         startNode = grid.NodeFromGlobalPosition(startPosition.position);

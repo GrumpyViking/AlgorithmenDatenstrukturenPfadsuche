@@ -100,7 +100,7 @@ public class CreateField : MonoBehaviour {
     * Bestimmt das dass ausgewählte Feld eine Hindernis ist
     */
     private void SetBarricade(GameObject field) {
-        new ModifyNode().ChangeColor(field, Color.yellow);
+        new ModifyNode().ChangeColorChild(field, Color.yellow);
         foreach (Node node in fieldCellArray) {
             if (field.transform.position == node.GetGlobalPosition()) {
                 node.traversable = false; // Feld als nicht mehr begehbar markiert
@@ -115,7 +115,7 @@ public class CreateField : MonoBehaviour {
      * Bestimmt das dass ausgewählte Feld der Start ist
      */
     void SetStart(GameObject field) {
-        new ModifyNode().ChangeColor(field, Color.green);
+        new ModifyNode().ChangeColorChild(field, Color.green);
 
         foreach (Node node in fieldCellArray) {
             if (field.transform.position == node.GetGlobalPosition()) {
@@ -132,7 +132,7 @@ public class CreateField : MonoBehaviour {
      * Bestimmt das dass ausgewählte Feld das Ziel ist
      */
     void SetTarget(GameObject field) {
-        new ModifyNode().ChangeColor(field, Color.red);
+        new ModifyNode().ChangeColorChild(field, Color.red);
         foreach (Node node in fieldCellArray) {
             if (field.transform.position == node.GetGlobalPosition()) {
                 node.target = true; // Feld wird als Zielpunkt markiert
@@ -165,21 +165,21 @@ public class CreateField : MonoBehaviour {
                 if (node.start) {
                     RemoveElement(node);
                     node.start = false;
-                    new ModifyNode().ChangeColor(node.fieldCell, Color.white);
+                    new ModifyNode().ChangeColorChild(node.fieldCell, Color.white);
                     startSelected = false;
                 }
 
                 if (node.target) {
                     RemoveElement(node);
                     node.target = false;
-                    new ModifyNode().ChangeColor(node.fieldCell, Color.white);
+                    new ModifyNode().ChangeColorChild(node.fieldCell, Color.white);
                     targetSelected = false;
                 }
 
                 if (!node.traversable) {
                     RemoveElement(node);
                     node.traversable = true;
-                    new ModifyNode().ChangeColor(node.fieldCell, Color.white);
+                    new ModifyNode().ChangeColorChild(node.fieldCell, Color.white);
                 }
             }
         }
@@ -402,17 +402,17 @@ public class CreateField : MonoBehaviour {
                 if (node.index == ld.index) {
                     if (ld.start) {
                         node.start = true;
-                        new ModifyNode().ChangeColor(node.fieldCell, Color.green);
+                        new ModifyNode().ChangeColorChild(node.fieldCell, Color.green);
                         startSelected = true;
                     }
                     if (ld.target) {
                         node.target = true;
-                        new ModifyNode().ChangeColor(node.fieldCell, Color.red);
+                        new ModifyNode().ChangeColorChild(node.fieldCell, Color.red);
                         targetSelected = true;
                     }
                     if (!ld.traversable) {
                         node.traversable = false;
-                        new ModifyNode().ChangeColor(node.fieldCell, Color.yellow);
+                        new ModifyNode().ChangeColorChild(node.fieldCell, Color.yellow);
                     }
                     LevelData mnode = new LevelData(node);
                     mnode.index = node.index;
@@ -457,7 +457,7 @@ public class CreateField : MonoBehaviour {
             node.gCost = Int32.MaxValue;
             node.hCost = Int32.MaxValue;
             node.visited = false;
-            new ModifyNode().ChangeColor(node.fieldCell, Color.white);
+            new ModifyNode().ChangeColorChild(node.fieldCell, Color.white);
         }
     }
 
@@ -505,7 +505,7 @@ public class CreateField : MonoBehaviour {
                 node.gCost = Int32.MaxValue;
                 node.hCost = Int32.MaxValue;
                 node.visited = false;
-                new ModifyNode().ChangeColor(node.fieldCell, Color.white);
+                new ModifyNode().ChangeColorChild(node.fieldCell, Color.white);
             }
         }
     }

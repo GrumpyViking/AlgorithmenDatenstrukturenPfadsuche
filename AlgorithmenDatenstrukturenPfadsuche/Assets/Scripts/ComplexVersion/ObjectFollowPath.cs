@@ -2,8 +2,10 @@
 
 namespace ComplexVersion {
     public class ObjectFollowPath : MonoBehaviour {
-        /*
+        /**
         * ObjectFollowPath Klasse ermöglicht es Objekten den durch den A*-Algoritmus berechneten Pfad zu folgen
+        *
+        * Martin Schuster
         */
 
         private Vector3 oldStartPosition, oldTargetPosition; // relevant für änderung des Start und Zielpunktes zur Laufzeit
@@ -38,44 +40,51 @@ namespace ComplexVersion {
             if (Input.GetKeyDown(KeyCode.Space) && moving == false) {
                 moving = true;
             }
-            // TODO: in extra Funktion ausgleidern
-            if (moving) {
-                float step = speed * Time.deltaTime;
-                if (!reachedGoal) {
-                    transform.position = Vector3.MoveTowards(transform.position, g.path[index].GetGlobalPosition(), step);
-                    RotateShip(g.path[index].GetGlobalPosition());
-                    if (index == g.path.Count - 1) {
-                        reachedGoal = true;
-                    } else {
-                        if (transform.position == g.path[index].GetGlobalPosition()) {
-                            index++;
-                        }
-                    }
-                } else {
-                    transform.position = Vector3.MoveTowards(transform.position, g.path[index].GetGlobalPosition(), step);
-                    RotateShip(g.path[index].GetGlobalPosition());
-                    if (index == 0) {
-                        reachedGoal = false;
-                    } else {
-                        if (transform.position == g.path[index].GetGlobalPosition()) {
-                            index--;
-                        }
-                    }
 
+            if (moving) {
+                MoveObject();
+            }
+        }
+
+        private void MoveObject() {
+            float step = speed * Time.deltaTime;
+            if (!reachedGoal) {
+                // Bewegung in die Richtung des Ziels
+                transform.position = Vector3.MoveTowards(transform.position, g.path[index].GetGlobalPosition(), step);
+                RotateShip(g.path[index].GetGlobalPosition());
+                if (index == g.path.Count - 1) {
+                    reachedGoal = true;
+                } else {
+                    if (transform.position == g.path[index].GetGlobalPosition()) {
+                        index++;
+                    }
+                }
+            } else {
+                // Bewegung in die Richtung des Starts
+                transform.position = Vector3.MoveTowards(transform.position, g.path[index].GetGlobalPosition(), step);
+                RotateShip(g.path[index].GetGlobalPosition());
+                if (index == 0) {
+                    reachedGoal = false;
+                } else {
+                    if (transform.position == g.path[index].GetGlobalPosition()) {
+                        index--;
+                    }
                 }
             }
         }
 
+        /**
+        * Rotiert das Object in die Richtung des Zielpunktes
+        */
         void RotateShip(Vector3 target) {
 
             Vector3 targetDir = target - transform.position;
-            // The step size is equal to speed times frame time.
+
             float step = speed * Time.deltaTime;
 
             Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
             Debug.DrawRay(transform.position, newDir, Color.red);
 
-            // Move our position a step closer to the target.
             transform.rotation = Quaternion.LookRotation(newDir);
         }
     }

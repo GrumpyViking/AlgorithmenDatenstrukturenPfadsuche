@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Kamerabewegung übernommen aus "Streets of London" Spiel welches im Fach Wissenschaft & Wirtschaft 1 entstanden ist
+ *
+ * Martin Schuster
+ */
 public class CameraController : MonoBehaviour {
     public Camera cameraPlayer;
     public Transform target;
@@ -31,18 +36,22 @@ public class CameraController : MonoBehaviour {
             transform.Translate((Vector3.left * Time.deltaTime) * rotSpeed);
         }
         if (mouseWheelManager.GetAvailability()) {
-            if (Input.GetAxis("Mouse ScrollWheel") < 0 && currentZoom <= maxZoom)   //Heraus Zoomen
-                                {
-                scroll = Input.GetAxisRaw("Mouse ScrollWheel");
+            Zoom();
+        }
+    }
 
-                cameraPlayer.fieldOfView -= scroll * zoomSpeed;
-                currentZoom = cameraPlayer.fieldOfView;
-            }
-            if (Input.GetAxis("Mouse ScrollWheel") > 0 && currentZoom >= minZoom) {
-                scroll = Input.GetAxisRaw("Mouse ScrollWheel");
-                cameraPlayer.fieldOfView -= scroll * zoomSpeed;
-                currentZoom = cameraPlayer.fieldOfView;
-            }
+    private void Zoom() {
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && currentZoom <= maxZoom)   //Heraus Zoomen
+                                        {
+            scroll = Input.GetAxisRaw("Mouse ScrollWheel");
+
+            cameraPlayer.fieldOfView -= scroll * zoomSpeed;
+            currentZoom = cameraPlayer.fieldOfView;
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && currentZoom >= minZoom) {
+            scroll = Input.GetAxisRaw("Mouse ScrollWheel");
+            cameraPlayer.fieldOfView -= scroll * zoomSpeed;
+            currentZoom = cameraPlayer.fieldOfView;
         }
     }
 }

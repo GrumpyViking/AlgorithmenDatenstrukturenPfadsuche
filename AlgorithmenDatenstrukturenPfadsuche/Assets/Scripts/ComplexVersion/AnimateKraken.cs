@@ -5,15 +5,16 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Animations;
 
+/**
+ * Steuerung der Animation des Kraken
+ *
+ * Martin Schuster
+ */
 public class AnimateKraken : MonoBehaviour {
     private Transform ship;
-
     private Animator controller;
-
     int hit = Animator.StringToHash("IsAttacking");
-
     float speed;
-
     void Start() {
         ship = GameObject.Find("Ship").transform;
         speed = 5f;
@@ -25,6 +26,7 @@ public class AnimateKraken : MonoBehaviour {
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
 
+        // Führt die Attack-Animation aus wenn das Schiff in einer entfernung von 15 Einheiten ist
         if (Vector3.Distance(transform.position, ship.position) < 15) {
             controller.SetBool("IsAttacking", true);
         } else {

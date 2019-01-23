@@ -10,15 +10,20 @@ namespace ComplexVersion {
         private Node[,] fieldCellArray;
         public LayerMask obstacle;
         public List<Node> path; // Speichert den Zielpfad
+        public GameObject fieldObject;
+        private GameObject Field;
 
         private void Start() {
+            Field = new GameObject("Field");
+            Field.SetActive(false);
             cellDiameter = cellSize * 2;
             fieldSizeXAxis = Mathf.RoundToInt(gridSize.x / cellDiameter);
             fieldSizeYAxis = Mathf.RoundToInt(gridSize.y / cellDiameter);
+
         }
 
         void Update() {
-            CreateOverlayGrid(); // Aktualisiert das Grid mit jedem Frame 
+            CreateOverlayGrid();
         }
 
         // Legt über das Spielfeld ein unsichtbares Grid damit der Pfad berechnet werden kann
@@ -28,11 +33,13 @@ namespace ComplexVersion {
             for (int x = 0; x < fieldSizeXAxis; x++) {
                 for (int y = 0; y < fieldSizeYAxis; y++) {
                     Vector3 worldPoint = bottomLeft + Vector3.right * (x * cellDiameter + cellSize) + Vector3.forward * (y * cellDiameter + cellSize);
+
                     bool wall = !Physics.CheckSphere(worldPoint, cellSize, obstacle);
 
                     fieldCellArray[x, y] = new Node(wall, worldPoint, x, y, null);
                 }
             }
+
         }
 
         // Liefer die Nachbarfelder des aktuellen Feldes
@@ -119,5 +126,6 @@ namespace ComplexVersion {
                 }
             }
         }
+
     }
 }

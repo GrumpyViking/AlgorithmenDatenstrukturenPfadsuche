@@ -170,15 +170,15 @@ public class ExampleManager : MonoBehaviour {
                 if (node.index == ld.index) {
                     if (ld.start) {
                         node.start = true;
-                        new ModifyNode().ChangeColor(node.fieldCell, Color.green);
+                        new ModifyNode().ChangeColorChild(node.fieldCell, Color.green);
                     }
                     if (ld.target) {
                         node.target = true;
-                        new ModifyNode().ChangeColor(node.fieldCell, Color.red);
+                        new ModifyNode().ChangeColorChild(node.fieldCell, Color.red);
                     }
                     if (!ld.traversable) {
                         node.traversable = false;
-                        new ModifyNode().ChangeColor(node.fieldCell, Color.yellow);
+                        new ModifyNode().ChangeColorChild(node.fieldCell, Color.yellow);
                     }
                     LevelData mnode = new LevelData(node);
                     mnode.index = node.index;
@@ -203,7 +203,7 @@ public class ExampleManager : MonoBehaviour {
             node.gCost = Int32.MaxValue;
             node.hCost = Int32.MaxValue;
             node.visited = false;
-            new ModifyNode().ChangeColor(node.fieldCell, Color.white);
+            new ModifyNode().ChangeColorChild(node.fieldCell, Color.white);
         }
     }
 
@@ -272,7 +272,7 @@ public class ExampleManager : MonoBehaviour {
                 node.gCost = Int32.MaxValue;
                 node.hCost = Int32.MaxValue;
                 node.visited = false;
-                new ModifyNode().ChangeColor(node.fieldCell, Color.white);
+                new ModifyNode().ChangeColorChild(node.fieldCell, Color.white);
             }
         }
     }
