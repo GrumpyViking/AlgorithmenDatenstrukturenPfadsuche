@@ -4,9 +4,10 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-/*
-CreatField Klasse erstellt das Spielfeld und ist für den Programmverlauf der SimpleVersion Scene verantwortlich 
-*/
+/**
+ * CreatField Klasse erstellt das Spielfeld und ist für den Programmverlauf der SimpleVersion Scene verantwortlich 
+ * Martin Schuster
+ */
 public class CreateField : MonoBehaviour {
     public GameObject fieldCell; // Objekt aus dem das Feldbesteht (in Unity hinzufügen)
     public Vector2 fieldSize; // Größe des Spielfeldes (in Unity eintragen)
@@ -16,8 +17,9 @@ public class CreateField : MonoBehaviour {
     private List<LevelData> modifyedNodes = new List<LevelData>();
     public Node[,] fieldCellArray; // Zweidimensionales Array zum Speichern der einzelnen Felder und derer Eigenschaften
     private bool startSelected, targetSelected; // Status ob Start/Ziel ausgewählt wurde
-    public List<Node> path = new List<Node>(); // Speichert den Pfad zwischen Start und Ziel
     private GameObject field; // Objekt als das die Felder erstellt werden
+    private GameObject grid;
+    public List<Node> path = new List<Node>(); // Speichert den Pfad zwischen Start und Ziel
     public GameObject astarpanel, bfspanel, dfspanel, gbfspanel, dijkpanel; // Legenden für A*-Algoritmuse und Breitensuche Algoritmus
     public bool paused;
     public GameObject saveDialogPanel, loadDialogPanel;
@@ -30,6 +32,7 @@ public class CreateField : MonoBehaviour {
      * Initialisierung mit Programmstart
      */
     void Start() {
+        grid = new GameObject("Grid");
         fieldCellDiameter = fieldCellSize * 2;
         fieldSizeXAxis = Mathf.RoundToInt(fieldSize.x / fieldCellDiameter);
         fieldSizeYAxis = Mathf.RoundToInt(fieldSize.y / fieldCellDiameter);
@@ -49,7 +52,7 @@ public class CreateField : MonoBehaviour {
             for (int y = 0; y < fieldSizeYAxis; y++) {
                 Vector3 cordinate = bottomLeft + Vector3.right * (x * fieldCellDiameter + fieldCellSize) +
                                  Vector3.forward * (y * fieldCellDiameter + fieldCellSize); // Position an der neues Feld platziert wird
-                field = Instantiate(fieldCell, cordinate, Quaternion.identity); // Erstellt ein neues FeldObjekt an der zuvor festgelegten Position mit der standart Rotation
+                field = Instantiate(fieldCell, cordinate, Quaternion.identity, grid.transform); // Erstellt ein neues FeldObjekt an der zuvor festgelegten Position mit der standart Rotation
                 field.name = "field" + counter;
                 field.AddComponent<Rigidbody>(); // Rigidbody wichtig um Felder anklicken zu können
                 field.GetComponent<Rigidbody>().useGravity = false;

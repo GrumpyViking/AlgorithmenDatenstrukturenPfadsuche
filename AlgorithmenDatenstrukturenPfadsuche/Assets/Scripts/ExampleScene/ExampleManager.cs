@@ -5,25 +5,66 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * ExampleManager verwaltet die Funktion des Lern-Modus
+ *
+ * Martin Schuster
+ */
+
 public class ExampleManager : MonoBehaviour {
 
-    public GameObject fieldCell; // Objekt aus dem das Feldbesteht (in Unity hinzufügen)
-    public Vector2 fieldSize; // Größe des Spielfeldes (in Unity eintragen)
     private float fieldCellSize = 0.5f; // größe der einzelnen Felder
     private int fieldSizeXAxis, fieldSizeYAxis; // anzahl Felder auf der X bzw. Y Achse
     private float fieldCellDiameter; // Für Korrekte Feldgrößen berechnung notwendig 
     private List<LevelData> modifyedNodes = new List<LevelData>();
-    public Node[,] fieldCellArray; // Zweidimensionales Array zum Speichern der einzelnen Felder und derer Eigenschaften
-    public List<Node> path = new List<Node>(); // Speichert den Pfad zwischen Start und Ziel
     private GameObject field;
     private bool paused;
     private int examples;
-    public GameObject astarpanel, bfspanel, dfspanel, questions;
     private bool bfsActiv, dfsActiv, aStarActiv;
+    private GameObject grid;
+    public GameObject fieldCell; // Objekt aus dem das Feldbesteht (in Unity hinzufügen)
+    public Vector2 fieldSize; // Größe des Spielfeldes (in Unity eintragen)
+    public Node[,] fieldCellArray; // Zweidimensionales Array zum Speichern der einzelnen Felder und derer Eigenschaften
+    public List<Node> path = new List<Node>(); // Speichert den Pfad zwischen Start und Ziel
+    public GameObject astarpanel, bfspanel, dfspanel, questions;
 
+    // Initialisierung zum Start des Programms
+    void Awake() {
+        grid = new GameObject("Grid");
+        aStarActiv = false;
+        bfsActiv = false;
+        dfsActiv = false;
+        fieldCellDiameter = fieldCellSize * 2;
+        fieldSizeXAxis = Mathf.RoundToInt(fieldSize.x / fieldCellDiameter);
+        fieldSizeYAxis = Mathf.RoundToInt(fieldSize.y / fieldCellDiameter);
+        CreateFieldGrid();
+    }
+
+    private void CreateFieldGrid() {
+        fieldCellArray = new Node[fieldSizeXAxis, fieldSizeYAxis];
+        Vector3 bottomLeft = transform.position - Vector3.right * fieldSize.x / 2 - Vector3.forward * fieldSize.y / 2; // Erstellung des Feldes um den Mittelpunkt anstelle des Mittlepunktes als Linken oberen Eckpunktes
+        bool traversable = true;
+        int counter = 0; // Zähler wie viele felder erstellt wurden 
+        for (int x = 0; x < fieldSizeXAxis; x++) {
+            for (int y = 0; y < fieldSizeYAxis; y++) {
+                Vector3 cordinate = bottomLeft + Vector3.right * (x * fieldCellDiameter + fieldCellSize) +
+                                 Vector3.forward * (y * fieldCellDiameter + fieldCellSize); // Position an der neues Feld platziert wird
+                field = Instantiate(fieldCell, cordinate, Quaternion.identity, grid.transform); // Erstellt ein neues FeldObjekt an der zuvor festgelegten Position mit der standart Rotation
+                field.name = "field" + counter;
+                field.AddComponent<Rigidbody>(); // Rigidbody wichtig um Felder anklicken zu können
+                field.GetComponent<Rigidbody>().useGravity = false;
+                field.GetComponent<Rigidbody>().isKinematic = true; // wichtig um Kollision unter den Felder zu vermeiden
+                fieldCellArray[x, y] = new Node(traversable, cordinate, x, y, field); // Fügt das aktuelle Feld dem array zu
+                fieldCellArray[x, y].index = counter;
+                counter++;
+            }
+        }
+    }
+
+    // Prüft beim Aufrufen der Szene von welchem gewählten Pfadsuchealgorithmus der Nutzer kommt und Schaltet entsprechend die Anzeige im Programm
     void Start() {
         switch (PlayerSceneData.lastScene) {
-            case 5:
+            case 4:
                 GameObject.Find("ExampleManager").GetComponent<AStarAlgorithmLM>().enabled = false;
                 GameObject.Find("ExampleManager").GetComponent<BreadthFirstSearchLM>().enabled = false;
                 GameObject.Find("ExampleManager").GetComponent<DepthFirstSearchLM>().enabled = true;
@@ -34,9 +75,8 @@ public class ExampleManager : MonoBehaviour {
                 examples = 1;
                 LoadLevel("DFSLevel" + examples, "DeapthFirstSearch");
                 ChangeQuestions();
-
                 break;
-            case 6:
+            case 5:
                 GameObject.Find("ExampleManager").GetComponent<AStarAlgorithmLM>().enabled = false;
                 GameObject.Find("ExampleManager").GetComponent<BreadthFirstSearchLM>().enabled = true;
                 GameObject.Find("ExampleManager").GetComponent<DepthFirstSearchLM>().enabled = false;
@@ -47,9 +87,8 @@ public class ExampleManager : MonoBehaviour {
                 examples = 1;
                 LoadLevel("BFSLevel" + examples, "BreathFirstSearch");
                 ChangeQuestions();
-
                 break;
-            case 7:
+            case 6:
                 GameObject.Find("ExampleManager").GetComponent<AStarAlgorithmLM>().enabled = true;
                 GameObject.Find("ExampleManager").GetComponent<BreadthFirstSearchLM>().enabled = false;
                 GameObject.Find("ExampleManager").GetComponent<DepthFirstSearchLM>().enabled = false;
@@ -62,46 +101,16 @@ public class ExampleManager : MonoBehaviour {
                 ChangeQuestions();
                 break;
             default:
-                Debug.Log("Fehler im ExampleMode!");
+                Debug.Log("Fehler im ExampleMode! Nicht vorgesehene Szenennummer");
                 break;
         }
     }
 
+    // Hilfsfunktion zum Prüfen wie viele Level es gibt, verhindert Zugriff auf nicht vorhandene Level und macht das Programm um beliebig viele Level erweiterbar
     int GetLevelCount(string folder) {
         DirectoryInfo dir = new DirectoryInfo(Application.streamingAssetsPath + "/" + "LearnModeLevels/" + folder + "/");
         FileInfo[] level = dir.GetFiles("*.grid");
         return level.Length;
-    }
-    void Awake() {
-        aStarActiv = false;
-        bfsActiv = false;
-        dfsActiv = false;
-        fieldCellDiameter = fieldCellSize * 2;
-        fieldSizeXAxis = Mathf.RoundToInt(fieldSize.x / fieldCellDiameter);
-        fieldSizeYAxis = Mathf.RoundToInt(fieldSize.y / fieldCellDiameter);
-        CreateFieldGrid();
-    }
-
-    private void CreateFieldGrid() {
-        Debug.Log("Test");
-        fieldCellArray = new Node[fieldSizeXAxis, fieldSizeYAxis];
-        Vector3 bottomLeft = transform.position - Vector3.right * fieldSize.x / 2 - Vector3.forward * fieldSize.y / 2; // Erstellung des Feldes um den Mittelpunkt anstelle des Mittlepunktes als Linken oberen Eckpunktes
-        bool traversable = true;
-        int counter = 0; // Zähler wie viele felder erstellt wurden 
-        for (int x = 0; x < fieldSizeXAxis; x++) {
-            for (int y = 0; y < fieldSizeYAxis; y++) {
-                Vector3 cordinate = bottomLeft + Vector3.right * (x * fieldCellDiameter + fieldCellSize) +
-                                 Vector3.forward * (y * fieldCellDiameter + fieldCellSize); // Position an der neues Feld platziert wird
-                field = Instantiate(fieldCell, cordinate, Quaternion.identity); // Erstellt ein neues FeldObjekt an der zuvor festgelegten Position mit der standart Rotation
-                field.name = "field" + counter;
-                field.AddComponent<Rigidbody>(); // Rigidbody wichtig um Felder anklicken zu können
-                field.GetComponent<Rigidbody>().useGravity = false;
-                field.GetComponent<Rigidbody>().isKinematic = true; // wichtig um Kollision unter den Felder zu vermeiden
-                fieldCellArray[x, y] = new Node(traversable, cordinate, x, y, field); // Fügt das aktuelle Feld dem array zu
-                fieldCellArray[x, y].index = counter;
-                counter++;
-            }
-        }
     }
 
     public void ChangeNextLevel() {
@@ -120,7 +129,6 @@ public class ExampleManager : MonoBehaviour {
             LoadLevel("DFSLevel" + examples, "DeapthFirstSearch");
             ChangeQuestions();
         }
-
     }
 
     public void ChangePrevLevel() {
@@ -148,20 +156,21 @@ public class ExampleManager : MonoBehaviour {
         if (dfsActiv) {
             LoadNewQuestions(examples, "DFS", "DeapthFirstSearch");
         }
-
         if (aStarActiv) {
             LoadNewQuestions(examples, "AStar", "AStar");
         }
-
     }
 
+    /**
+     * Liest aus einer txt Datei die Beschreibung/Fragestellung am linken Rand aus
+     */
     private void LoadNewQuestions(int number, string filename, string folder) {
         string path = Application.streamingAssetsPath + "/LearnModeLevels/" + folder + "/" + filename + "" + number + ".txt";
-        //Read the text from directly from the test.txt file
         StreamReader reader = new StreamReader(path, System.Text.Encoding.UTF8, true);
         questions.GetComponent<Text>().text = reader.ReadToEnd();
         reader.Close();
     }
+
     public void LoadLevel(string filename, string folder) {
         ClearGrid();
         SavableData savedLevel = SaveSystem.LoadLevelExamples((filename + ".grid"), folder);
@@ -277,6 +286,9 @@ public class ExampleManager : MonoBehaviour {
         }
     }
 
+    /**
+     * Führt abhängig vom gewählten Pfadsuchealgorithmus den entsprechenden Algorithmus aus
+     */
     public void ExecuteAlg() {
         if (bfsActiv) {
             GameObject.Find("ExampleManager").GetComponent<BreadthFirstSearchLM>().Execute();

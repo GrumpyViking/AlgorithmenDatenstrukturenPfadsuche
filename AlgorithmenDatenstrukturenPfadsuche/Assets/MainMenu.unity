@@ -510,7 +510,7 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'Algorithmen und Datenstrukturen
 
-        Thema: Pfadsuche in gerichtetet Graphen
+        Thema: Pfadsuche in gerichteten Graphen
 
         Gruppe:  05'
       objectReference: {fileID: 0}
@@ -629,6 +629,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1814673456}
+    - target: {fileID: 902913221829624516, guid: 3c38794050d6a7b4b8cbe145b5971c74,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 902913221582099188, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
       propertyPath: m_FontData.m_Font
@@ -748,6 +753,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_LineSpacing
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 902913223134153546, guid: 3c38794050d6a7b4b8cbe145b5971c74,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Demonstration
+
+        A* Algorithmus'
       objectReference: {fileID: 0}
     - target: {fileID: 902913221700854139, guid: 3c38794050d6a7b4b8cbe145b5971c74,
         type: 3}
