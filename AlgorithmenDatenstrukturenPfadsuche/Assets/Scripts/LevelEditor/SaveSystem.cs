@@ -4,8 +4,10 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.UI;
 
-/*
-Speichersystem beinhaltet die Funktionen zum Speichern und Laden
+/**
+ * Speichersystem beinhaltet die Funktionen zum Speichern und Laden
+ *
+ * Martin Schuster
  */
 
 public static class SaveSystem {

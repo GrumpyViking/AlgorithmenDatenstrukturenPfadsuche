@@ -2,6 +2,12 @@
 using UnityEngine;
 using Event;
 
+/**
+ * Umsetzung des A Stern Algorithmus
+ *
+ * Martin Schuster
+ */
+
 public class AStarAlgorithmLM : MonoBehaviour {
     private ExampleManager grid;
     private Node startNode, targetNode;

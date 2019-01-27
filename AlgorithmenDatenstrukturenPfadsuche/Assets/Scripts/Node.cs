@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
-/*
-    Beinhaltet die relevanten Informationen damit die Such-Algorithmen arbeiten können.
-
+/**
+ * Beinhaltet die relevanten Informationen damit die Such-Algorithmen arbeiten können.
+ *
+ * Martin Schuster
  */
 public class Node {
     public int cordX; // X Position im NodeArray
@@ -24,9 +25,6 @@ public class Node {
         this.cordX = cordX;
         this.cordY = cordY;
         this.fieldCell = fieldCell;
-    }
-    public Node() {
-
     }
 
     // Gesamtkosten der Node zum Ziel als Methode da der Wert nicht gespeichert werden muss

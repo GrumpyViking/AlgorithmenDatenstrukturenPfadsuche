@@ -2,6 +2,12 @@
 using UnityEngine;
 using Event;
 
+/**
+ * Umsetzung des A Stern Algorithmus
+ *
+ * Martin Schuster
+ */
+
 public class AStarAlgorithmAlt : MonoBehaviour {
     private CreateField grid;
     private Node startNode, targetNode;
@@ -87,7 +93,6 @@ public class AStarAlgorithmAlt : MonoBehaviour {
                 }
             }
         }
-
     }
 
     private void GetPath(Node startingNode, Node endNode) {

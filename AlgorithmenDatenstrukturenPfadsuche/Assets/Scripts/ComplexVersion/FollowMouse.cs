@@ -2,7 +2,7 @@
 
 namespace ComplexVersion {
     public class FollowMouse : MonoBehaviour {
-        /*
+        /**
          * Objekt folgt der Mausbewegung des Nutzers und wird innerhalb der Spielfeldgrenzen Platziert
          *
          * Martin Schuster

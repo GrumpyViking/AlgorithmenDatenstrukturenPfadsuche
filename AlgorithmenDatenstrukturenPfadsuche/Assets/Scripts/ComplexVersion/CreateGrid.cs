@@ -1,6 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Erstellt das Feld für den A Stern Algorithmus
+ *
+ * Martin Schuster
+ */
 namespace ComplexVersion {
     public class CreateGrid : MonoBehaviour {
         private float cellDiameter;
