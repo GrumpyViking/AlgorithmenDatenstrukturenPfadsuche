@@ -32,4 +32,8 @@ public class AnimationQueue : MonoBehaviour {
             yield return new WaitForSeconds(delaySeconds);
         }
     }
+
+    public void StopAnimation() {
+        queue.Clear();
+    }
 }

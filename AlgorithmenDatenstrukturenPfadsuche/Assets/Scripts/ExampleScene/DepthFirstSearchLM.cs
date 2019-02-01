@@ -62,7 +62,7 @@ public class DepthFirstSearchLM : MonoBehaviour {
 
             if (current == targetNode) {
                 GeneratePath(current, startNode);
-                print("Tiefensuche Besucht: " + count);
+                //print("Tiefensuche Besucht: " + count);
                 statistics.setVisited(count);
                 break;
             }
@@ -100,7 +100,7 @@ public class DepthFirstSearchLM : MonoBehaviour {
         finalPath.Reverse();
         grid.path = finalPath;
         count++;
-        print("Tiefensuche Pfadlänge: " + count);
+        //print("Tiefensuche Pfadlänge: " + count);
         statistics.setPathLength(count);
     }
 }

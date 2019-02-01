@@ -51,7 +51,8 @@ public class DijkstraNew : MonoBehaviour {
     private void DijkstraAlgo() {
 
         Node currentNode;
-
+        cameFrom.Clear();
+        costSoFar.Clear();
         var frontier = new PriorityQueue<Node>();
         frontier.Enqueue(startNode, 0);
         cameFrom[startNode] = startNode;

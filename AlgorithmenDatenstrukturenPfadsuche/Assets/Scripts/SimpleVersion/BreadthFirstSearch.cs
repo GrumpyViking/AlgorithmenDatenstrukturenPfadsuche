@@ -64,7 +64,7 @@ public class BreadthFirstSearch : MonoBehaviour {
 
             if (current == targetNode) {
                 GeneratePath(current, startNode);
-                print("Breitensuche besuchte: " + visited);
+                //print("Breitensuche besuchte: " + visited);
                 statistics.setVisited(visited);
                 break;
             }
@@ -98,7 +98,7 @@ public class BreadthFirstSearch : MonoBehaviour {
         }
 
         pathCount++;
-        print("Breitensuche Pfadlänge: " + pathCount);
+        //print("Breitensuche Pfadlänge: " + pathCount);
         statistics.setPathLength(pathCount);
         finalPath.Reverse();
         grid.path = finalPath;

@@ -49,7 +49,7 @@ public class GreedyBestFirstSearch : MonoBehaviour {
         openListGreedy.Add(startNode);
         startNode.hCost = GetManhattenDistance(startNode, targetNode);
         Node currentNode;
-        
+
         while (openListGreedy.Count > 0) {
             currentNode = openListGreedy[0];
 
@@ -71,7 +71,7 @@ public class GreedyBestFirstSearch : MonoBehaviour {
             }
 
             if (currentNode == targetNode) {
-                print("Finish");
+                //print("Finish");
                 GetPath(startNode, targetNode);
                 statistics.setVisited(closedListGreedy.Count);
                 break;
@@ -100,7 +100,7 @@ public class GreedyBestFirstSearch : MonoBehaviour {
         List<Node> finalPath = new List<Node>();
         Node currentNode = endNode;
         int count = 0;
-        print("getPath");
+        //print("getPath");
 
         while (currentNode != startingNode) {
             count++;

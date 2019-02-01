@@ -263,7 +263,7 @@ public class CreateField : MonoBehaviour {
     public void ShowPanel(Text panel) {
         switch (panel.text) {
             case "A* - Algorithmus":
-                print("A*");
+                //print("A*");
                 GameObject.Find("GameManager").GetComponent<AStarAlgorithmAlt>().enabled = true;
                 GameObject.Find("GameManager").GetComponent<BreadthFirstSearch>().enabled = false;
                 GameObject.Find("GameManager").GetComponent<DepthFirstSearch>().enabled = false;
@@ -465,6 +465,7 @@ public class CreateField : MonoBehaviour {
             node.visited = false;
             new ModifyNode().ChangeColorChild(node.fieldCell, Color.white);
         }
+        GetComponent<AnimationQueue>().StopAnimation();
     }
 
     public void ChangeTextObjectToString(Text label) {
@@ -493,26 +494,29 @@ public class CreateField : MonoBehaviour {
     public void ResetLevel() {
         path.Clear();
         bool isSet = false;
+        GetComponent<AnimationQueue>().StopAnimation();
         foreach (Node node in fieldCellArray) {
             isSet = false;
             foreach (LevelData ld in modifyedNodes) {
                 if (node.index == ld.index) {
                     if (ld.start) {
                         node.visited = false;
+                        new ModifyNode().ChangeColorChild(node.fieldCell, Color.green);
                     }
                     if (ld.target) {
                         node.visited = false;
+                        new ModifyNode().ChangeColorChild(node.fieldCell, Color.red);
                     }
                     isSet = true;
                 }
             }
             if (!isSet) {
                 node.parent = null;
-                node.gCost = Int32.MaxValue;
                 node.hCost = Int32.MaxValue;
                 node.visited = false;
                 new ModifyNode().ChangeColorChild(node.fieldCell, Color.white);
             }
         }
+
     }
 }

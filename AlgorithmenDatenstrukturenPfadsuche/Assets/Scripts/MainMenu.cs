@@ -30,6 +30,6 @@ public class MainMenu : MonoBehaviour {
     public void ExitProgram() {
         Application.Quit();//Beendet die Anwendung, wenn das Projekt exportiert wurde
 
-        //UnityEditor.EditorApplication.isPlaying = false; // Beenden wenn im Editor gestartet (Aus Kommentieren für den Export des Spiels)
+        UnityEditor.EditorApplication.isPlaying = false; // Beenden wenn im Editor gestartet (Aus Kommentieren für den Export des Spiels)
     }
 }

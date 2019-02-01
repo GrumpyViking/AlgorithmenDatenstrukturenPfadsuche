@@ -204,6 +204,7 @@ public class ExampleManager : MonoBehaviour {
     public void ClearGrid() {
         path.Clear();
         modifyedNodes.Clear();
+        GetComponent<AnimationQueue>().StopAnimation();
         foreach (Node node in fieldCellArray) {
             node.start = false;
             node.target = false;
@@ -263,15 +264,18 @@ public class ExampleManager : MonoBehaviour {
     public void ResetLevel() {
         path.Clear();
         bool isSet = false;
+        GetComponent<AnimationQueue>().StopAnimation();
         foreach (Node node in fieldCellArray) {
             isSet = false;
             foreach (LevelData ld in modifyedNodes) {
                 if (node.index == ld.index) {
                     if (ld.start) {
                         node.visited = false;
+                        new ModifyNode().ChangeColorChild(node.fieldCell, Color.green);
                     }
                     if (ld.target) {
                         node.visited = false;
+                        new ModifyNode().ChangeColorChild(node.fieldCell, Color.red);
                     }
                     isSet = true;
                 }

@@ -83,7 +83,6 @@ namespace ComplexVersion {
             float step = speed * Time.deltaTime;
 
             Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
-            Debug.DrawRay(transform.position, newDir, Color.red);
 
             transform.rotation = Quaternion.LookRotation(newDir);
         }
