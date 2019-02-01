@@ -1,6 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
+/**
+ * Priority Queue für Dijkstra Algorithmus
+ * 
+ * Tobias Stinner
+ */
+
 public class PriorityQueue<T> {
     private List<Tuple<T, double>> elements = new List<Tuple<T, double>>();
 

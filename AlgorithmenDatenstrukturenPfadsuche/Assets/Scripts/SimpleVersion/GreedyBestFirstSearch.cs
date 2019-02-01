@@ -2,11 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Event;
 
+/**
+ * Greedy Best First Search für Experimentiermodus
+ * 
+ * Tobias Stinner
+ */
+
 public class GreedyBestFirstSearch : MonoBehaviour {
     private CreateField grid;
     private Node startNode, targetNode;
-    public List<Node> openList = new List<Node>();
-    public HashSet<Node> closedList = new HashSet<Node>();
+    public List<Node> openListGreedy = new List<Node>();
+    public HashSet<Node> closedListGreedy = new HashSet<Node>();
     private Statistics2 statistics;
 
     void Awake() {
@@ -21,8 +27,6 @@ public class GreedyBestFirstSearch : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space) && !grid.paused) {
             Execute();
-            visualFeedback(new ColorizeAction(Color.green, startNode.fieldCell));
-            visualFeedback(new ColorizeAction(Color.red, targetNode.fieldCell));
         }
     }
 
@@ -40,48 +44,50 @@ public class GreedyBestFirstSearch : MonoBehaviour {
     }
 
     private void GBFS() {
-        openList.Clear();
-        closedList.Clear();
-        openList.Add(startNode);
+        openListGreedy.Clear();
+        closedListGreedy.Clear();
+        openListGreedy.Add(startNode);
         startNode.hCost = GetManhattenDistance(startNode, targetNode);
+        Node currentNode;
+        
+        while (openListGreedy.Count > 0) {
+            currentNode = openListGreedy[0];
 
-        while (openList.Count > 0) {
-            Node currentNode = openList[0];
-
-            for (int i = 1; i < openList.Count; i++) {
-                if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost) {
-                    currentNode = openList[i];
+            for (int i = 1; i < openListGreedy.Count; i++) {
+                if (openListGreedy[i].fCost < currentNode.fCost || openListGreedy[i].fCost == currentNode.fCost && openListGreedy[i].hCost < currentNode.hCost) {
+                    currentNode = openListGreedy[i];
                 }
             }
 
-            openList.Remove(currentNode);
-            closedList.Add(currentNode);
+            openListGreedy.Remove(currentNode);
+            closedListGreedy.Add(currentNode);
 
             if (currentNode != startNode) {
-                visualFeedback(new ColorizeAction(Color.cyan, currentNode.fieldCell));
+                visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
             }
 
             if (currentNode != targetNode) {
-                visualFeedback(new ColorizeAction(Color.cyan, currentNode.fieldCell));
+                visualFeedback(new ColorizeAction(Color.magenta, currentNode.fieldCell));
             }
 
             if (currentNode == targetNode) {
+                print("Finish");
                 GetPath(startNode, targetNode);
-                statistics.setVisited(closedList.Count);
+                statistics.setVisited(closedListGreedy.Count);
                 break;
             }
 
             foreach (Node NeighborNode in grid.GetNeighboringNodes(currentNode)) {
-                if (!NeighborNode.traversable || closedList.Contains(NeighborNode)) {
+                if (!NeighborNode.traversable || closedListGreedy.Contains(NeighborNode)) {
                     continue;
                 }
 
-                if (!openList.Contains(NeighborNode)) {
+                if (!openListGreedy.Contains(NeighborNode)) {
                     NeighborNode.hCost = GetManhattenDistance(NeighborNode, targetNode);
                     NeighborNode.parent = currentNode;
-                    if (!openList.Contains(NeighborNode)) {
-                        openList.Add(NeighborNode);
-                        visualFeedback(new ColorizeAction(Color.magenta, NeighborNode.fieldCell));
+                    if (!openListGreedy.Contains(NeighborNode)) {
+                        openListGreedy.Add(NeighborNode);
+                        visualFeedback(new ColorizeAction(Color.cyan, NeighborNode.fieldCell));
                     }
                 }
 
@@ -94,6 +100,7 @@ public class GreedyBestFirstSearch : MonoBehaviour {
         List<Node> finalPath = new List<Node>();
         Node currentNode = endNode;
         int count = 0;
+        print("getPath");
 
         while (currentNode != startingNode) {
             count++;
@@ -104,7 +111,8 @@ public class GreedyBestFirstSearch : MonoBehaviour {
         statistics.setPathLength(count);
         finalPath.Reverse();
         grid.path = finalPath;
-        print("GreedyBestFS Pfadlänge: " + count);
+        visualFeedback(new ColorizeAction(Color.green, startNode.fieldCell));
+        visualFeedback(new ColorizeAction(Color.red, targetNode.fieldCell));
     }
 
     private int GetManhattenDistance(Node nodeA, Node nodeB) {

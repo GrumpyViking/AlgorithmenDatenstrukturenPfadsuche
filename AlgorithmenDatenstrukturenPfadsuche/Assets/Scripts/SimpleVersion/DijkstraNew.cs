@@ -2,6 +2,12 @@
 using UnityEngine;
 using Event;
 
+/**
+ * Dijkstra Algorithmus für Experimentiermodus
+ * 
+ * Tobias Stinner
+ */
+
 public class DijkstraNew : MonoBehaviour {
 
     private CreateField grid;

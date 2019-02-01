@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using Event;
 using UnityEngine;
 
+/**
+ * Tiefensuche für Experimentiermodus und Lernmodus
+ * 
+ * Tobias Stinner
+ */
+
 public class DepthFirstSearch : MonoBehaviour {
     private CreateField grid;
     // Start is called before the first frame update
