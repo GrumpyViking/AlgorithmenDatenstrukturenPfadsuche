@@ -7,6 +7,8 @@ using UnityEngine;
     Sie zählt zu den uninformierten Suchalgorithmen. Im Gegensatz zur Tiefensuche werden zunächst alle Knoten beschritten, die vom Ausgangsknoten direkt erreichbar sind. 
     Erst danach werden Folgeknoten beschritten.
     Quelle: https://de.wikipedia.org/wiki/Breitensuche
+
+    Martin Schuster
  */
 
 public class BreadthFirstSearch : MonoBehaviour {
@@ -62,7 +64,7 @@ public class BreadthFirstSearch : MonoBehaviour {
 
             if (current == targetNode) {
                 GeneratePath(current, startNode);
-                print("Breitensuche besuchte: " + visited);
+                //print("Breitensuche besuchte: " + visited);
                 statistics.setVisited(visited);
                 break;
             }
@@ -96,7 +98,7 @@ public class BreadthFirstSearch : MonoBehaviour {
         }
 
         pathCount++;
-        print("Breitensuche Pfadlänge: " + pathCount);
+        //print("Breitensuche Pfadlänge: " + pathCount);
         statistics.setPathLength(pathCount);
         finalPath.Reverse();
         grid.path = finalPath;

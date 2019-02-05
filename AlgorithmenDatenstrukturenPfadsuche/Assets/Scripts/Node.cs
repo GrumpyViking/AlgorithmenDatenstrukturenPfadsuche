@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
-/*
-    Beinhaltet die relevanten Informationen damit die Such-Algorithmen arbeiten können.
-
+/**
+ * Beinhaltet die relevanten Informationen damit die Such-Algorithmen arbeiten können.
+ *
+ * Martin Schuster
  */
 public class Node {
     public int cordX; // X Position im NodeArray

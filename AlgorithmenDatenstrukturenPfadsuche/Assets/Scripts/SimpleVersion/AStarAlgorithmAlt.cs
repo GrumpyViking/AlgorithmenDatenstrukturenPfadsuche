@@ -2,6 +2,12 @@
 using UnityEngine;
 using Event;
 
+/**
+ * Umsetzung des A Stern Algorithmus
+ *
+ * Martin Schuster
+ */
+
 public class AStarAlgorithmAlt : MonoBehaviour {
     private CreateField grid;
     private Node startNode, targetNode;
@@ -22,8 +28,6 @@ public class AStarAlgorithmAlt : MonoBehaviour {
         }
     }
     public void Execute() {
-
-
         foreach (Node node in grid.GetArray()) {
             if (node.start == true) {
                 startNode = node;
@@ -47,7 +51,8 @@ public class AStarAlgorithmAlt : MonoBehaviour {
             currentNode = openList[0];
 
             for (int i = 1; i < openList.Count; i++) {
-                if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost) {
+                if (openList[i].fCost < currentNode.fCost ||
+                    openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost) {
                     currentNode = openList[i];
                 }
             }
@@ -64,30 +69,31 @@ public class AStarAlgorithmAlt : MonoBehaviour {
 
             if (currentNode == targetNode) {
                 GetPath(startNode, targetNode);
-                print("A* Besuchte: " + closedList.Count);
                 statistics.setVisited(closedList.Count);
                 break;
             }
 
-            foreach (Node NeighborNode in grid.GetNeighboringNodes(currentNode)) {
-                if (!NeighborNode.traversable || closedList.Contains(NeighborNode)) {
+            foreach (Node next in grid.GetNeighboringNodes(currentNode)) {
+                if (!next.traversable || closedList.Contains(next)) {
                     continue;
                 }
-                var MoveCost = currentNode.gCost + GetManhattenDistance(currentNode, NeighborNode);
 
-                if (!openList.Contains(NeighborNode)) {
-                    NeighborNode.gCost = MoveCost;
-                    NeighborNode.hCost = GetManhattenDistance(NeighborNode, targetNode);
-                    NeighborNode.parent = currentNode;
-                    if (!openList.Contains(NeighborNode)) {
-                        openList.Add(NeighborNode);
-                        visualFeedback(new ColorizeAction(Color.cyan, NeighborNode.fieldCell));
+                var moveCost = currentNode.gCost + GetManhattenDistance(currentNode, next);
+
+                if (moveCost < next.gCost || !openList.Contains(next)
+                ) {
+                    next.gCost = moveCost;
+                    next.hCost = GetManhattenDistance(next, targetNode);
+                    next.parent = currentNode;
+
+                    if (!openList.Contains(next)) {
+                        openList.Add(next);
+                        visualFeedback(new ColorizeAction(Color.cyan, next.fieldCell));
                     }
                 }
             }
         }
     }
-
 
     private void GetPath(Node startingNode, Node endNode) {
         List<Node> finalPath = new List<Node>();
@@ -103,7 +109,6 @@ public class AStarAlgorithmAlt : MonoBehaviour {
         statistics.setPathLength(count);
         finalPath.Reverse();
         grid.path = finalPath;
-        print("A* Pfadlänge: " + count);
         visualFeedback(new ColorizeAction(Color.green, startNode.fieldCell));
         visualFeedback(new ColorizeAction(Color.red, targetNode.fieldCell));
     }
@@ -111,7 +116,6 @@ public class AStarAlgorithmAlt : MonoBehaviour {
     private int GetManhattenDistance(Node nodeA, Node nodeB) {
         int disX = Mathf.Abs(nodeA.cordX - nodeB.cordX);
         int disY = Mathf.Abs(nodeA.cordY - nodeB.cordY);
-
         return disX + disY;
     }
 }

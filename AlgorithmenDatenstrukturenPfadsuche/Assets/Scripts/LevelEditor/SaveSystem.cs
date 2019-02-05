@@ -4,14 +4,17 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.UI;
 
-/*
-Speichersystem beinhaltet die Funktionen zum Speichern und Laden
+/**
+ * Speichersystem beinhaltet die Funktionen zum Speichern und Laden
+ *
+ * Martin Schuster
  */
 
 public static class SaveSystem {
     // Application.persistentDataPath Programm sucht sich einen beschreibbaren berreich in dem ZielSystem
     // Application.dataPath speichern im bereich des Programms
     private static string savePath = Application.dataPath + "/levels";
+    private static string examplePath = Application.streamingAssetsPath + "/LearnModeLevels";
 
     public static string levelName;
 
@@ -43,6 +46,20 @@ public static class SaveSystem {
      */
     public static SavableData LoadLevel(string filename) {
         string path = savePath + "/" + filename;
+        if (File.Exists(path)) {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            SavableData data = formatter.Deserialize(stream) as SavableData;
+            stream.Close();
+            return data;
+        } else {
+            Debug.Log("Save file not found in " + path);
+            return null;
+        }
+    }
+
+    public static SavableData LoadLevelExamples(string filename, string folder) {
+        string path = examplePath + "/" + folder + "/" + filename;
         if (File.Exists(path)) {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);

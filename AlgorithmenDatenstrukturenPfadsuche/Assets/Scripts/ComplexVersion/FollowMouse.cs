@@ -2,9 +2,10 @@
 
 namespace ComplexVersion {
     public class FollowMouse : MonoBehaviour {
-        // TODO: Grenzen des Spielfelds einhalten
-        /*
-         * Objekt folgt der Mausbewegung des Nutzers
+        /**
+         * Objekt folgt der Mausbewegung des Nutzers und wird innerhalb der Spielfeldgrenzen Platziert
+         *
+         * Martin Schuster
          */
         float speed = 200f; // Geschwindigkeit der Rotation von Objekten
         private MouseWheelManager mouseWheelManager;
@@ -35,10 +36,24 @@ namespace ComplexVersion {
             }
 
             // Das Objekt wird bei Mausklick platziert in dem das Skript vom Objekt entfernt wird
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0) && ObjectInPlayField()) {
+
                 mouseWheelManager.SetAvailability(true);
                 Destroy(GetComponent<FollowMouse>());
             }
+        }
+
+        bool ObjectInPlayField() {
+            int boarderLeft = -48;
+            int boarderRight = 48;
+            int boarderTop = 48;
+            int boarderBottom = -48;
+
+            if ((transform.position.x < boarderRight) && (transform.position.x > boarderLeft) && (transform.position.z > boarderBottom) && (transform.position.z < boarderTop)) {
+                return true;
+            }
+
+            return false;
         }
     }
 }

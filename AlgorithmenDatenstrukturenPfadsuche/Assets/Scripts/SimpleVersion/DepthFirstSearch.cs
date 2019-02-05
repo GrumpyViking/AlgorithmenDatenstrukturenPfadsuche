@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using Event;
 using UnityEngine;
 
+/**
+ * Tiefensuche für Experimentiermodus und Lernmodus
+ * 
+ * Tobias Stinner
+ */
+
 public class DepthFirstSearch : MonoBehaviour {
     private CreateField grid;
     // Start is called before the first frame update
@@ -60,7 +66,7 @@ public class DepthFirstSearch : MonoBehaviour {
 
             if (current == targetNode) {
                 GeneratePath(current, startNode);
-                print("Tiefensuche Besucht: " + count);
+                //print("Tiefensuche Besucht: " + count);
                 statistics.setVisited(count);
                 break;
             }
@@ -98,7 +104,7 @@ public class DepthFirstSearch : MonoBehaviour {
         finalPath.Reverse();
         grid.path = finalPath;
         count++;
-        print("Tiefensuche Pfadlänge: " + count);
+        //print("Tiefensuche Pfadlänge: " + count);
         statistics.setPathLength(count);
     }
 }

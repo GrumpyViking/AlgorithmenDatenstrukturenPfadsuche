@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
-Speichert eine Liste aus LevelData Objekte aus dieser das Spielfeld wiederhergestellt werden kann.
+/**
+ * Speichert eine Liste aus LevelData Objekte aus dieser das Spielfeld wiederhergestellt werden kann.
+ * 
+ * Martin Schuster
  */
 
 [System.Serializable]
